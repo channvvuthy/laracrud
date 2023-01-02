@@ -27,7 +27,7 @@
   <link rel="stylesheet" href="{{ asset('plugins/summernote/summernote-bs4.min.css') }}">
 
 
-  
+
   <!-- Bootstrap Color Picker -->
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css') }}">
   <!-- Select2 -->
@@ -40,4 +40,13 @@
   <!-- dropzonejs -->
   <link rel="stylesheet" href="{{ asset('plugins/dropzone/min/dropzone.min.css') }}">
   <!-- Theme style -->
+    <style>
+        @font-face {
+            font-family: "Cascadia";
+            src: url("{{asset('fonts/Cascadia.ttf')}}");
+        }
+        body{
+            font-family: Ubuntu;
+        }
+    </style>
 </head>

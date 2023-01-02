@@ -80,7 +80,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      */
     public function paginate(): mixed
     {
-        return $this->model->orderBy($this->order_by, $this->order)->paginate($this->limit);
+        return $this->model->orderBy($this->order_by, $this->order)->with('country')->paginate($this->limit);
     }
 
     /**

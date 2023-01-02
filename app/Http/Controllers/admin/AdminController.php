@@ -38,7 +38,6 @@ class AdminController extends LaraCRUDController
             array('field' => 'name', 'title' => 'Username', 'type' => 'text', 'required' => true, 'validated' => 'required|min:10'),
             array('field' => 'email', 'title' => 'Email', 'type' => 'text', 'required' => true, 'validated' => 'required|email'),
             array('field' => 'password', 'title' => 'Password', 'type' => 'password', 'required' => true, 'validated' => 'required'),
-//            array('field' => 'photo', 'title' => 'Photo', 'type' => 'file'),
         ];
     }
 
@@ -64,12 +63,11 @@ class AdminController extends LaraCRUDController
         return view('admincrud.add', ['data' => $this->data]);
     }
 
-//    public function postAdd(Request $request)
-//    {
-//        return $this->form;
-//        return $request->all();
-//    }
 
+    /**
+     * @param $id
+     * @return mixed
+     */
     public function getEdit($id): mixed
     {
         $this->data['back'] = "user";

@@ -1,4 +1,4 @@
-<div class="row mb-2">
+<div class="row mb-3">
     <div class="col-6">
         <div class="d-flex flex-row align-items-center">
             <div>

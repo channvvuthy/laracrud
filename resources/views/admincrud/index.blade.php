@@ -11,7 +11,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            @if ($data['display_id'])
+            @if (isset($data['display_id']) && $data['display_id'])
                 <th>ID</th>
             @endif
             @foreach ($data['head'] as $key => $col)
