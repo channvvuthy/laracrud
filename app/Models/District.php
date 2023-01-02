@@ -17,10 +17,10 @@ class District extends Model
     ];
 
     public function commune(){
-        return $this->hasMany(App\Models\Commune::class,"district_id","id");
+        return $this->hasMany(Commune::class,"district_id","id");
     }
 
     public function province(){
-        return $this->belongsTo(App\Models\Province::class,"district_id","id");
+        return $this->belongsTo(Province::class,"district_id","id");
     }
 }

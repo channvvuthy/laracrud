@@ -45,4 +45,11 @@ interface LaraCRUDInterface
      * @return mixed
      */
     public function detail($id): mixed;
+
+    /**
+     * @param $model
+     * @param $header
+     * @return mixed
+     */
+    public function getMix($model, $header): mixed;
 }

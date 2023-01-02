@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Province extends Model
 {
     use HasFactory;
-    protected $table = "provinces";
+    public $table = "provinces";
     /**
      * @var string
      */
@@ -27,7 +27,7 @@ class Province extends Model
 
     public function district()
     {
-        return $this->hasMany(App\Models\District::class, "province_id", "id");
+        return $this->hasMany(District::class, "province_id", "id");
     }
 
     public function country()

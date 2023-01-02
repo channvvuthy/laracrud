@@ -8,7 +8,7 @@
         @include('admincrud.partial.module')
     @endpush
     @include('admincrud.partial.export')
-    <table class="table table-bordered">
+    <table class="table table-bordered table-responsive-sm">
         <thead>
         <tr>
             @if (isset($data['display_id']) && $data['display_id'])
@@ -28,14 +28,14 @@
             <tr>
                 <td>{{ $key + 1 }}</td>
                 @foreach ($data['head'] as $key => $col)
-                    <td>{{ $result[$col['field']] }}</td>
+                    <td>{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}</td>
                 @endforeach
                 @if ($data['has_action'])
                     <td>
                         <div class="d-flex flex-row justify-content-center">
                             @if ($data['edit'])
                                 <div class="mr-2">
-                                    <a href="{{Helper::indexUrl()}}/detail/{{$result[$data['pk']]}}">
+                                    <a href="{{Helper::indexUrl()}}/detail/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
                                         <button type="button" class="btn btn-primary btn-sm">
                                             <i class="fa fa-eye"></i>
                                             View
@@ -45,7 +45,7 @@
                             @endif
                             @if ($data['delete'])
                                 <div class="mr-2">
-                                    <a href="{{Helper::indexUrl()}}/edit/{{$result[$data['pk']]}}">
+                                    <a href="{{Helper::indexUrl()}}/edit/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
                                         <button type="button" class="btn btn-success btn-sm">
                                             <i class="fa fa-edit"></i>
                                             Edit
@@ -55,9 +55,10 @@
                             @endif
                             @if ($data['view'])
                                 <div>
-                                    <a href="#" class="btn-delete" data-id="{{$result[$data['pk']]}}">
+                                    <a href="#" class="btn-delete"
+                                       data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
                                         <button type="button" class="btn btn-danger btn-sm"
-                                                data-id="{{$result[$data['pk']]}}">
+                                                data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
                                             <i class="fa fa-trash"></i>
                                             Delete
                                         </button>

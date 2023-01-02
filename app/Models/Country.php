@@ -25,11 +25,11 @@ class Country extends Model
     public array $detail = ['id', 'name', 'description', 'created_at', 'updated_at'];
     public function province()
     {
-        return $this->hasMany(App\Models\Province::class, "country_id", "id");
+        return $this->hasMany(Province::class, "country_id", "id");
     }
 
     public function district()
     {
-        return $this->hasManyThrough(App\Models\District::class, App\Models\Province::class);
+        return $this->hasManyThrough(District::class, Province::class);
     }
 }

@@ -1,5 +1,5 @@
 <div class="row mb-3">
-    <div class="col-6">
+    <div class="col-md-6 col-sm-12">
         <div class="d-flex flex-row align-items-center">
             <div>
                 <h3 class="m-0">

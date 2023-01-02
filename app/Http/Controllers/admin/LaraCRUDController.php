@@ -4,12 +4,14 @@ namespace App\Http\Controllers\admin;
 
 use App\Interfaces\LaraCRUDInterface;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Helper;
+use Illuminate\Support\Facades\DB;
 
 class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
 {
@@ -80,13 +82,13 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      */
     public function paginate(): mixed
     {
-        return $this->model->orderBy($this->order_by, $this->order)->with('country')->paginate($this->limit);
+        return $this->model->orderBy($this->order_by, $this->order)->paginate($this->limit);
     }
 
     /**
      * @return Application|Factory|View
      */
-    public function getIndex(): View|Factory|Application
+    public function getIndex(): mixed
     {
         return view('admincrud.index', ['data' => $this->data]);
     }
@@ -140,12 +142,11 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         return redirect(Helper::indexUrl())->with('message', 'The data has been deleted');
     }
 
-
     /**
      * @param Request $request
      * @return mixed
      */
-    public function update(Request $request):mixed
+    public function update(Request $request): mixed
     {
         $redirectUrl = $request->get('save');
         $request->validate($this->validationForm());
@@ -160,5 +161,28 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->data['detail'] = $this->model->detail;
         $this->init();
         return view('admincrud.detail', ['data' => $this->data]);
+    }
+
+    /**
+     * @param $model
+     * @param $header
+     * @return LengthAwarePaginator|mixed
+     */
+    public function getMix($model, $header): mixed
+    {
+        $query = DB::table($model->table);
+        $select = [];
+        foreach ($this->head as $head) {
+            if (isset($head['join']) && $head['join']) {
+                $relation = explode(",", $head['on']);
+                $query = $query->join($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
+                $colSelect = explode(",", $head['column']);
+                foreach ($colSelect as $col) {
+                    $select[] = $col;
+                }
+            }
+        }
+        array_unshift($select, $model->table . ".*");
+        return $query->select($select)->paginate($this->limit);
     }
 }
