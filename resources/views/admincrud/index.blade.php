@@ -28,7 +28,28 @@
             <tr>
                 <td>{{ $key + 1 }}</td>
                 @foreach ($data['head'] as $key => $col)
-                    <td>{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}</td>
+                    <td>
+                        @if(isset($col['type']))
+                            @if($col['type'] == 'image' && isset($col['multiple']))
+                                <a href="#"
+                                   class="files">
+                                    <i class="fa fa-image text-gray"
+                                       data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
+                                       data-type="multiple_file"></i>
+                                </a>
+                            @else
+                                <a href="#"
+                                   class="files">
+                                    <i class="fa fa-image text-gray"
+                                       data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
+                                       data-type="single_file"></i>
+                                </a>
+                            @endif
+                        @else
+                            {{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}
+                        @endif
+
+                    </td>
                 @endforeach
                 @if ($data['has_action'])
                     <td>
@@ -73,6 +94,7 @@
         </tbody>
     </table>
     @include('admincrud.components.confirm')
+    @include('admincrud.components.file_preview')
     {{--Pagination --}}
     <div>
         {{ $data['result']->links() }}
@@ -89,6 +111,30 @@
 
         $(".btn-delete-item").on("click", function () {
             window.location.href = "{{Helper::indexUrl()}}/delete/" + delete_id;
+        });
+
+        $(".files").on("click", function (e) {
+            let uri = e.target.getAttribute('data-url');
+            let type = e.target.getAttribute('data-type');
+            if (type === 'single_file') {
+                let image = document.createElement("img");
+                image.classList.add("img-fluid");
+                image.src = uri
+                $("#content_preview").html(image)
+            } else {
+                let files = uri.split(",");
+                let fileDisplay = document.createElement("div")
+
+                files.forEach(item => {
+                    let image = document.createElement("img");
+                    image.src = item
+                    image.classList.add("img-fluid");
+                    image.classList.add("mb-3");
+                    fileDisplay.append(image)
+                })
+                $("#content_preview").html(fileDisplay);
+            }
+            $("#file_preview").modal("show");
         });
 
     </script>

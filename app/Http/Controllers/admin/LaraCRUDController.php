@@ -110,6 +110,14 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $redirectUrl = $request->get('save');
         $field = $request->except('_token', 'save');
         $request->validate($this->validationForm());
+
+        foreach ($field as $key => $params) {
+            if ($request->hasFile($key)) {
+                $fileName = Helper::imageUpload("images", $request->file($key));
+                $field[$key] = $fileName;
+            }
+        }
+
         $this->model->create($field);
         return redirect($redirectUrl)->with('message', 'The data has been added');
     }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ProvinceController;
+use App\Http\Controllers\admin\ImageController;
 
 Route::get('/', function () {
     return view('admincrud.index');
@@ -38,4 +39,9 @@ Route::group([
     Route::post('province/update', [ProvinceController::class, 'update']);
     Route::get('province/detail/{id}', [ProvinceController::class, 'detail']);
     Route::get('province/delete/{id}', [ProvinceController::class, 'delete']);
+
+    // Image
+    Route::get('/image', [ImageController::class, 'getIndex']);
+    Route::get('image/add', [ImageController::class, 'getAdd']);
+    Route::post('image/post', [ImageController::class, 'postAdd']);
 });

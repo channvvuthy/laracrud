@@ -28,7 +28,11 @@
                                     <div class="mb-3 row">
                                         @if ($form['type'] == 'text')
                                             <label for="{{ $form['field'] }}"
-                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                   class="col-sm-2 col-form-label">
+                                                {{ $form['title'] }}@if (isset($form['required']) && $form['required'])
+                                                    <span class="text-danger">*</span>
+                                                @endif
+                                            </label>
                                             <div class="col-sm-10">
                                                 <input type="{{ $form['type'] }}" class="form-control"
                                                        id="{{ $form['field'] }}" name="{{ $form['field'] }}"
@@ -47,22 +51,34 @@
                                                 </select>
                                             </div>
                                         @else
-                                            @if (isset($form['multipart']) && $form['multipart'])
+                                            @if (isset($form['multiple']) && $form['multiple'])
                                                 <label for="{{ $form['field'] }}"
-                                                       class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                       class="col-sm-2 col-form-label">
+                                                    {{ $form['title'] }}
+                                                    @if (isset($form['required']) && $form['required'])
+                                                        <span class="text-danger">*</span>
+                                                    @endif
+                                                </label>
                                                 <div class="col-sm-10">
                                                     <input type="{{ $form['type'] }}" class="form-control"
                                                            style="padding-top:3px;" id="{{ $form['field'] }}"
                                                            name="{{ $form['field'] }}[]"
+                                                           accept="{{$form['accept']}}"
+                                                           multiple
                                                            @if (isset($form['required']) && $form['required']) required @endif>
                                                 </div>
                                             @else
+
                                                 <label for="{{ $form['field'] }}"
-                                                       class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                       class="col-sm-2 col-form-label">{{ $form['title'] }}
+                                                    @if (isset($form['required']) && $form['required'])
+                                                        <span class="text-danger">*</span>
+                                                    @endif</label>
                                                 <div class="col-sm-10">
                                                     <input type="{{ $form['type'] }}" class="form-control"
                                                            style="padding-top:3px;" id="{{ $form['field'] }}"
                                                            name="{{ $form['field'] }}"
+                                                           accept="{{$form['accept']}}"
                                                            @if (isset($form['required']) && $form['required']) required @endif>
                                                 </div>
                                             @endif
