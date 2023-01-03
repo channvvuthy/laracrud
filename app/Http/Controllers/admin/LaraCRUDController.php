@@ -168,7 +168,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      * @param $header
      * @return LengthAwarePaginator|mixed
      */
-    public function getMix($model, $header): mixed
+    public function getJoin($model, $header): mixed
     {
         $query = DB::table($model->table);
         $select = [];

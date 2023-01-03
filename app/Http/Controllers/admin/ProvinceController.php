@@ -44,7 +44,7 @@ class ProvinceController extends LaraCRUDController
      */
     public function getIndex(): View|Factory|Application
     {
-        $this->result = $this->getMix($this->model,$this->head);
+        $this->result = $this->getJoin($this->model,$this->head);
         $this->init();
         return view('admincrud.index', ['data' => $this->data]);
     }

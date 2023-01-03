@@ -51,5 +51,5 @@ interface LaraCRUDInterface
      * @param $header
      * @return mixed
      */
-    public function getMix($model, $header): mixed;
+    public function getJoin($model, $header): mixed;
 }
