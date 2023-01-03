@@ -12,6 +12,7 @@ trait Helper
         $pattern = '/add/i';
         $indexUrl = preg_replace("/\bedit\b.*$/", '', preg_replace($pattern, '', URL::current()));
         $indexUrl = preg_replace("/\bdelete\b.*$/", "", $indexUrl);
+        $indexUrl = preg_replace("/\badd\b.*$/", "", $indexUrl);
         return preg_replace("/\bdetail\b.*$/", '', $indexUrl);
     }
 

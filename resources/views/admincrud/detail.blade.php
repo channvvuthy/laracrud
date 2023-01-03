@@ -22,8 +22,10 @@
             <div>
                 <ul class="list-group list-group-flush">
                     @foreach($data['detail'] as $detail)
-                        <li class="list-group-item"><b>{{str_replace("_"," ",ucwords($detail))}}
-                                : </b> {{$data['find'][$detail]}}</li>
+                        <li class="list-group-item">
+                            <b>{{str_replace("_"," ",ucwords($detail))}}: </b>
+                            {{is_array($data['find'])?$data['find'][$detail]: $data['find']->{$detail} }}
+                        </li>
                     @endforeach
                 </ul>
             </div>

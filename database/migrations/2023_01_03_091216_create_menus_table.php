@@ -14,7 +14,9 @@ return new class extends Migration {
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
+            $table->string("icon");
             $table->string("name");
+            $table->integer('order')->default(1);
             $table->string("action");
             $table->integer("parent_id")->nullable();
             $table->timestamps();

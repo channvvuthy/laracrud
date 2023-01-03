@@ -165,6 +165,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public function detail($id): mixed
     {
         $this->find = $this->model->findOrFail($id);
+
         $this->title = 'Detail of ' . $this->model->moduleName;
         $this->data['detail'] = $this->model->detail;
         $this->init();
@@ -180,7 +181,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     {
         $query = DB::table($model->table);
         $select = [];
-        foreach ($this->head as $head) {
+        foreach ($header as $head) {
             if (isset($head['join']) && $head['join']) {
                 $relation = explode(",", $head['on']);
                 $query = $query->join($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
@@ -192,5 +193,31 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         }
         array_unshift($select, $model->table . ".*");
         return $query->select($select)->paginate($this->limit);
+    }
+
+
+    /**
+     * @param $model
+     * @param $header
+     * @param $id
+     * @return LengthAwarePaginator|mixed
+     */
+    public function findMix($model, $header, $id): mixed
+    {
+        $query = DB::table($model->table);
+        $select = [];
+        foreach ($header as $head) {
+            if (isset($head['join']) && $head['join']) {
+                $relation = explode(",", $head['on']);
+                $query = $query->join($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
+                $colSelect = explode(",", $head['column']);
+                foreach ($colSelect as $col) {
+                    $select[] = $col;
+                }
+            }
+        }
+        array_unshift($select, $model->table . ".*");
+        $query = $query->where($model->table . ".id", '=', $id);
+        return $query->select($select)->get();
     }
 }

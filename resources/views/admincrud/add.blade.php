@@ -26,7 +26,7 @@
                             @foreach ($data['form'] as $key => $form)
                                 <div class="col-{{ $data['grid'] }}">
                                     <div class="mb-3 row">
-                                        @if ($form['type'] == 'text')
+                                        @if ($form['type'] == 'text' || $form['type'] == 'number')
                                             <label for="{{ $form['field'] }}"
                                                    class="col-sm-2 col-form-label">
                                                 {{ $form['title'] }}@if (isset($form['required']) && $form['required'])

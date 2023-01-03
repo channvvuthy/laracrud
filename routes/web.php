@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CountryController;
@@ -44,4 +45,13 @@ Route::group([
     Route::get('/image', [ImageController::class, 'getIndex']);
     Route::get('image/add', [ImageController::class, 'getAdd']);
     Route::post('image/post', [ImageController::class, 'postAdd']);
+
+    // Province
+    Route::get('/menu', [MenuController::class, 'getIndex']);
+    Route::get('menu/add', [MenuController::class, 'getAdd']);
+    Route::get('menu/edit/{id}', [MenuController::class, 'getEdit']);
+    Route::post('menu/post', [MenuController::class, 'postAdd']);
+    Route::post('menu/update', [MenuController::class, 'update']);
+    Route::get('menu/detail/{id}', [MenuController::class, 'detail']);
+    Route::get('menu/delete/{id}', [MenuController::class, 'delete']);
 });
