@@ -119,6 +119,7 @@
             if (type === 'single_file') {
                 let image = document.createElement("img");
                 image.classList.add("img-fluid");
+                image.classList.add("rounded");
                 image.src = uri
                 $("#content_preview").html(image)
             } else {
@@ -130,6 +131,7 @@
                     image.src = item
                     image.classList.add("img-fluid");
                     image.classList.add("mb-3");
+                    image.classList.add("rounded");
                     fileDisplay.append(image)
                 })
                 $("#content_preview").html(fileDisplay);
