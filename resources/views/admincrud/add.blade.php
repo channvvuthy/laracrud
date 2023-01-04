@@ -75,6 +75,17 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+                                        @elseif($form['type'] =="select2")
+                                            <label for="{{ $form['field'] }}"
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control select2" style="width: 100%;" @if (isset($form['required']) && $form['required']) required @endif>
+                                                    <option selected>Please select {{$form['title']}}</option>
+                                                    @foreach($data[$form['field']] as $select)
+                                                        <option value="{{$select->id}}">{{$select->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         @else
                                             @if (isset($form['multiple']) && $form['multiple'])
                                                 <label for="{{ $form['field'] }}"
@@ -146,6 +157,22 @@
                 $('#summernote').summernote({
                     height: 200
                 })
+            })
+        </script>
+    @endpush
+
+@endif
+
+@if(isset($data['select2']) && $data['select2'])
+    @push('style')
+        <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
+        <link rel="stylesheet" href="{{asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    @endpush
+    @push('script')
+        <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
+        <script>
+            $(function () {
+                $('.select2').select2();
             })
         </script>
     @endpush

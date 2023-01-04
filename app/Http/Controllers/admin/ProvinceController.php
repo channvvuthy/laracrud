@@ -23,6 +23,7 @@ class ProvinceController extends LaraCRUDController
         $this->limit = 10;
         $this->export = false;
         $this->title = "Province List";
+        $this->select2 = true;
 
         $this->head = [
             array('field' => 'country_id', 'title' => 'Country', 'join' => 'countries', 'on' => 'country_id,id', 'column' => 'countries.name as country_name', 'dropdown' => 'country_id,id,name'),
@@ -32,7 +33,7 @@ class ProvinceController extends LaraCRUDController
 
 
         $this->form = [
-            array('field' => 'country_id', 'title' => 'Country', 'type' => 'select', 'required' => true, 'validated' => 'required', 'database' => 'countries,id,name', 'where' => ''),
+            array('field' => 'country_id', 'title' => 'Country', 'type' => 'select2', 'required' => true, 'validated' => 'required', 'database' => 'countries,id,name', 'where' => ''),
             array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required|unique:countries'),
             array('field' => 'description', 'title' => 'Description', 'type' => 'text'),
         ];

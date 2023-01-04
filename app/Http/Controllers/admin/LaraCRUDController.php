@@ -38,6 +38,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public array $form = [];
     public $find;
     public bool $wysiwyg = false;
+    public bool $select2 = false;
 
     public function __construct()
     {
@@ -68,6 +69,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->data['grid'] = $this->grid;
         $this->data['find'] = $this->find;
         $this->data['wysiwyg'] = $this->wysiwyg;
+        $this->data['select2'] = $this->select2;
     }
 
     /**

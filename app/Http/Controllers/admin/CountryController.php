@@ -21,7 +21,6 @@ class CountryController extends LaraCRUDController
         $this->limit = 10;
         $this->export = false;
         $this->title = "Country List";
-        $this->wysiwyg = true;
 
         $this->head = [
             array('field' => 'name', 'title' => 'Name'),

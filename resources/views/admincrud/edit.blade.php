@@ -53,6 +53,21 @@
                                                     @endif
                                                 </select>
                                             </div>
+                                        @elseif($form['type'] =="select2")
+                                            <label for="{{ $form['field'] }}"
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control select2" name="{{ $form['field'] }}"
+                                                        @if (isset($form['required']) && $form['required']) required @endif>
+                                                    <option>Please select {{$form['title']}}</option>
+                                                    @if(isset($data[$form['field']]))
+                                                        @foreach($data[$form['field']] as $select)
+                                                            <option value="{{$select->id}}"
+                                                                    @if($select->id == $data['find']->{$form['field']}) selected @endif>{{$select->name}}</option>
+                                                        @endforeach
+                                                    @endif
+                                                </select>
+                                            </div>
                                         @elseif($form['type'] =="textarea")
                                             <label for="{{ $form['field'] }}"
                                                    class="col-sm-2 col-form-label">
@@ -137,6 +152,22 @@
                 $('#summernote').summernote({
                     height: 200
                 })
+            })
+        </script>
+    @endpush
+
+@endif
+
+@if(isset($data['select2']) && $data['select2'])
+    @push('style')
+        <link rel="stylesheet" href="{{asset('plugins/select2/css/select2.min.css')}}">
+        <link rel="stylesheet" href="{{asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
+    @endpush
+    @push('script')
+        <script src="{{asset('plugins/select2/js/select2.full.min.js')}}"></script>
+        <script>
+            $(function () {
+                $('.select2').select2();
             })
         </script>
     @endpush
