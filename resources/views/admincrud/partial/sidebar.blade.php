@@ -25,7 +25,8 @@
                 @if(Cache::has('menus') && count(Cache::get('menus')))
                     @foreach(Cache::get('menus') as $key => $menu)
                         <li class="nav-item">
-                            <a href="/{{$menu->action}}" class="nav-link">
+                            <a href="/{{$menu->action}}"
+                               class="nav-link {{Str::contains(strtolower(URL::current()),strtolower($menu->name))?'active':''}}">
                                 <i class="{{$menu->icon}}"></i>
                                 <p>
                                     {{$menu->name}}

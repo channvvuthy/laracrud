@@ -21,6 +21,7 @@ class CountryController extends LaraCRUDController
         $this->limit = 10;
         $this->export = false;
         $this->title = "Country List";
+        $this->wysiwyg = true;
 
         $this->head = [
             array('field' => 'name', 'title' => 'Name'),
@@ -29,8 +30,8 @@ class CountryController extends LaraCRUDController
 
 
         $this->form = [
-            array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required|unique:countries'),
-            array('field' => 'description', 'title' => 'Description', 'type' => 'text'),
+            array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'description', 'title' => 'Description', 'type' => 'wysiwyg'),
         ];
     }
 

@@ -37,6 +37,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public int $grid = 12;
     public array $form = [];
     public $find;
+    public bool $wysiwyg = false;
 
     public function __construct()
     {
@@ -66,6 +67,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->data['col'] = $this->col;
         $this->data['grid'] = $this->grid;
         $this->data['find'] = $this->find;
+        $this->data['wysiwyg'] = $this->wysiwyg;
     }
 
     /**
@@ -144,7 +146,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         return view('admincrud.edit', ['data' => $this->data]);
     }
 
-    public function delete($id): mixed
+    public function delete($id): \Application|\RedirectResponse|\Redirector
     {
         $this->model->destroy($id);
         return redirect(Helper::indexUrl())->with('message', 'The data has been deleted');

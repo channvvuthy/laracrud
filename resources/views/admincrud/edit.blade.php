@@ -53,6 +53,34 @@
                                                     @endif
                                                 </select>
                                             </div>
+                                        @elseif($form['type'] =="textarea")
+                                            <label for="{{ $form['field'] }}"
+                                                   class="col-sm-2 col-form-label">
+                                                {{ $form['title'] }}@if (isset($form['required']) && $form['required'])
+                                                    <span class="text-danger">*</span>
+                                                @endif
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <textarea class="form-control" rows="3"
+                                                          style="resize: none;"
+                                                          id="{{ $form['field'] }}" name="{{ $form['field'] }}"
+                                                          @if (isset($form['required']) && $form['required']) required @endif>
+                                                    {{is_array($data['find'])?trim($data['find'][$form['field']]) : trim($data['find']->{$form['field'] }) }}
+                                                </textarea>
+                                            </div>
+                                        @elseif($form['type'] == 'wysiwyg')
+                                            <label for="{{ $form['field'] }}"
+                                                   class="col-sm-2 col-form-label">
+                                                {{ $form['title'] }}@if (isset($form['required']) && $form['required'])
+                                                    <span class="text-danger">*</span>
+                                                @endif
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <textarea id="summernote" name="{{ $form['field'] }}"
+                                                          @if (isset($form['required']) && $form['required']) required @endif>
+                                                     {{is_array($data['find'])?trim($data['find'][$form['field']]) : trim($data['find']->{$form['field'] }) }}
+                                                </textarea>
+                                            </div>
                                         @else
                                             @if (isset($form['multipart']) && $form['multipart'])
                                                 <label for="{{ $form['field'] }}"
@@ -97,3 +125,20 @@
         </form>
     </div>
 @endsection
+@if(isset($data['wysiwyg']) && $data['wysiwyg'])
+    @push('style')
+        <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+    @endpush
+    @push('script')
+        <script src="{{asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+        <script>
+            $(function () {
+                // Summernote
+                $('#summernote').summernote({
+                    height: 200
+                })
+            })
+        </script>
+    @endpush
+
+@endif
