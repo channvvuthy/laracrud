@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ProvinceController;
 use App\Http\Controllers\admin\ImageController;
+use App\Http\Controllers\admin\LoginController;
 
 Route::get('/', function () {
     return view('admincrud.index');
@@ -54,4 +55,8 @@ Route::group([
     Route::post('menu/update', [MenuController::class, 'update']);
     Route::get('menu/detail/{id}', [MenuController::class, 'detail']);
     Route::get('menu/delete/{id}', [MenuController::class, 'delete']);
+
+    // Login
+    Route::get('login', [LoginController::class, 'index']);
+    Route::post('/auth', [LoginController::class, 'authentication']);
 });
