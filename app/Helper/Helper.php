@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\URL;
 
-trait Helper
+class Helper
 {
     /**
      * @return array|string|null

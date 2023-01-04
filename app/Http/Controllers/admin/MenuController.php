@@ -31,7 +31,7 @@ class MenuController extends LaraCRUDController
 
 
         $this->form = [
-            array('field' => 'icon', 'title' => 'Icon', 'type' => 'text', 'required' => true, 'validated' => 'required|min:10'),
+            array('field' => 'icon', 'title' => 'Icon', 'type' => 'text', 'required' => true, 'validated' => 'required|min:5'),
             array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'action', 'title' => 'Path', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'order', 'title' => 'Order', 'type' => 'number'),

@@ -202,7 +202,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      * @param $id
      * @return LengthAwarePaginator|mixed
      */
-    public function findMix($model, $header, $id): mixed
+    public function findJoin($model, $header, $id, &$data = null): mixed
     {
         $query = DB::table($model->table);
         $select = [];
@@ -214,10 +214,42 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
                 foreach ($colSelect as $col) {
                     $select[] = $col;
                 }
+
+                if (isset($head['dropdown']) && $head['dropdown']) {
+                    $dropdown = explode(",", $head['dropdown']);
+                    $dropdownKey = $dropdown[0];
+                    unset($dropdown[0]);
+                    $data[$dropdownKey] = DB::table($head['join'])->select($dropdown)->paginate($this->limit);
+                }
             }
+
+
         }
         array_unshift($select, $model->table . ".*");
         $query = $query->where($model->table . ".id", '=', $id);
-        return $query->select($select)->get();
+        return $query->select($select)->first();
+    }
+
+
+    /**
+     * @param $form
+     * @return void
+     */
+    public function addRelation(&$form): void
+    {
+        foreach ($this->form as $form) {
+            if (isset($form['database']) && $form['database']) {
+                $database = explode(",", $form['database']);
+                $table = $database[0];
+                unset($database[0]);
+                $query = DB::table($table)->select($database);
+                if (isset($form['where']) && $form['where']) {
+                    $cond = explode(",", $form['where']);
+                    $query = $query->where($cond[0], '=', $cond[1]);
+                }
+                $query = $query->limit($this->limit)->get();
+                $this->data[$form['field']] = $query;
+            }
+        }
     }
 }

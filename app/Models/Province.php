@@ -17,7 +17,7 @@ class Province extends Model
     /**
      * @var array|string[]
      */
-    public array $detail = ['id','country_id', 'name', 'description', 'created_at', 'updated_at'];
+    public array $detail = ['id','country_name', 'name', 'description', 'created_at', 'updated_at'];
 
     protected $fillable = [
         'country_id',
