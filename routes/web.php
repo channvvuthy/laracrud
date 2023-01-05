@@ -8,6 +8,7 @@ use App\Http\Controllers\admin\ProvinceController;
 use App\Http\Controllers\admin\ImageController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\SettingController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,7 @@ Route::group([
     // Login
     Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
     Route::post('/login', [LoginController::class, 'authentication']);
+    Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 });
 
 Route::group([
@@ -81,5 +83,13 @@ Route::group([
     Route::get('course/detail/{id}', [CourseController::class, 'detail']);
     Route::get('course/edit/{id}', [CourseController::class, 'getEdit']);
     Route::post('course/update', [CourseController::class, 'update']);
+
+    // Setting
+    Route::get('setting', [SettingController::class, 'getIndex']);
+    Route::get('setting/add', [SettingController::class, 'getAdd']);
+    Route::post('setting/post', [SettingController::class, 'postAdd']);
+    Route::get('setting/detail/{id}', [SettingController::class, 'detail']);
+    Route::get('setting/edit/{id}', [SettingController::class, 'getEdit']);
+    Route::post('setting/update', [SettingController::class, 'update']);
 
 });

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
@@ -34,5 +36,14 @@ class LoginController extends Controller
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ])->onlyInput('email');
+    }
+
+    /**
+     * @return Application|RedirectResponse|Redirector
+     */
+    public function logout(): Redirector|RedirectResponse|Application
+    {
+        Auth::logout();
+        return redirect("auth");
     }
 }

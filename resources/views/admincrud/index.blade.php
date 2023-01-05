@@ -15,7 +15,9 @@
                 <th>ID</th>
             @endif
             @foreach ($data['head'] as $key => $col)
-                <th>{{ $col['title'] }}</th>
+                @if(!isset($col['view']))
+                    <th>{{ $col['title'] }}</th>
+                @endif
             @endforeach
             @if ($data['has_action'])
                 <th class="text-center" width="250">Action</th>
@@ -28,33 +30,35 @@
             <tr>
                 <td>{{ $key + 1 }}</td>
                 @foreach ($data['head'] as $key => $col)
-                    <td>
-                        @if(isset($col['type']))
-                            @if($col['type'] == 'image' && isset($col['multiple']))
-                                <a href="#"
-                                   class="files">
-                                    <i class="fa fa-image text-gray"
-                                       data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
-                                       data-type="multiple_file"></i>
-                                </a>
+                    @if(!isset($col['view']))
+                        <td>
+                            @if(isset($col['type']))
+                                @if($col['type'] == 'image' && isset($col['multiple']))
+                                    <a href="#"
+                                       class="files">
+                                        <i class="fa fa-image text-gray"
+                                           data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
+                                           data-type="multiple_file"></i>
+                                    </a>
+                                @else
+                                    <a href="#"
+                                       class="files">
+                                        <i class="fa fa-image text-gray"
+                                           data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
+                                           data-type="single_file"></i>
+                                    </a>
+                                @endif
                             @else
-                                <a href="#"
-                                   class="files">
-                                    <i class="fa fa-image text-gray"
-                                       data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
-                                       data-type="single_file"></i>
-                                </a>
+                                {{Helper::subStr(is_array($result)?$result[$col['field']]:$result->{$col['field']},20) }}
                             @endif
-                        @else
-                            {{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}
-                        @endif
 
-                    </td>
+                        </td>
+                    @endif
                 @endforeach
                 @if ($data['has_action'])
                     <td>
                         <div class="d-flex flex-row justify-content-center">
-                            @if ($data['edit'])
+                            @if ($data['view'])
                                 <div class="mr-2">
                                     <a href="{{Helper::indexUrl()}}/detail/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
                                         <button type="button" class="btn btn-primary btn-sm">
@@ -64,7 +68,7 @@
                                     </a>
                                 </div>
                             @endif
-                            @if ($data['delete'])
+                            @if ($data['edit'])
                                 <div class="mr-2">
                                     <a href="{{Helper::indexUrl()}}/edit/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
                                         <button type="button" class="btn btn-success btn-sm">
@@ -74,7 +78,7 @@
                                     </a>
                                 </div>
                             @endif
-                            @if ($data['view'])
+                            @if ($data['delete'])
                                 <div>
                                     <a href="#" class="btn-delete"
                                        data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">

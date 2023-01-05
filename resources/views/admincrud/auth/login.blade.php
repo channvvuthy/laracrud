@@ -37,7 +37,7 @@
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
 
-            <form action="{{URL::to('/admin/auth')}}" method="post">
+            <form action="{{URL::to('/auth/login')}}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                 <div class="input-group mb-3">
                     <input type="email" class="form-control" placeholder="Email" name="email">

@@ -58,4 +58,17 @@ class Helper
 //            );
         }
     }
+
+    /**
+     * @param $string
+     * @param $limit
+     * @return mixed|string
+     */
+    public static function subStr($string, $limit): mixed
+    {
+        if (strlen($string) > $limit) {
+            return \Illuminate\Support\Str::substr($string, 0,$limit) . "...";
+        }
+        return $string;
+    }
 }

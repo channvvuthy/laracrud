@@ -20,11 +20,11 @@ class CRUDBaseController extends Controller
     public function initMenu()
     {
         if (env("APP_ENV") == "local") {
-            $menus = DB::table("menus")->select('icon', 'name', 'action')->orderBy('order', 'asc')->get();
+            $menus = DB::table("menus")->select('icon', 'name', 'action')->orderBy('order', 'desc')->get();
             Cache::put('menus', $menus, 60 * 24);
         } else {
             if (!Cache::has('menus')) {
-                $menus = DB::table("menus")->select('icon', 'name', 'action')->orderBy('order', 'asc')->get();
+                $menus = DB::table("menus")->select('icon', 'name', 'action')->orderBy('order', 'desc')->get();
                 if (count($menus)) {
                     Cache::put('menus', $menus, 60 * 24);
                 }
