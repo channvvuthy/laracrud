@@ -148,6 +148,10 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         return view('admincrud.edit', ['data' => $this->data]);
     }
 
+    /**
+     * @param $id
+     * @return \Application|\RedirectResponse|\Redirector
+     */
     public function delete($id): \Application|\RedirectResponse|\Redirector
     {
         $this->model->destroy($id);
@@ -162,16 +166,23 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     {
         $redirectUrl = $request->get('save');
         $request->validate($this->validationForm());
-        $this->model->where($this->pk, $request->get('id'))->update($request->except('_token', 'save'));
+        $field = $request->except('_token', 'save');
+
+        foreach ($field as $key => $params) {
+            if ($request->hasFile($key)) {
+                $fileName = Helper::imageUpload("images", $request->file($key));
+                $field[$key] = $fileName;
+            }
+        }
+        $this->model->where($this->pk, $request->get('id'))->update($field );
         return redirect($redirectUrl)->with('message', 'The data has been updated');
     }
 
     public function detail($id): mixed
     {
         $this->find = $this->model->findOrFail($id);
-
         $this->title = 'Detail of ' . $this->model->moduleName;
-        $this->data['detail'] = $this->model->detail;
+        $this->data['back'] = $this->model->moduleName;
         $this->init();
         return view('admincrud.detail', ['data' => $this->data]);
     }
@@ -253,6 +264,20 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
                 }
                 $query = $query->limit($this->limit)->get();
                 $this->data[$form['field']] = $query;
+            }
+        }
+    }
+
+    /**
+     * @param $head
+     * @param $field
+     * @return void
+     */
+    public function addField(&$head, $field): void
+    {
+        if (count($field)) {
+            foreach ($field as $f) {
+                $head[] = $f;
             }
         }
     }

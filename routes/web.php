@@ -7,14 +7,32 @@ use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ProvinceController;
 use App\Http\Controllers\admin\ImageController;
 use App\Http\Controllers\admin\LoginController;
+use App\Http\Controllers\admin\CourseController;
 
 Route::get('/', function () {
-    return view('admincrud.index');
+    return view('welcome');
+});
+
+Route::post('/upload', function () {
+    return request()->file('file')->store(
+        'images',
+        'ocean'
+    );
+});
+
+Route::group([
+    'prefix' => '/auth',
+], function () {
+
+    // Login
+    Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
+    Route::post('/login', [LoginController::class, 'authentication']);
 });
 
 Route::group([
     'prefix' => '/admin',
     'as' => 'admin',
+    'middleware' => 'auth'
 ], function () {
     Route::get('/', [AdminController::class, 'getIndex']);
     Route::get('add', [AdminController::class, 'getAdd']);
@@ -56,7 +74,12 @@ Route::group([
     Route::get('menu/detail/{id}', [MenuController::class, 'detail']);
     Route::get('menu/delete/{id}', [MenuController::class, 'delete']);
 
-    // Login
-    Route::get('login', [LoginController::class, 'index']);
-    Route::post('/auth', [LoginController::class, 'authentication']);
+    // Course
+    Route::get('course', [CourseController::class, 'getIndex']);
+    Route::get('course/add', [CourseController::class, 'getAdd']);
+    Route::post('course/post', [CourseController::class, 'postAdd']);
+    Route::get('course/detail/{id}', [CourseController::class, 'detail']);
+    Route::get('course/edit/{id}', [CourseController::class, 'getEdit']);
+    Route::post('course/update', [CourseController::class, 'update']);
+
 });

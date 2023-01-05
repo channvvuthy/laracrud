@@ -38,5 +38,24 @@ class Helper
                 return url('/') . "/" . $uploadPath . "/" . $fileName;
             }
         }
+        if (env("FILESYSTEM_DISK") == "ocean") {
+            if (is_array($file)) {
+                $fileNames = [];
+                foreach ($file as $f) {
+                    $fileName = time() . '.' . $f->getClientOriginalName();
+                    $f->move(public_path($uploadPath), $fileName);
+                    $fileNames[] = url('/') . "/" . $uploadPath . "/" . $fileName;
+                }
+                return implode(",", $fileNames);
+            } else {
+                $fileName = time() . $file->getClientOriginalName();
+                $file->move(public_path($uploadPath), $fileName);
+                return url('/') . "/" . $uploadPath . "/" . $fileName;
+            }
+//            return $file->store(
+//                $uploadPath,
+//                'ocean'
+//            );
+        }
     }
 }

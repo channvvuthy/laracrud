@@ -116,7 +116,7 @@
         $(".files").on("click", function (e) {
             let uri = e.target.getAttribute('data-url');
             let type = e.target.getAttribute('data-type');
-            if (type === 'single_file') {
+            if (type == 'single_file') {
                 let image = document.createElement("img");
                 image.classList.add("img-fluid");
                 image.classList.add("rounded");

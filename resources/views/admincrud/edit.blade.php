@@ -30,7 +30,12 @@
                                     <div class="mb-3 row">
                                         @if ($form['type'] == 'text' || $form['type'] == 'number')
                                             <label for="{{ $form['field'] }}"
-                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}
+                                                @if (isset($form['required']) && $form['required'])
+                                                    <span class="text-danger">*</span>
+                                                @endif
+                                            </label>
+
                                             <div class="col-sm-10">
                                                 <input type="{{ $form['type'] }}" class="form-control"
                                                        value="{{ is_array($data['find'])?$data['find'][$form['field']] : $data['find']->{$form['field']} }}"
@@ -40,7 +45,11 @@
                                             </div>
                                         @elseif($form['type'] =="select")
                                             <label for="{{ $form['field'] }}"
-                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}
+                                                @if (isset($form['required']) && $form['required'])
+                                                    <span class="text-danger">*</span>
+                                                @endif
+                                            </label>
                                             <div class="col-sm-10">
                                                 <select class="form-control" name="{{ $form['field'] }}"
                                                         @if (isset($form['required']) && $form['required']) required @endif>
@@ -48,14 +57,20 @@
                                                     @if(isset($data[$form['field']]))
                                                         @foreach($data[$form['field']] as $select)
                                                             <option value="{{$select->id}}"
-                                                                    @if($select->id == $data['find']->{$form['field']}) selected @endif>{{$select->name}}</option>
+                                                                    @if($select->id == $data['find']->{$form['field']}) selected @endif>
+                                                                {{$select->name}}
+                                                            </option>
                                                         @endforeach
                                                     @endif
                                                 </select>
                                             </div>
                                         @elseif($form['type'] =="select2")
                                             <label for="{{ $form['field'] }}"
-                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}
+                                                @if (isset($form['required']) && $form['required'])
+                                                    <span class="text-danger">*</span>
+                                                @endif
+                                            </label>
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" name="{{ $form['field'] }}"
                                                         @if (isset($form['required']) && $form['required']) required @endif>
@@ -63,7 +78,9 @@
                                                     @if(isset($data[$form['field']]))
                                                         @foreach($data[$form['field']] as $select)
                                                             <option value="{{$select->id}}"
-                                                                    @if($select->id == $data['find']->{$form['field']}) selected @endif>{{$select->name}}</option>
+                                                                    @if($select->id == $data['find']->{$form['field']}) selected @endif>
+                                                                {{$select->name}}
+                                                            </option>
                                                         @endforeach
                                                     @endif
                                                 </select>
@@ -99,7 +116,9 @@
                                         @else
                                             @if (isset($form['multipart']) && $form['multipart'])
                                                 <label for="{{ $form['field'] }}"
-                                                       class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                       class="col-sm-2 col-form-label">{{ $form['title'] }}  @if (isset($form['required']) && $form['required'])
+                                                        <span class="text-danger">*</span>
+                                                    @endif</label>
                                                 <div class="col-sm-10">
                                                     <input type="{{ $form['type'] }}" class="form-control"
                                                            style="padding-top:3px;" id="{{ $form['field'] }}"
@@ -108,7 +127,9 @@
                                                 </div>
                                             @else
                                                 <label for="{{ $form['field'] }}"
-                                                       class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                                       class="col-sm-2 col-form-label">{{ $form['title'] }}  @if (isset($form['required']) && $form['required'])
+                                                        <span class="text-danger">*</span>
+                                                    @endif</label>
                                                 <div class="col-sm-10">
                                                     <input type="{{ $form['type'] }}" class="form-control"
                                                            style="padding-top:3px;" id="{{ $form['field'] }}"

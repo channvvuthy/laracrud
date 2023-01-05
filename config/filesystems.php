@@ -56,6 +56,15 @@ return [
             'throw' => false,
         ],
 
+        'ocean' => [
+            'driver' => 's3',
+            'key' => env('OCEAN_ACCESS_KEY_ID'),
+            'secret' => env('OCEAN_SECRET_ACCESS_KEY'),
+            'region' => env('OCEAN_DEFAULT_REGION'),
+            'bucket' => env('OCEAN_BUCKET'),
+            'endpoint' => env('OCEAN_ENDPOINT'),
+        ],
+
     ],
 
     /*
