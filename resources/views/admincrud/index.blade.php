@@ -20,7 +20,7 @@
                 @endif
             @endforeach
             @if ($data['has_action'])
-                <th class="text-center" width="250">Action</th>
+                <th class="text-center" width="{{$data['action_with']}}">Action</th>
             @endif
         </tr>
         </thead>
@@ -89,6 +89,19 @@
                                         </button>
                                     </a>
                                 </div>
+                            @endif
+                            @if(isset($data['appendedButton']))
+                                @foreach($data['appendedButton'] as $btn)
+                                        <div class="ml-2">
+                                            <a href="{{$btn['action']}}/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}"
+                                               data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
+                                                <button type="button" class="{{$btn['btn']}} btn-sm">
+                                                    <i class="{{$btn['icon']}}"></i>
+                                                    {{$btn['name']}}
+                                                </button>
+                                            </a>
+                                        </div>
+                                @endforeach
                             @endif
                         </div>
                     </td>

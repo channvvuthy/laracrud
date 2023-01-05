@@ -38,25 +38,25 @@
                             </a>
                         </li>
                     @endforeach
-                @else
-                    <li class="nav-item">
-                        <a href="/admin/menu"
-                           class="nav-link {{Str::contains(strtolower(URL::current()),'menu')?'active':''}}">
-                            <i class="fa fa-cog"></i>
-                            <p class="pl-2">
-                                Menu
-                            </p>
-                        </a>
-                    </li>
                 @endif
-                    <li class="nav-item">
-                        <a href="/admin/setting" class="nav-link {{Str::contains(strtolower(URL::current()),'setting')?'active':''}}">
-                            <i class="fa fa-cogs"></i>
-                            <p class="pl-2">
-                                Setting
-                            </p>
-                        </a>
-                    </li>
+                <li class="nav-item">
+                    <a href="/admin/menu"
+                       class="nav-link {{Str::contains(strtolower(URL::current()),'menu')?'active':''}}">
+                        <i class="fa fa-cog"></i>
+                        <p class="pl-2">
+                            Menu
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin/setting"
+                       class="nav-link {{Str::contains(strtolower(URL::current()),'setting')?'active':''}}">
+                        <i class="fa fa-cogs"></i>
+                        <p class="pl-2">
+                            Setting
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="/auth/logout" class="nav-link">
                         <i class="fa fa-lock"></i>

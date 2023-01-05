@@ -47,22 +47,5 @@
         body{
             font-family: Ubuntu;
         }
-        .overflow-x-scroll{
-            overflow-x: scroll;
-        }
-        .overflow-x-scroll::-webkit-scrollbar {
-            height: 4px;
-        }
-
-        .overflow-x-scroll::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        .overflow-x-scroll::-webkit-scrollbar-thumb {
-            background: #28a745;
-        }
-        .overflow-x-scroll::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
     </style>
 </head>

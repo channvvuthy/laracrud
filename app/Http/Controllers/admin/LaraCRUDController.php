@@ -39,6 +39,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public $find;
     public bool $wysiwyg = false;
     public bool $select2 = false;
+    public int $action_with = 250;
 
     public function __construct()
     {
@@ -70,6 +71,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->data['find'] = $this->find;
         $this->data['wysiwyg'] = $this->wysiwyg;
         $this->data['select2'] = $this->select2;
+        $this->data['action_with'] = $this->action_with;
     }
 
     /**
@@ -174,7 +176,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
                 $field[$key] = $fileName;
             }
         }
-        $this->model->where($this->pk, $request->get('id'))->update($field );
+        $this->model->where($this->pk, $request->get('id'))->update($field);
         return redirect($redirectUrl)->with('message', 'The data has been updated');
     }
 
@@ -278,6 +280,20 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         if (count($field)) {
             foreach ($field as $f) {
                 $head[] = $f;
+            }
+        }
+    }
+
+    /**
+     * @param $data
+     * @param $button
+     * @return void
+     */
+    public function appendButton(&$data, $button): void
+    {
+        if (is_array($button)) {
+            if (count($button)) {
+                $data['appendedButton'] = $button;
             }
         }
     }

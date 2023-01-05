@@ -5,21 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\CountryController;
 use App\Http\Controllers\admin\ProvinceController;
-use App\Http\Controllers\admin\ImageController;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\SettingController;
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::post('/upload', function () {
-    return request()->file('file')->store(
-        'images',
-        'ocean'
-    );
-});
+use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\admin\PermissionController;
 
 Route::group([
     'prefix' => '/auth',
@@ -62,11 +52,6 @@ Route::group([
     Route::get('province/detail/{id}', [ProvinceController::class, 'detail']);
     Route::get('province/delete/{id}', [ProvinceController::class, 'delete']);
 
-    // Image
-    Route::get('/image', [ImageController::class, 'getIndex']);
-    Route::get('image/add', [ImageController::class, 'getAdd']);
-    Route::post('image/post', [ImageController::class, 'postAdd']);
-
     // Province
     Route::get('/menu', [MenuController::class, 'getIndex']);
     Route::get('menu/add', [MenuController::class, 'getAdd']);
@@ -91,5 +76,21 @@ Route::group([
     Route::get('setting/detail/{id}', [SettingController::class, 'detail']);
     Route::get('setting/edit/{id}', [SettingController::class, 'getEdit']);
     Route::post('setting/update', [SettingController::class, 'update']);
+
+    // Role
+    Route::get('role', [RoleController::class, 'getIndex']);
+    Route::get('role/add', [RoleController::class, 'getAdd']);
+    Route::post('role/post', [RoleController::class, 'postAdd']);
+    Route::get('role/detail/{id}', [RoleController::class, 'detail']);
+    Route::get('role/edit/{id}', [RoleController::class, 'getEdit']);
+    Route::post('role/update', [RoleController::class, 'update']);
+
+    // Permission
+    Route::get('permission', [PermissionController::class, 'getIndex']);
+    Route::get('permission/add', [PermissionController::class, 'getAdd']);
+    Route::post('permission/post', [PermissionController::class, 'postAdd']);
+    Route::get('permission/detail/{id}', [PermissionController::class, 'detail']);
+    Route::get('permission/edit/{id}', [PermissionController::class, 'getEdit']);
+    Route::post('permission/update', [PermissionController::class, 'update']);
 
 });

@@ -51,6 +51,8 @@ class AdminController extends LaraCRUDController
         return view('admincrud.index', ['data' => $this->data]);
     }
 
+
+
     /**
      * @return Factory|View|Application
      */
