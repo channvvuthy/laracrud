@@ -6,7 +6,6 @@
                  style="opacity: .8" width="150" class="m-auto">
         </a>
     </div>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <!-- Sidebar user panel (optional) -->
@@ -30,7 +29,7 @@
                     @foreach(Cache::get('menus') as $key => $menu)
                         <li class="nav-item">
                             <a href="/{{$menu->action}}"
-                               class="nav-link {{Str::contains(strtolower(URL::current()),strtolower($menu->name))?'active':''}}">
+                               class="nav-link {{request()->path() == $menu->action?'active':''}} @if(isset($_GET['parent']) && ($_GET['parent'] ==  $menu->action)) active @endif">
                                 <i class="{{$menu->icon}}"></i>
                                 <p class="pl-2">
                                     {{$menu->name}}

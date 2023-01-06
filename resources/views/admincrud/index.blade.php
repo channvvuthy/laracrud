@@ -93,7 +93,7 @@
                             @if(isset($data['appendedButton']))
                                 @foreach($data['appendedButton'] as $btn)
                                         <div class="ml-2">
-                                            <a href="{{$btn['action']}}/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}"
+                                            <a href="{{$btn['action']}}/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}?parent={{$btn['parent']}}"
                                                data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
                                                 <button type="button" class="{{$btn['btn']}} btn-sm">
                                                     <i class="{{$btn['icon']}}"></i>

@@ -72,6 +72,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->data['wysiwyg'] = $this->wysiwyg;
         $this->data['select2'] = $this->select2;
         $this->data['action_with'] = $this->action_with;
+        $this->data['form'] = $this->form;
     }
 
     /**
@@ -296,5 +297,14 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
                 $data['appendedButton'] = $button;
             }
         }
+    }
+
+    /**
+     * @param $id
+     * @return mixed
+     */
+    public function findbyId($id): mixed
+    {
+        return $this->model->findOrFail($id);
     }
 }

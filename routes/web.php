@@ -84,6 +84,8 @@ Route::group([
     Route::get('role/detail/{id}', [RoleController::class, 'detail']);
     Route::get('role/edit/{id}', [RoleController::class, 'getEdit']);
     Route::post('role/update', [RoleController::class, 'update']);
+    Route::get('role/assign_permission/{id}', [RoleController::class, 'assignPermission']);
+    Route::post('role/assign_permission', [RoleController::class, 'postAssignPermission']);
 
     // Permission
     Route::get('permission', [PermissionController::class, 'getIndex']);
