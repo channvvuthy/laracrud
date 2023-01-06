@@ -8,6 +8,16 @@
         @include('admincrud.partial.module')
     @endpush
     @include('admincrud.partial.export')
+    <div class="d-flex flex-row mb-3">
+        <a href="/admin/role">
+            <i class="fa fa-chevron-circle-left text-info"></i>
+            <span class="text-info">Back to list
+                @if (isset($data['back']) && $data['back'])
+                    {{ $data['back'] }}
+                @endif
+            </span>
+        </a>
+    </div>
     <div class="row">
         <div class="col-6">
             <table class="table table-responsive-sm table-bordered ">
@@ -23,11 +33,11 @@
                         <tr>
                             <td>{{Str::ucfirst($permission->name)}}</td>
                             <td>
-                                <div class="form-check">
+                                <label class="form-check">
                                     <input type="checkbox" class="form-check-input permission"
                                            @checked($data['find']->hasPermissionTo($permission->name))
-                                           value="{{$permission->id}}" data-name="{{$permission->name}}">
-                                </div>
+                                           value="{{$permission->id}}" data-name="{{$permission->name}}"/>
+                                </label>
                         </tr>
                     @endforeach
                 @endif
@@ -47,9 +57,17 @@
                 permission,
                 name,
                 role: "{{$data['find']->id}}"
-            }).catch(err => {
-                console.log(err)
-            });
+            }).then(() => {
+                $(document).Toasts('create', {
+                    title: 'Success',
+                    body: "Permission has been updated",
+                    class: 'bg-success',
+                    autohide: true,
+                })
+            })
+                .catch(err => {
+                    console.log(err)
+                });
 
         });
     </script>

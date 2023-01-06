@@ -13,7 +13,8 @@
                         $(document).Toasts('create', {
                             title: 'Error',
                             body: JSON.parse(XMLHttpRequest.responseText).message,
-                            class: 'bg-danger'
+                            class: 'bg-danger',
+                            autohide: true,
                         })
                         reject(JSON.parse(XMLHttpRequest.responseText).message)
                     }

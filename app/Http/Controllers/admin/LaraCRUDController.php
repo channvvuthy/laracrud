@@ -76,15 +76,6 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     }
 
     /**
-     * @param $model
-     * @return void
-     */
-    public function setModel($model): void
-    {
-        $this->model = $model;
-    }
-
-    /**
      * @return mixed
      */
     public function paginate(): mixed
@@ -122,6 +113,9 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
             if ($request->hasFile($key)) {
                 $fileName = Helper::imageUpload("images", $request->file($key));
                 $field[$key] = $fileName;
+            }
+            if ($request->input('password')) {
+                $field["password"] = bcrypt($request->input('password'));
             }
         }
 

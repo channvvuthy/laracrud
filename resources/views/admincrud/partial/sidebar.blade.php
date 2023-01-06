@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <div class="text-center">
         <a href="{{URL::to('/')}}" class="brand-link">
-            <img src="{{ asset('images/logo/logo.png') }}" alt="AdminLTE Logo"
+            <img src="{{ asset('images/logo/logo.png') }}"
                  style="opacity: .8" width="150" class="m-auto">
         </a>
     </div>
@@ -11,12 +11,17 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2" alt="User Image">
+                @if(Auth::check() && Auth::user()->profile)
+                    <img src="{{Auth::user()->profile}}" class="img-circle elevation-2">
+                @else
+                    <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle elevation-2">
+
+                @endif
             </div>
             <div class="info">
                 <a href="#" class="d-block">
                     @if(Auth::check())
-                        {{Auth::user()->name}}
+                        {{Str::ucfirst(Auth::user()->name)}}
                     @endif
                 </a>
             </div>
@@ -41,7 +46,7 @@
                 <li class="nav-item">
                     <a href="/admin/menu"
                        class="nav-link {{Str::contains(strtolower(URL::current()),'menu')?'active':''}}">
-                        <i class="fa fa-cog"></i>
+                        <i class="fa-cloud-download-alt fa"></i>
                         <p class="pl-2">
                             Menu
                         </p>
