@@ -5,7 +5,6 @@ namespace App\Http\Controllers\admin;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
 class PermissionController extends LaraCRUDController
@@ -19,7 +18,7 @@ class PermissionController extends LaraCRUDController
 
         $this->model = $permission;
         $this->add = true;
-        $this->title = "Role List";
+        $this->title = "Permission List";
         $this->delete = true;
 
         $this->head = [
@@ -46,8 +45,8 @@ class PermissionController extends LaraCRUDController
      */
     public function getAdd(): View|Factory|Application
     {
-        $this->title = "Add new role";
-        $this->data['back'] = "Role";
+        $this->title = "Add new Permission";
+        $this->data['back'] = "Permission";
         $this->data['form'] = $this->form;
         $this->init();
         return view('admincrud.add', ['data' => $this->data]);

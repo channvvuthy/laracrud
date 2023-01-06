@@ -40,6 +40,13 @@
                                            data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
                                            data-type="multiple_file"></i>
                                     </a>
+                                @elseif($col['type'] == 'gender')
+                                    @if(is_array($result)?$result[$col['field']]:$result->{$col['field']} == 1)
+                                        <span>Male</span>
+                                    @else
+                                        <span>Female</span>
+                                    @endif
+
                                 @else
                                     <a href="#"
                                        class="files">
@@ -92,15 +99,15 @@
                             @endif
                             @if(isset($data['appendedButton']))
                                 @foreach($data['appendedButton'] as $btn)
-                                        <div class="ml-2">
-                                            <a href="{{$btn['action']}}/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}?parent={{$btn['parent']}}"
-                                               data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
-                                                <button type="button" class="{{$btn['btn']}} btn-sm">
-                                                    <i class="{{$btn['icon']}}"></i>
-                                                    {{$btn['name']}}
-                                                </button>
-                                            </a>
-                                        </div>
+                                    <div class="ml-2">
+                                        <a href="{{$btn['action']}}/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}?parent={{$btn['parent']}}"
+                                           data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
+                                            <button type="button" class="{{$btn['btn']}} btn-sm">
+                                                <i class="{{$btn['icon']}}"></i>
+                                                {{$btn['name']}}
+                                            </button>
+                                        </a>
+                                    </div>
                                 @endforeach
                             @endif
                         </div>

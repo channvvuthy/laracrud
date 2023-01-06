@@ -147,6 +147,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     {
         $this->find = $this->model->findOrFail($id);
         $this->title = 'Edit ' . $this->model->moduleName;
+        $this->data['back'] = $this->model->moduleName;
         $this->init();
         return view('admincrud.edit', ['data' => $this->data]);
     }

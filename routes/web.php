@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\PermissionController;
+use App\Http\Controllers\admin\UserController;
 
 Route::group([
     'prefix' => '/auth',
@@ -94,5 +95,13 @@ Route::group([
     Route::get('permission/detail/{id}', [PermissionController::class, 'detail']);
     Route::get('permission/edit/{id}', [PermissionController::class, 'getEdit']);
     Route::post('permission/update', [PermissionController::class, 'update']);
+
+    // User
+    Route::get('user', [UserController::class, 'getIndex']);
+    Route::get('user/add', [UserController::class, 'getAdd']);
+    Route::post('user/post', [UserController::class, 'postAdd']);
+    Route::get('user/detail/{id}', [UserController::class, 'detail']);
+    Route::get('user/edit/{id}', [UserController::class, 'getEdit']);
+    Route::post('user/update', [UserController::class, 'update']);
 
 });

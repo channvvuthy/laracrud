@@ -86,6 +86,17 @@
                                                     @endforeach
                                                 </select>
                                             </div>
+                                        @elseif($form['type'] =="gender")
+                                            <label for="{{ $form['field'] }}"
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control select2" style="width: 100%;" @if (isset($form['required']) && $form['required']) required @endif>
+                                                    <option selected>Please select {{$form['title']}}</option>
+                                                    <option value="1">Male</option>
+                                                    <option value="2">Female</option>
+
+                                                </select>
+                                            </div>
                                         @else
                                             @if (isset($form['multiple']) && $form['multiple'])
                                                 <label for="{{ $form['field'] }}"
@@ -99,7 +110,9 @@
                                                     <input type="{{ $form['type'] }}" class="form-control"
                                                            style="padding-top:3px;" id="{{ $form['field'] }}"
                                                            name="{{ $form['field'] }}[]"
-                                                           accept="{{$form['accept']}}"
+                                                           @if(isset($form['accept']))
+                                                               accept="{{$form['accept']}}"
+                                                           @endif
                                                            multiple
                                                            @if (isset($form['required']) && $form['required']) required @endif>
                                                 </div>
@@ -114,7 +127,10 @@
                                                     <input type="{{ $form['type'] }}" class="form-control"
                                                            style="padding-top:3px;" id="{{ $form['field'] }}"
                                                            name="{{ $form['field'] }}"
-                                                           accept="{{$form['accept']}}"
+                                                           @if(isset($form['accept']))
+                                                               accept="{{$form['accept']}}"
+                                                           @endif
+
                                                            @if (isset($form['required']) && $form['required']) required @endif>
                                                 </div>
                                             @endif

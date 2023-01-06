@@ -36,7 +36,7 @@ class SettingController extends LaraCRUDController
 
         $this->form = [
             array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required'),
-            array('field' => 'logo', 'title' => 'Logo', 'type' => 'file', 'required' => true, 'validated' => 'required', 'accept' => 'image/*'),
+            array('field' => 'logo', 'title' => 'Logo', 'type' => 'file', 'accept' => 'image/*'),
             array('field' => 'email', 'title' => 'Email', 'type' => 'email'),
             array('field' => 'phone', 'title' => 'Phone', 'type' => 'number'),
             array('field' => 'address', 'title' => 'Address', 'type' => 'text'),

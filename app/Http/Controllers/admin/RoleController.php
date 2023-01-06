@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Setting;
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
@@ -15,7 +13,7 @@ use Spatie\Permission\Models\Role;
 class RoleController extends LaraCRUDController
 {
     /**
-     * @param Setting $role
+     * @param Role $role
      */
     public function __construct(Role $role)
     {
@@ -84,7 +82,6 @@ class RoleController extends LaraCRUDController
     public function postAssignPermission(Request $request): JsonResponse
     {
         $role = Role::findById($request->role);
-        $permission = Permission::findById($request->permission);
         $role->hasPermissionTo($request->name) ? $role->revokePermissionTo($request->name) : $role->givePermissionTo($request->name);
 
         return response()->json(array('msg' => 'success'), 200);

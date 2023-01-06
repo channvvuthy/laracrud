@@ -64,6 +64,22 @@
                                                     @endif
                                                 </select>
                                             </div>
+                                        @elseif($form['type'] =="gender")
+                                            <label for="{{ $form['field'] }}"
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}
+                                                @if (isset($form['required']) && $form['required'])
+                                                    <span class="text-danger">*</span>
+                                                @endif
+                                            </label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control" name="{{ $form['field'] }}"
+                                                        @if (isset($form['required']) && $form['required']) required @endif>
+                                                    <option>Please select {{$form['title']}}</option>
+                                                        <option value="1" @selected(1 ==$data['find']->{$form['field']})>Male</option>
+                                                        <option value="2" @selected(1 ==$data['find']->{$form['field']})>Female</option>
+
+                                                </select>
+                                            </div>
                                         @elseif($form['type'] =="select2")
                                             <label for="{{ $form['field'] }}"
                                                    class="col-sm-2 col-form-label">{{ $form['title'] }}
