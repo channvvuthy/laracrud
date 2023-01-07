@@ -12,6 +12,9 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Helper;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
 {
@@ -132,6 +135,12 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         foreach ($this->form as $form) {
             if (isset($form['required']) && $form['required']) {
                 $validated[$form['field']] = $form['validated'];
+                if (Str::contains($form['validated'], "unique")) {
+                    try {
+                        $validated[$form['field']] = $form['validated'] . "," . $form['field'] . "," . request()->get('id');
+                    } catch (NotFoundExceptionInterface|ContainerExceptionInterface $e) {
+                    }
+                }
             }
         }
         return $validated;

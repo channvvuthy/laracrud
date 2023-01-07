@@ -7,6 +7,6 @@ interface ApiInterface{
      * @param Request $request
      * @return mixed
      */
-    public function postAdd(Request $request): mixed;
+    public function postAdd(Request $request);
 
 }

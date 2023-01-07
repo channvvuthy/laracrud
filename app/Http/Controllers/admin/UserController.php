@@ -35,7 +35,7 @@ class UserController extends LaraCRUDController
 
         $this->form = [
             array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required'),
-            array('field' => 'email', 'title' => 'Email', 'type' => 'email', 'required' => true, 'validated' => 'required'),
+            array('field' => 'email', 'title' => 'Email', 'type' => 'email', 'required' => true, 'validated' => 'required|email|unique:users'),
             array('field' => 'password', 'title' => 'Password', 'type' => 'password', 'required' => true, 'validated' => 'required'),
             array('field' => 'profile', 'title' => 'Profile', 'type' => 'file', 'accept' => 'image/*'),
             array('field' => 'phone', 'title' => 'Phone', 'type' => 'number'),
