@@ -46,6 +46,12 @@
                                     @else
                                         <span>Female</span>
                                     @endif
+                                @elseif($col['type'] == 'status')
+                                    @if(is_array($result)?$result[$col['field']]:$result->{$col['field']} == 1)
+                                        <span>Enable</span>
+                                    @else
+                                        <span>Disable</span>
+                                    @endif
 
                                 @else
                                     <a href="#"

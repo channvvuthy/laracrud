@@ -97,6 +97,17 @@
 
                                                 </select>
                                             </div>
+                                        @elseif($form['type'] =="status")
+                                            <label for="{{ $form['field'] }}"
+                                                   class="col-sm-2 col-form-label">{{ $form['title'] }}</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control select2" style="width: 100%;" @if (isset($form['required']) && $form['required']) required @endif>
+                                                    <option selected>Please select {{$form['title']}}</option>
+                                                    <option value="1">Enable</option>
+                                                    <option value="2">Disable</option>
+
+                                                </select>
+                                            </div>
                                         @else
                                             @if (isset($form['multiple']) && $form['multiple'])
                                                 <label for="{{ $form['field'] }}"

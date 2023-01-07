@@ -99,6 +99,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      */
     public function getAdd(): View|Factory|Application
     {
+        $this->init();
         return view('admincrud.add', ['data' => $this->data]);
     }
 
@@ -179,6 +180,9 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
             if ($request->hasFile($key)) {
                 $fileName = Helper::imageUpload("images", $request->file($key));
                 $field[$key] = $fileName;
+            }
+            if ($request->input('password')) {
+                $field["password"] = bcrypt($request->input('password'));
             }
         }
         $this->model->where($this->pk, $request->get('id'))->update($field);
