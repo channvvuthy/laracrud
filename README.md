@@ -6,7 +6,7 @@
 - Model
 - Helper
 
-#Installation and configuration 
+# Installation and configuration 
 Just clone the repository and copy the example.env to .env and configure with your own environment and run php artisan migrate
 If missing some function from helper, please run compose dump-autoload
 
