@@ -30,10 +30,6 @@ class CategoryController extends LaraCRUDController{
             array('field' => 'description', 'title' => 'Description'),
             array('field' => 'status', 'title' => 'Status'),
         ];
-
-        $this->form = [
-            array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required|min:10'),
-        ];
     }
 }
 ```
