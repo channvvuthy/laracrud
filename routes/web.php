@@ -12,6 +12,7 @@ use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\PermissionController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\SliderController;
+use App\Http\Controllers\admin\CategoryController;
 
 Route::group([
     'prefix' => '/auth',
@@ -112,5 +113,13 @@ Route::group([
     Route::get('slider/detail/{id}', [SliderController::class, 'detail']);
     Route::get('slider/edit/{id}', [SliderController::class, 'getEdit']);
     Route::post('slider/update', [SliderController::class, 'update']);
+
+    // Category
+    Route::get('category', [CategoryController::class, 'getIndex']);
+    Route::get('category/add', [CategoryController::class, 'getAdd']);
+    Route::post('category/post', [CategoryController::class, 'postAdd']);
+    Route::get('category/detail/{id}', [CategoryController::class, 'detail']);
+    Route::get('category/edit/{id}', [CategoryController::class, 'getEdit']);
+    Route::post('category/update', [CategoryController::class, 'update']);
 
 });

@@ -14,121 +14,128 @@
             @if (isset($data['display_id']) && $data['display_id'])
                 <th>ID</th>
             @endif
-            @foreach ($data['head'] as $key => $col)
-                @if(!isset($col['view']))
-                    <th>{{ $col['title'] }}</th>
+            @isset($data['head'])
+                @foreach ($data['head'] as $key => $col)
+                    @if(!isset($col['view']))
+                        <th>{{ $col['title'] }}</th>
+                    @endif
+                @endforeach
+                @if ($data['has_action'])
+                    <th class="text-center" width="{{$data['action_with']}}">Action</th>
                 @endif
-            @endforeach
-            @if ($data['has_action'])
-                <th class="text-center" width="{{$data['action_with']}}">Action</th>
-            @endif
+            @endisset
+
         </tr>
         </thead>
 
         <tbody>
-        @foreach ($data['result'] as $key => $result)
-            <tr>
-                <td>{{ $key + 1 }}</td>
-                @foreach ($data['head'] as $key => $col)
-                    @if(!isset($col['view']))
-                        <td>
-                            @if(isset($col['type']))
-                                @if($col['type'] == 'image' && isset($col['multiple']))
-                                    <a href="#"
-                                       class="files">
-                                        <i class="fa fa-image text-gray"
-                                           data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
-                                           data-type="multiple_file"></i>
-                                    </a>
-                                @elseif($col['type'] == 'gender')
-                                    @if(is_array($result)?$result[$col['field']]:$result->{$col['field']} == 1)
-                                        <span>Male</span>
-                                    @else
-                                        <span>Female</span>
-                                    @endif
-                                @elseif($col['type'] == 'status')
-                                    @if(is_array($result)?$result[$col['field']]:$result->{$col['field']} == 1)
-                                        <span>Enable</span>
-                                    @else
-                                        <span>Disable</span>
-                                    @endif
+        @isset($data['result'])
+            @foreach ($data['result'] as $key => $result)
+                <tr>
+                    <td>{{ $key + 1 }}</td>
+                    @foreach ($data['head'] as $key => $col)
+                        @if(!isset($col['view']))
+                            <td>
+                                @if(isset($col['type']))
+                                    @if($col['type'] == 'image' && isset($col['multiple']))
+                                        <a href="#"
+                                           class="files">
+                                            <i class="fa fa-image text-gray"
+                                               data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
+                                               data-type="multiple_file"></i>
+                                        </a>
+                                    @elseif($col['type'] == 'gender')
+                                        @if(is_array($result)?$result[$col['field']]:$result->{$col['field']} == 1)
+                                            <span>Male</span>
+                                        @else
+                                            <span>Female</span>
+                                        @endif
+                                    @elseif($col['type'] == 'status')
+                                        @if(is_array($result)?$result[$col['field']]:$result->{$col['field']} == 1)
+                                            <span>Enable</span>
+                                        @else
+                                            <span>Disable</span>
+                                        @endif
 
+                                    @else
+                                        <a href="#"
+                                           class="files">
+                                            <i class="fa fa-image text-gray"
+                                               data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
+                                               data-type="single_file"></i>
+                                        </a>
+                                    @endif
                                 @else
-                                    <a href="#"
-                                       class="files">
-                                        <i class="fa fa-image text-gray"
-                                           data-url="{{ is_array($result)?$result[$col['field']]:$result->{$col['field']}  }}"
-                                           data-type="single_file"></i>
-                                    </a>
+                                    {{Helper::subStr(is_array($result)?$result[$col['field']]:$result->{$col['field']},20) }}
                                 @endif
-                            @else
-                                {{Helper::subStr(is_array($result)?$result[$col['field']]:$result->{$col['field']},20) }}
-                            @endif
 
-                        </td>
-                    @endif
-                @endforeach
-                @if ($data['has_action'])
-                    <td>
-                        <div class="d-flex flex-row justify-content-center">
-                            @if ($data['view'])
-                                <div class="mr-2">
-                                    <a href="{{Helper::indexUrl()}}/detail/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
-                                        <button type="button" class="btn btn-primary btn-sm">
-                                            <i class="fa fa-eye"></i>
-                                            View
-                                        </button>
-                                    </a>
-                                </div>
-                            @endif
-                            @if ($data['edit'])
-                                <div class="mr-2">
-                                    <a href="{{Helper::indexUrl()}}/edit/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
-                                        <button type="button" class="btn btn-success btn-sm">
-                                            <i class="fa fa-edit"></i>
-                                            Edit
-                                        </button>
-                                    </a>
-                                </div>
-                            @endif
-                            @if ($data['delete'])
-                                <div>
-                                    <a href="#" class="btn-delete"
-                                       data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
-                                        <button type="button" class="btn btn-danger btn-sm"
-                                                data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
-                                            <i class="fa fa-trash"></i>
-                                            Delete
-                                        </button>
-                                    </a>
-                                </div>
-                            @endif
-                            @if(isset($data['appendedButton']))
-                                @foreach($data['appendedButton'] as $btn)
-                                    <div class="ml-2">
-                                        <a href="{{$btn['action']}}/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}?parent={{$btn['parent']}}"
-                                           data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
-                                            <button type="button" class="{{$btn['btn']}} btn-sm">
-                                                <i class="{{$btn['icon']}}"></i>
-                                                {{$btn['name']}}
+                            </td>
+                        @endif
+                    @endforeach
+                    @if ($data['has_action'])
+                        <td>
+                            <div class="d-flex flex-row justify-content-center">
+                                @if ($data['view'])
+                                    <div class="mr-2">
+                                        <a href="{{Helper::indexUrl()}}/detail/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
+                                            <button type="button" class="btn btn-primary btn-sm">
+                                                <i class="fa fa-eye"></i>
+                                                View
                                             </button>
                                         </a>
                                     </div>
-                                @endforeach
-                            @endif
-                        </div>
-                    </td>
-                @endif
-            </tr>
-        @endforeach
+                                @endif
+                                @if ($data['edit'])
+                                    <div class="mr-2">
+                                        <a href="{{Helper::indexUrl()}}/edit/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
+                                            <button type="button" class="btn btn-success btn-sm">
+                                                <i class="fa fa-edit"></i>
+                                                Edit
+                                            </button>
+                                        </a>
+                                    </div>
+                                @endif
+                                @if ($data['delete'])
+                                    <div>
+                                        <a href="#" class="btn-delete"
+                                           data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
+                                            <button type="button" class="btn btn-danger btn-sm"
+                                                    data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
+                                                <i class="fa fa-trash"></i>
+                                                Delete
+                                            </button>
+                                        </a>
+                                    </div>
+                                @endif
+                                @if(isset($data['appendedButton']))
+                                    @foreach($data['appendedButton'] as $btn)
+                                        <div class="ml-2">
+                                            <a href="{{$btn['action']}}/{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}?parent={{$btn['parent']}}"
+                                               data-id="{{is_array($result)?$result[$data['pk']]:$result->{$data['pk']} }}">
+                                                <button type="button" class="{{$btn['btn']}} btn-sm">
+                                                    <i class="{{$btn['icon']}}"></i>
+                                                    {{$btn['name']}}
+                                                </button>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                @endif
+                            </div>
+                        </td>
+                    @endif
+                </tr>
+            @endforeach
+        @endisset
         </tbody>
     </table>
     @include('admincrud.components.confirm')
     @include('admincrud.components.file_preview')
     {{--Pagination --}}
-    <div>
-        {{ $data['result']->links() }}
-    </div>
+    @isset($data['result'])
+        <div>
+            {{ $data['result']->links() }}
+        </div>
+    @endisset
 @endsection
 @push('script')
     <script>

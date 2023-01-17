@@ -3,7 +3,7 @@
     <div class="text-center">
         <a href="{{URL::to('/')}}" class="brand-link">
             <img src="{{ asset('images/logo/logo.png') }}"
-                 style="opacity: .8" width="150" class="m-auto">
+                 style="opacity: .8" width="160" class="m-auto">
         </a>
     </div>
     <!-- Sidebar -->

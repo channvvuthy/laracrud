@@ -21,7 +21,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{URL::to('/admin/login')}}">LARACRUD</a>
+        <a href="{{URL::to('/admin/login')}}">V-Learning</a>
     </div>
     @if ($errors->any())
         <div class="alert alert-warning">
