@@ -20,6 +20,9 @@ Will update soon...
 Will update soon..
 
 # How to delete item
-Will update soon
+Will update soon...
+
+# How to custom view
+Will update soon...
 
 ![LARACRUD](/public/images/screenshot/Screenshot.png?raw=true "LARACRUD")
