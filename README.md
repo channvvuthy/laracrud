@@ -47,6 +47,7 @@ After you extend the base controller and add some properties with constructor re
     }
 ```
 After that your view will look like the screenshot
+
 ![LARACRUD](/public/images/screenshot/list.png?raw=true "LARACRUD")
 
 
