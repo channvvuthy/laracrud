@@ -14,7 +14,7 @@ If missing some function from helper, please run compose dump-autoload
 To generate list view your controller needs to extend or inherit from LaraCRUDController and add some properties with constructor
 ```php
 class CategoryController extends LaraCRUDController{
-   /**
+    /**
      * @param Category $category
      */
     public function __construct(Category $category)
@@ -30,17 +30,13 @@ class CategoryController extends LaraCRUDController{
             array('field' => 'description', 'title' => 'Description'),
             array('field' => 'status', 'title' => 'Status'),
         ];
-
-        $this->form = [
-            array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required|min:10'),
-        ];
     }
 }
 ```
 
 After you extend the base controller and add some properties with constructor ready, you need to add function getIndex to render the view
 ```php
-/**
+    /**
      * @return mixed
      */
     public function getIndex(): mixed
