@@ -61,8 +61,11 @@ class CategoryController extends LaraCRUDController{
      */
     public function __construct(Category $category)
     {
-        $this->form = [
+         $this->form = [
             array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required|min:10'),
+            array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'accept' => 'image/*'),
+            array('field' => 'description', 'title' => 'Description', 'type' => 'text'),
+            array('field' => 'status', 'title' => 'Status', 'type' => 'status'),
         ];
     }
     
@@ -79,6 +82,11 @@ class CategoryController extends LaraCRUDController{
     }
 }
 ```
+
+After that your form will look like the screenshot
+
+![LARACRUD](/public/images/screenshot/add.png?raw=true "LARACRUD")
+
 - **Form Input Type**
     - [checkbox](./form-checkbox.md)
     - [text](./form-text.md)

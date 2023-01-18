@@ -22,13 +22,17 @@ class CategoryController extends LaraCRUDController
 
         $this->head = [
             array('field' => 'name', 'title' => 'Name'),
-            array('field' => 'photo', 'title' => 'Photo'),
+            array('field' => 'photo', 'title' => 'Photo', 'type' => 'image'),
             array('field' => 'description', 'title' => 'Description'),
             array('field' => 'status', 'title' => 'Status'),
         ];
 
         $this->form = [
             array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required|min:10'),
+            array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'accept' => 'image/*'),
+            array('field' => 'description', 'title' => 'Description', 'type' => 'text'),
+            array('field' => 'status', 'title' => 'Status', 'type' => 'status'),
+
         ];
     }
 
