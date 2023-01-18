@@ -80,7 +80,7 @@ class CategoryController extends LaraCRUDController{
 }
 ```
 
-Continue...
+Will update more...
 
 # How to generate form edit 
 Will update soon..
