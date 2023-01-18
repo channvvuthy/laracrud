@@ -7,7 +7,7 @@
 - Helper
 
 # Installation and configuration 
-Just clone the repository and copy the env.example to .env and configure with your own environment and run php artisan migrate, 
+Just clone the repository and copy the .env.example to .env and configure with your own environment and run php artisan migrate, 
 If missing some function from helper, please run compose dump-autoload
 
 # How to generate list UI
@@ -53,7 +53,32 @@ After that your view will look like the screenshot
 
 
 # How to generate form create
-Will update soon...
+To create a form, you should inherit LaraCRUDController and the optional getAdd function and properties 
+```php
+class CategoryController extends LaraCRUDController{
+    /**
+     * @param Category $category
+     */
+    public function __construct(Category $category)
+    {
+        $this->form = [
+            array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required|min:10'),
+        ];
+    }
+    
+    /**
+     * @return View|Factory|Application
+    */
+    public function getAdd(): View|Factory|Application
+    {
+        $this->title = "Add new Category";
+        $this->data['form'] = $this->form;
+        $this->data['back'] = "Category";
+        $this->init();
+        return view('admincrud.add', ['data' => $this->data]);
+    }
+}
+```
 
 # How to generate form edit 
 Will update soon..
