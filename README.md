@@ -79,6 +79,23 @@ class CategoryController extends LaraCRUDController{
     }
 }
 ```
+- **Form Input Type**
+    - [checkbox](./form-checkbox.md)
+    - [text](./form-text.md)
+    - [select](./form-text.md)
+    - [select2](./form-text.md)
+    - [textarea](./form-text.md)
+    - [image](./form-text.md)
+    - [upload](./form-text.md)
+    - [gender](./form-text.md)
+    - [status](./form-text.md)
+    - [date](./form-text.md)
+    - [hidden](./form-text.md)
+    - [password](./form-text.md)
+    - [email](./form-text.md)
+    - [datetime](./form-text.md)
+    - [time](./form-text.md)
+    - [radio](./form-text.md)
 
 Will update more...
 
@@ -90,5 +107,7 @@ Will update soon...
 
 # How to custom view
 Will update soon...
+
+
 
 ![LARACRUD](/public/images/screenshot/Screenshot.png?raw=true "LARACRUD")
