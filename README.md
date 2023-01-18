@@ -7,7 +7,7 @@
 - Helper
 
 # Installation and configuration 
-Just clone the repository and copy the example.env to .env and configure with your own environment and run php artisan migrate, 
+Just clone the repository and copy the env.example to .env and configure with your own environment and run php artisan migrate, 
 If missing some function from helper, please run compose dump-autoload
 
 # How to generate list UI
