@@ -116,6 +116,9 @@ Will update soon...
 # How to custom view
 Will update soon...
 
+# How to add button
+Will update soon...
+
 
 
 ![LARACRUD](/public/images/screenshot/Screenshot.png?raw=true "LARACRUD")
