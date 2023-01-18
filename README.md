@@ -108,7 +108,7 @@ After that your form will look like the screenshot
 Will update more...
 
 # How to generate form edit 
-Will update soon..
+Edit form, nothing to be implemented it will generate the same form create.
 
 # How to delete item
 Will update soon...
