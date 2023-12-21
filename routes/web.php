@@ -25,10 +25,30 @@ Route::group([
     foreach ($phpFiles as $file) {
         if (strpos(file_get_contents($file), 'Controller') !== false) {
             $fileName = pathinfo($file, PATHINFO_FILENAME);
-            routeGenerator($fileName);
+
+            if (exceptController(basename($fileName))) {
+                routeGenerator($fileName);
+            }
         }
     }
 });
+
+/**
+ * Check if a given controller is in the list of excepted controllers.
+ *
+ * @param string $controller The name of the controller to check.
+ * @return bool Returns true if the controller is not in the list of excepted controllers, false otherwise.
+ */
+function exceptController($controller)
+{
+    $exceptedControllers = [
+        'CRUDBaseController',
+        'LaraCRUDController',
+        'LoginController'
+    ];
+
+    return !in_array($controller, $exceptedControllers);
+}
 
 /**
  * Generates routes for a controller.
