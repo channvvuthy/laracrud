@@ -36,4 +36,7 @@ return [
     'Category' => 'ប្រភេទទំនិញ',
     'Category detail' => 'ពត័មានលំអិតនៃប្រភេទទំនិញ',
     'Edit category' => 'កែប្រែប្រភេទទំនិញ',
+    'Confirm Message' => 'បញ្ជាក់សម្មភាព',
+    'Are you sure to delete this record' => 'តើអ្នកពិតជាចង់ចាកចេញមែនទេ?',
+    'Close' => 'បិទ',
 ];

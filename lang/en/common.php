@@ -36,4 +36,7 @@ return [
     'Category' => 'Category',
     'Category detail' => 'Category detail',
     'Edit category' => 'Edit category',
+    'Confirm Message' => 'Confirm Message',
+    'Are you sure to delete this record' => 'Are you sure to delete this record?',
+    'Close' => 'Close',
 ];
