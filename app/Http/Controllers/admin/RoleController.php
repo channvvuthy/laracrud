@@ -46,7 +46,7 @@ class RoleController extends LaraCRUDController
         ];
         $this->appendButton($this->data, $buttonAppend);
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -58,7 +58,7 @@ class RoleController extends LaraCRUDController
         $this->data['back'] = "Role";
         $this->data['form'] = $this->form;
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 
     /**
@@ -73,7 +73,7 @@ class RoleController extends LaraCRUDController
         $this->data['find'] = $this->find;
         $this->data['back'] = "Role";
         $this->init();
-        return view('admincrud.role.assign_permission', ['data' => $this->data]);
+        return view('admin.role.assign_permission', ['data' => $this->data]);
     }
 
     /**

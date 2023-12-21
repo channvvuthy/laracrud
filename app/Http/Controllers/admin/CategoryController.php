@@ -43,7 +43,7 @@ class CategoryController extends LaraCRUDController
     {
         $this->result = $this->paginate();
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -55,6 +55,6 @@ class CategoryController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->data['back'] = "Category";
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 }

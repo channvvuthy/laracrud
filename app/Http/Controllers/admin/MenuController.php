@@ -46,7 +46,7 @@ class MenuController extends LaraCRUDController
         $this->title = $this->model->moduleName. " List";
         $this->result = $this->paginate();
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -59,7 +59,7 @@ class MenuController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->data['back'] = $this->model->moduleName;
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 
     /**

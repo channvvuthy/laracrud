@@ -59,7 +59,7 @@ class UserController extends LaraCRUDController
         ];
         $this->appendButton($this->data, $buttonAppend);
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -71,6 +71,6 @@ class UserController extends LaraCRUDController
         $this->data['back'] = "User";
         $this->data['form'] = $this->form;
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 }

@@ -1,4 +1,4 @@
-@extends('admincrud.layout.master')
+@extends('admin.layout.master')
 @section('content')
     <div class="d-flex flex-row">
         <a href="{{ Helper::indexUrl() }}">
@@ -52,7 +52,7 @@
         </div>
     </div>
 @endsection
-@include('admincrud.components.file_preview')
+@include('admin.components.file_preview')
 @push('script')
     <script>
         $(".files").on("click", function (e) {

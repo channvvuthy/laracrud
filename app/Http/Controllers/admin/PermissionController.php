@@ -37,7 +37,7 @@ class PermissionController extends LaraCRUDController
     {
         $this->result = $this->paginate();
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -49,6 +49,6 @@ class PermissionController extends LaraCRUDController
         $this->data['back'] = "Permission";
         $this->data['form'] = $this->form;
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 }

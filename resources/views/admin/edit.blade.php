@@ -1,4 +1,4 @@
-@extends('admincrud.layout.master')
+@extends('admin.layout.master')
 @section('content')
     <div class="d-flex flex-row">
         <a href="{{ Helper::indexUrl() }}">

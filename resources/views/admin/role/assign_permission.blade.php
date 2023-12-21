@@ -1,13 +1,13 @@
-@extends('admincrud.layout.master')
+@extends('admin.layout.master')
 @section('module')
-    @include('admincrud.partial.module')
+    @include('admin.partial.module')
 @endsection
 @section('content')
-    @include('admincrud.partial.filter')
+    @include('admin.partial.filter')
     @push('module')
-        @include('admincrud.partial.module')
+        @include('admin.partial.module')
     @endpush
-    @include('admincrud.partial.export')
+    @include('admin.partial.export')
     <div class="d-flex flex-row mb-3">
         <a href="/admin/role">
             <i class="fa fa-chevron-circle-left text-info"></i>
@@ -47,7 +47,7 @@
     </div>
 @endsection
 @push('script')
-    @include('admincrud.script.ajax')
+    @include('admin.script.ajax')
     <script>
         $(".permission").on("click", function (e) {
             let permission = e.target.value;

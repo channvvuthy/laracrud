@@ -55,4 +55,30 @@ trait CommonTrait
             $fields['password'] = bcrypt($request->input('password'));
         }
     }
+
+    public function shouldJoin($head): bool
+    {
+        return isset($head['join']) && $head['join'];
+    }
+
+    public function performJoin($query, $model, $head, &$select, &$data): void
+    {
+        $relation = explode(",", $head['on']);
+        $query->join($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
+
+        $colSelect = explode(",", $head['column']);
+        $select = array_merge($select, $colSelect);
+
+        if (isset($head['dropdown']) && $head['dropdown']) {
+            $this->handleDropdown($head, $data);
+        }
+    }
+
+    public function handleDropdown($head, &$data): void
+    {
+        $dropdown = explode(",", $head['dropdown']);
+        $dropdownKey = array_shift($dropdown);
+        $data[$dropdownKey] = DB::table($head['join'])->select($dropdown)->paginate($this->limit);
+    }
+
 }

@@ -92,7 +92,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      */
     public function getIndex(): mixed
     {
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -101,7 +101,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public function getAdd(): View|Factory|Application
     {
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 
     /**
@@ -131,7 +131,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->title = 'Edit ' . $this->model->moduleName;
         $this->data['back'] = $this->model->moduleName;
         $this->init();
-        return view('admincrud.edit', ['data' => $this->data]);
+        return view('admin.edit', ['data' => $this->data]);
     }
 
     /**
@@ -171,64 +171,49 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->title = 'Detail of ' . $this->model->moduleName;
         $this->data['back'] = $this->model->moduleName;
         $this->init();
-        return view('admincrud.detail', ['data' => $this->data]);
+        return view('admin.detail', ['data' => $this->data]);
     }
 
     /**
      * @param $model
      * @param $header
-     * @return LengthAwarePaginator|mixed
+     * @return LengthAwarePaginator
      */
-    public function getJoin($model, $header): mixed
+    public function getJoin($model, $header): LengthAwarePaginator
     {
         $query = DB::table($model->table);
         $select = [];
+
         foreach ($header as $head) {
-            if (isset($head['join']) && $head['join']) {
-                $relation = explode(",", $head['on']);
-                $query = $query->join($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
-                $colSelect = explode(",", $head['column']);
-                foreach ($colSelect as $col) {
-                    $select[] = $col;
-                }
+            if ($this->shouldJoin($head)) {
+                $this->performJoin($query, $model, $head, $select, $data);
             }
         }
         array_unshift($select, $model->table . ".*");
         return $query->select($select)->paginate($this->limit);
     }
 
-
     /**
      * @param $model
      * @param $header
      * @param $id
-     * @return LengthAwarePaginator|mixed
+     * @param null $data
+     * @return object|null
      */
-    public function findJoin($model, $header, $id, &$data = null): mixed
+    public function findJoin($model, $header, $id, &$data = null): null|object
     {
         $query = DB::table($model->table);
         $select = [];
+
         foreach ($header as $head) {
-            if (isset($head['join']) && $head['join']) {
-                $relation = explode(",", $head['on']);
-                $query = $query->join($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
-                $colSelect = explode(",", $head['column']);
-                foreach ($colSelect as $col) {
-                    $select[] = $col;
-                }
-
-                if (isset($head['dropdown']) && $head['dropdown']) {
-                    $dropdown = explode(",", $head['dropdown']);
-                    $dropdownKey = $dropdown[0];
-                    unset($dropdown[0]);
-                    $data[$dropdownKey] = DB::table($head['join'])->select($dropdown)->paginate($this->limit);
-                }
+            if ($this->shouldJoin($head)) {
+                $this->performJoin($query, $model, $head, $select, $data);
             }
-
-
         }
+
         array_unshift($select, $model->table . ".*");
-        $query = $query->where($model->table . ".id", '=', $id);
+        $query->where($model->table . ".id", '=', $id);
+
         return $query->select($select)->first();
     }
 
@@ -239,21 +224,24 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      */
     public function addRelation(&$form): void
     {
-        foreach ($this->form as $form) {
-            if (isset($form['database']) && $form['database']) {
-                $database = explode(",", $form['database']);
-                $table = $database[0];
-                unset($database[0]);
+        foreach ($this->form as $relation) {
+            if (isset($relation['database']) && $relation['database']) {
+                $database = explode(",", $relation['database']);
+                $table = array_shift($database);
+
                 $query = DB::table($table)->select($database);
-                if (isset($form['where']) && $form['where']) {
-                    $cond = explode(",", $form['where']);
-                    $query = $query->where($cond[0], '=', $cond[1]);
+
+                if (isset($relation['where']) && $relation['where']) {
+                    list($column, $value) = explode(",", $relation['where']);
+                    $query->where($column, '=', $value);
                 }
-                $query = $query->limit($this->limit)->get();
-                $this->data[$form['field']] = $query;
+
+                $result = $query->limit($this->limit)->get();
+                $this->data[$relation['field']] = $result;
             }
         }
     }
+
 
     /**
      * @param $head

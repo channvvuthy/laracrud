@@ -1,5 +1,0 @@
-@include('admincrud.layout.head')
-@include('admincrud.partial.body')
-@stack('snackbar')
-@include('admincrud.layout.foot')
-@stack('script')

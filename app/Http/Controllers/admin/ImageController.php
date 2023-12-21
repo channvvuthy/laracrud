@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Image;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class ImageController extends LaraCRUDController
 {
@@ -41,7 +39,7 @@ class ImageController extends LaraCRUDController
     {
         $this->result = $this->paginate();
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -53,6 +51,6 @@ class ImageController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->data['back'] = $this->model->moduleName;
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 }

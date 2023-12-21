@@ -41,7 +41,7 @@ class CourseController extends LaraCRUDController
     {
         $this->result = $this->paginate();
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -53,7 +53,7 @@ class CourseController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->data['back'] = $this->model->moduleName;
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 
 
@@ -79,6 +79,6 @@ class CourseController extends LaraCRUDController
         $this->title = 'Detail of ' . $this->model->moduleName;
         $this->data['back'] = $this->model->moduleName;
         $this->init();
-        return view('admincrud.detail', ['data' => $this->data]);
+        return view('admin.detail', ['data' => $this->data]);
     }
 }

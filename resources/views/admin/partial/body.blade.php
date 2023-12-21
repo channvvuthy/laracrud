@@ -5,16 +5,16 @@
     </div>
 
     <!-- Navbar -->
-    @include('admincrud.partial.header')
+    @include('admin.partial.header')
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
-    @include('admincrud.partial.sidebar')
+    @include('admin.partial.sidebar')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="container-fluid p-4">
-            @include('admincrud.components.success')
-            @include('admincrud.components.error')
+            @include('admin.components.success')
+            @include('admin.components.error')
             @stack('module')
             <div class="row">
                 <div class="col-md-12 overflow-x-scroll">

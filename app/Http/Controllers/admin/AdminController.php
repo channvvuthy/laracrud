@@ -48,7 +48,7 @@ class AdminController extends LaraCRUDController
     {
         $this->result = $this->paginate();
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
 
@@ -62,7 +62,7 @@ class AdminController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->data['back'] = "user";
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 
 

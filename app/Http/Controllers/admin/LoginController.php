@@ -13,7 +13,7 @@ class LoginController extends Controller
 {
     public function index()
     {
-        return view('admincrud.auth.login');
+        return view('admin.auth.login');
     }
 
     /**

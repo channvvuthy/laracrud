@@ -1,13 +1,13 @@
-@extends('admincrud.layout.master')
+@extends('admin.layout.master')
 @section('module')
-    @include('admincrud.partial.module')
+    @include('admin.partial.module')
 @endsection
 @section('content')
-    @include('admincrud.partial.filter')
+    @include('admin.partial.filter')
     @push('module')
-        @include('admincrud.partial.module')
+        @include('admin.partial.module')
     @endpush
-    @include('admincrud.partial.export')
+    @include('admin.partial.export')
     <table class="table table-bordered table-responsive-sm">
         <thead>
         <tr>
@@ -128,8 +128,8 @@
         @endisset
         </tbody>
     </table>
-    @include('admincrud.components.confirm')
-    @include('admincrud.components.file_preview')
+    @include('admin.components.confirm')
+    @include('admin.components.file_preview')
     {{--Pagination --}}
     @isset($data['result'])
         <div>

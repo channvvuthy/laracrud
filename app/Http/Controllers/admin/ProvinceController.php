@@ -47,7 +47,7 @@ class ProvinceController extends LaraCRUDController
     {
         $this->result = $this->getJoin($this->model, $this->head);
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -60,7 +60,7 @@ class ProvinceController extends LaraCRUDController
         $this->data['back'] = $this->model->moduleName;
         $this->addRelation($this->form);
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 
     /**
@@ -73,7 +73,7 @@ class ProvinceController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->title = 'Edit ' . $this->model->moduleName;
         $this->init();
-        return view('admincrud.edit', ['data' => $this->data]);
+        return view('admin.edit', ['data' => $this->data]);
     }
 
     /**
@@ -86,7 +86,7 @@ class ProvinceController extends LaraCRUDController
         $this->title = 'Detail of ' . $this->model->moduleName;
         $this->data['detail'] = $this->model->detail;
         $this->init();
-        return view('admincrud.detail', ['data' => $this->data]);
+        return view('admin.detail', ['data' => $this->data]);
 
 
     }

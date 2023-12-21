@@ -1,0 +1,5 @@
+@include('admin.layout.head')
+@include('admin.partial.body')
+@stack('snackbar')
+@include('admin.layout.foot')
+@stack('script')

@@ -39,7 +39,7 @@ class SliderController extends LaraCRUDController
         $this->result = $this->paginate();
         $this->title = "Slider list";
         $this->init();
-        return view('admincrud.index', ['data' => $this->data]);
+        return view('admin.index', ['data' => $this->data]);
     }
 
     /**
@@ -51,7 +51,7 @@ class SliderController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->data['back'] = "Slider";
         $this->init();
-        return view('admincrud.add', ['data' => $this->data]);
+        return view('admin.add', ['data' => $this->data]);
     }
 
 }
