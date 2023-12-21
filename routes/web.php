@@ -49,16 +49,18 @@ function routeGenerator($controller, $getUrls = [], $postUrls = [])
         '/delete/{id}' => 'delete',
     ];
     $defaultPostUrls = [
-        'post' => 'postAdd',
-        'update' => 'update'
+        '/post' => 'postAdd',
+        '/update' => 'update'
     ];
 
     foreach (array_merge($getUrls, $defaultGetUrls) as $url => $method) {
-        Route::get($controllerPrefix . $url, "$controller@$method");
+        Route::get($controllerPrefix . $url, "$controller@$method")
+            ->name($controllerPrefix . '.' . $method);
     }
 
     foreach (array_merge($postUrls, $defaultPostUrls) as $url => $method) {
-        Route::post($controllerPrefix . $url, "$controller@$method");
+        Route::post($controllerPrefix . $url, "$controller@$method")
+            ->name($controllerPrefix . '.' . $method);
     }
 }
 

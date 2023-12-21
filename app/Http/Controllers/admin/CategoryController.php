@@ -7,6 +7,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
+
 class CategoryController extends LaraCRUDController
 {
 
@@ -42,7 +43,7 @@ class CategoryController extends LaraCRUDController
      */
     public function getIndex(): mixed
     {
-        $this->result = $this->paginate();
+        $this->data['result'] = $this->paginate();
         return view('admin.index', ['data' => $this->data]);
     }
 
@@ -55,5 +56,19 @@ class CategoryController extends LaraCRUDController
         $this->data['form'] = $this->form;
         $this->data['back'] = "Category";
         return view('admin.add', ['data' => $this->data]);
+    }
+
+    /**
+     * Retrieves the detail of an item by its ID.
+     *
+     * @param mixed $id The ID of the item.
+     * @return mixed The rendered view with the item detail.
+     */
+    public function detail($id): mixed
+    {
+        $this->data['find'] = $this->model->findOrFail($id);
+        $this->data['back'] = $this->model->moduleName;
+
+        return view('admin.detail', ['data' => $this->data]);
     }
 }

@@ -34,4 +34,5 @@ return [
     'Back' => 'Back',
     'Please select' => 'Please select',
     'Category' => 'Category',
+    'Category detail' => 'Category detail',
 ];
