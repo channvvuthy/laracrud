@@ -45,11 +45,11 @@
             src: url("{{asset('fonts/Cascadia.ttf')}}");
         }
         @font-face {
-            font-family: "Preahvihear";
-            src: url("{{asset('fonts/Preahvihear.ttf')}}");
+            font-family: "Nokora";
+            src: url("{{asset('fonts/Nokora.ttf')}}");
         }
         body{
-            font-family: Ubuntu, Preahvihear !important;
+            font-family: Ubuntu, Nokora !important;
         }
     </style>
 </head>

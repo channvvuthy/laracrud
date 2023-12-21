@@ -15,10 +15,10 @@ class CategoryController extends LaraCRUDController
      */
     public function __construct(Category $category)
     {
-        parent::__construct();
+
         $this->model = $category;
         $this->limit = 10;
-        $this->title = "Category List";
+        $this->title = trans('common.Category List');
 
         $this->head = [
             array('field' => 'title', 'title' => 'Name'),
@@ -34,6 +34,7 @@ class CategoryController extends LaraCRUDController
             array('field' => 'status', 'title' => 'Status', 'type' => 'status'),
 
         ];
+        parent::__construct();
     }
 
     /**
@@ -42,7 +43,6 @@ class CategoryController extends LaraCRUDController
     public function getIndex(): mixed
     {
         $this->result = $this->paginate();
-        $this->init();
         return view('admin.index', ['data' => $this->data]);
     }
 
@@ -51,10 +51,9 @@ class CategoryController extends LaraCRUDController
      */
     public function getAdd(): View|Factory|Application
     {
-        $this->title = "Add new Category";
+        $this->data['title'] = trans('common.Add new Category');
         $this->data['form'] = $this->form;
         $this->data['back'] = "Category";
-        $this->init();
         return view('admin.add', ['data' => $this->data]);
     }
 }

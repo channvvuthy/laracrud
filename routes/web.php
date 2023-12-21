@@ -7,7 +7,7 @@ Route::group([
     'prefix' => '/auth',
 ], function () {
     Route::get('/', [LoginController::class, 'index'])->middleware('guest')->name('login');
-    Route::post('/login', [LoginController::class, 'authentication']);
+    Route::post('/login', [LoginController::class, 'login']);
     Route::get('/logout', [LoginController::class, 'logout'])->middleware('auth');
 });
 

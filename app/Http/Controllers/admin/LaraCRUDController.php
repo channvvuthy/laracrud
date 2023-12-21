@@ -48,6 +48,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public function __construct()
     {
         parent::__construct();
+        $this->init();
     }
 
     /**
@@ -134,9 +135,9 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
 
     /**
      * @param $id
-     * @return \Application|\RedirectResponse|\Redirector
+     * @return Redirector|RedirectResponse|Application
      */
-    public function delete($id): \Application|\RedirectResponse|\Redirector
+    public function delete($id): Redirector|RedirectResponse|Application
     {
         $this->model->destroy($id);
         return redirect(Helper::indexUrl())->with('message', 'The data has been deleted');

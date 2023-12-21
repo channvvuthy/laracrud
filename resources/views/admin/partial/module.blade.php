@@ -8,11 +8,11 @@
                     @endif
                 </h3>
             </div>
-            @if (isset($data['add']) && $data['add'] && ($data['method'] != 'add' && $data['method'] != 'edit'))
+            @if ($data['add'] ?? false && !in_array($data['method'], ['add', 'edit']))
                 <div class="mx-2">
                     <a href="{{ Request::url() }}/add">
                         <button type="button" class="btn btn-success btn-sm">
-                            <i class="fa fa-plus"></i> Add New
+                            <i class="fa fa-plus"></i> {{__('common.Add New')}}
                         </button>
                     </a>
                 </div>
@@ -20,3 +20,4 @@
         </div>
     </div>
 </div>
+

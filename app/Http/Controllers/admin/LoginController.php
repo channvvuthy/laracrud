@@ -20,12 +20,13 @@ class LoginController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function authentication(Request $request): RedirectResponse
+    public function login(Request $request): RedirectResponse
     {
         $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+        
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
