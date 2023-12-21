@@ -67,7 +67,7 @@ class RoleController extends LaraCRUDController
      */
     public function assignPermission($id): View|Factory|Application
     {
-        $this->find = $this->findbyId($id);
+        $this->find = $this->findId($id);
         $this->title = "Role " . $this->find->name;
         $this->data['permissions'] = Permission::all();
         $this->data['find'] = $this->find;

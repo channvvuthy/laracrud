@@ -3,22 +3,23 @@
 namespace App\Http\Controllers\admin;
 
 use App\Interfaces\LaraCRUDInterface;
+use App\Traits\CommonTrait;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use Helper;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
 class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
 {
-    public string $title = "LARACRUD";
+    use CommonTrait;
+
+    public string $title = "VSM";
     public int $limit = 20;
     public string $pk = "id";
     public string $order_by = "id";
@@ -32,14 +33,14 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public bool $import = false;
     public array $filter = [];
     public bool $display_id = true;
-    public $model;
-    public $result;
+    public Model $model;
+    public mixed $result;
     public array $data = [];
     public array $head = [];
     public int $col = 12;
     public int $grid = 12;
     public array $form = [];
-    public $find;
+    public mixed $find;
     public bool $wysiwyg = false;
     public bool $select2 = false;
     public int $action_with = 250;
@@ -110,41 +111,18 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public function postAdd(Request $request): Redirector|RedirectResponse|Application
     {
         $redirectUrl = $request->get('save');
-        $field = $request->except('_token', 'save');
+        $fields = $request->except('_token', 'save');
+
         $request->validate($this->validationForm());
 
-        foreach ($field as $key => $params) {
-            if ($request->hasFile($key)) {
-                $fileName = Helper::imageUpload("images", $request->file($key));
-                $field[$key] = $fileName;
-            }
-            if ($request->input('password')) {
-                $field["password"] = bcrypt($request->input('password'));
-            }
+        foreach ($fields as $key => $params) {
+            $this->processFileUpload($request, $key, $fields);
+            $this->hashPasswordIfPresent($request, $key, $fields);
         }
 
-        $this->model->create($field);
+        $this->model->create($fields);
+
         return redirect($redirectUrl)->with('message', 'The data has been added');
-    }
-
-    /**
-     * @return array
-     */
-    public function validationForm(): array
-    {
-        $validated = [];
-        foreach ($this->form as $form) {
-            if (isset($form['required']) && $form['required']) {
-                $validated[$form['field']] = $form['validated'];
-                if (Str::contains($form['validated'], "unique")) {
-                    try {
-                        $validated[$form['field']] = $form['validated'] . "," . $form['field'] . "," . request()->get('id');
-                    } catch (NotFoundExceptionInterface|ContainerExceptionInterface $e) {
-                    }
-                }
-            }
-        }
-        return $validated;
     }
 
     public function getEdit($id): mixed
@@ -173,19 +151,17 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public function update(Request $request): mixed
     {
         $redirectUrl = $request->get('save');
-        $request->validate($this->validationForm());
-        $field = $request->except('_token', 'save');
+        $fields = $request->except('_token', 'save');
 
-        foreach ($field as $key => $params) {
-            if ($request->hasFile($key)) {
-                $fileName = Helper::imageUpload("images", $request->file($key));
-                $field[$key] = $fileName;
-            }
-            if ($request->input('password')) {
-                $field["password"] = bcrypt($request->input('password'));
-            }
+        $request->validate($this->validationForm());
+
+        foreach ($fields as $key => $params) {
+            $this->processFileUpload($request, $key, $fields);
+            $this->hashPasswordIfPresent($request, $key, $fields);
         }
-        $this->model->where($this->pk, $request->get('id'))->update($field);
+
+        $this->model->where($this->pk, $request->get('id'))->update($fields);
+
         return redirect($redirectUrl)->with('message', 'The data has been updated');
     }
 
@@ -311,7 +287,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
      * @param $id
      * @return mixed
      */
-    public function findbyId($id): mixed
+    public function findId($id): mixed
     {
         return $this->model->findOrFail($id);
     }
