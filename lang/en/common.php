@@ -35,4 +35,5 @@ return [
     'Please select' => 'Please select',
     'Category' => 'Category',
     'Category detail' => 'Category detail',
+    'Edit category' => 'Edit category',
 ];

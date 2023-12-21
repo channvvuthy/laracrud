@@ -137,12 +137,22 @@ class Helper
      *
      * @return string The real title extracted from the route.
      */
-    public static function getRealTitleFromRoute(): string
+    public static function getDetailTitle(): string
     {
         $title = self::getCurrentRouteName();
         $title = str_replace('admin', '', $title);
         $title = str_replace('.', ' ', $title);
         return ucfirst($title);
+    }
+
+    /**
+     * Retrieves the edit title for the current route.
+     *
+     * @return string The edit title for the current route
+     */
+    public static function getEditTitle(): string
+    {
+        return 'Edit ' . str_replace(['.getEdit', 'admin'], '', self::getCurrentRouteName());
     }
 
     /**

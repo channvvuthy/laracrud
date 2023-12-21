@@ -12,7 +12,7 @@
     <div class="card mt-3">
         <div class="card-header">
             <h4>
-                {{ __('common.' . Helper::getRealTitleFromRoute()) }}
+                {{ __('common.' . Helper::getDetailTitle()) }}
             </h4>
         </div>
         <div class="px-3 ">

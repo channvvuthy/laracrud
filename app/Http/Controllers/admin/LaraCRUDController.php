@@ -124,12 +124,15 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         return redirect($redirectUrl)->with('message', 'The data has been added');
     }
 
+    /**
+     * Retrieves the edit form for a specific record.
+     *
+     * @param mixed $id The ID of the record to edit.
+     * @return mixed The view for editing the record.
+     */
     public function getEdit($id): mixed
     {
-        $this->find = $this->model->findOrFail($id);
-        $this->title = 'Edit ' . $this->model->moduleName;
-        $this->data['back'] = $this->model->moduleName;
-        $this->init();
+        $this->data['find'] = $this->model->findOrFail($id);
         return view('admin.edit', ['data' => $this->data]);
     }
 

@@ -71,4 +71,11 @@ class CategoryController extends LaraCRUDController
 
         return view('admin.detail', ['data' => $this->data]);
     }
+
+    public function getEdit($id): mixed
+    {
+        $this->data['find'] = $this->model->findOrFail($id);
+        return view('admin.edit', ['data' => $this->data]);
+    }
+
 }

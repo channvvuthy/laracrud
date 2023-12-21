@@ -35,4 +35,5 @@ return [
     'Please select' => 'សូមជ្រើសរើស',
     'Category' => 'ប្រភេទទំនិញ',
     'Category detail' => 'ពត័មានលំអិតនៃប្រភេទទំនិញ',
+    'Edit category' => 'កែប្រែប្រភេទទំនិញ',
 ];
