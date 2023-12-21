@@ -2,8 +2,7 @@
     <!-- Brand Logo -->
     <div class="text-center">
         <a href="{{URL::to('/')}}" class="brand-link">
-            <img src="{{ asset('images/logo/logo.png') }}"
-                 style="opacity: .8" width="160" class="m-auto">
+            {{__('common.VSM')}}
         </a>
     </div>
     <!-- Sidebar -->
@@ -48,7 +47,7 @@
                        class="nav-link {{Str::contains(strtolower(URL::current()),'menu')?'active':''}}">
                         <i class="fa-cloud-download-alt fa"></i>
                         <p class="pl-2">
-                            Menu
+                            {{__('common.Menu')}}
                         </p>
                     </a>
                 </li>
@@ -57,7 +56,7 @@
                        class="nav-link {{Str::contains(strtolower(URL::current()),'setting')?'active':''}}">
                         <i class="fa fa-cogs"></i>
                         <p class="pl-2">
-                            Setting
+                            {{__('common.Setting')}}
                         </p>
                     </a>
                 </li>
@@ -65,7 +64,7 @@
                     <a href="/auth/logout" class="nav-link">
                         <i class="fa fa-lock"></i>
                         <p class="pl-2">
-                            Logout
+                            {{__('common.Logout')}}
                         </p>
                     </a>
                 </li>

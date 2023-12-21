@@ -67,12 +67,10 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->data['display_id'] = $this->display_id;
         $this->data['pk'] = $this->pk;
         $this->data['head'] = $this->head;
-        $this->data['result'] = $this->result;
         $this->data['method'] = $this->method;
         $this->data['method'] = $this->method;
         $this->data['col'] = $this->col;
         $this->data['grid'] = $this->grid;
-        $this->data['find'] = $this->find;
         $this->data['wysiwyg'] = $this->wysiwyg;
         $this->data['select2'] = $this->select2;
         $this->data['action_with'] = $this->action_with;
