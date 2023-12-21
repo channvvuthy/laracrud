@@ -43,6 +43,8 @@ trait CommonTrait
 
     public function processFileUpload(Request $request, string $key, array &$fields): void
     {
+
+       
         if ($request->hasFile($key)) {
             $fileName = Helper::imageUpload("images", $request->file($key));
             $fields[$key] = $fileName;

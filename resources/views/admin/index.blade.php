@@ -63,7 +63,7 @@
                                             </a>
                                         @endif
                                     @else
-                                        {{ Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 20) }}
+                                        {{ Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 40) }}
                                     @endif
 
                                 </td>
