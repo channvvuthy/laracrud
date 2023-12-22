@@ -37,7 +37,11 @@
                                         </a>
                                     @endif
                                 @else
-                                    {{ is_array($data['find']) ? $data['find'][$detail['field']] : $data['find']->{$detail['field']} }}
+                                    @if ($detail['field'] === 'status')
+                                        {{ $detail['field'] == 2 ? __('common.Disable') : __('common.Enable') }}
+                                    @else
+                                        {{ is_array($data['find']) ? $data['find'][$detail['field']] : $data['find']->{$detail['field']} }}
+                                    @endif
                                 @endif
                             </div>
                         </li>
@@ -46,33 +50,38 @@
             </div>
         </div>
     </div>
+    @include('admin.components.file_preview')
 @endsection
-@include('admin.components.file_preview')
 @push('script')
     <script>
         $(".files").on("click", function(e) {
-            let uri = e.target.getAttribute('data-url');
-            let type = e.target.getAttribute('data-type');
-            if (type == 'single_file') {
-                let image = document.createElement("img");
+            const uri = e.target.getAttribute('data-url');
+            const type = e.target.getAttribute('data-type');
+
+            function createImageElement(src) {
+                const image = document.createElement("img");
+                image.src = src;
                 image.classList.add("img-fluid");
                 image.classList.add("rounded");
-                image.src = uri
-                $("#content_preview").html(image)
+                return image;
+            }
+
+            if (type === 'single_file') {
+                const image = createImageElement(uri);
+                $("#content_preview").html(image);
             } else {
-                let files = uri.split(",");
-                let fileDisplay = document.createElement("div")
+                const files = uri.split(",");
+                const fileDisplay = document.createElement("div");
 
                 files.forEach(item => {
-                    let image = document.createElement("img");
-                    image.src = item
-                    image.classList.add("img-fluid");
+                    const image = createImageElement(item);
                     image.classList.add("mb-3");
-                    image.classList.add("rounded");
-                    fileDisplay.append(image)
-                })
+                    fileDisplay.append(image);
+                });
+
                 $("#content_preview").html(fileDisplay);
             }
+
             $("#file_preview").modal("show");
         });
     </script>

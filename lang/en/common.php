@@ -52,5 +52,11 @@ return [
     'Add new Menu' => 'Add new Menu',
     'Unit' => 'Unit',
     'Unit List' => 'Unit List',
-    'Add new Unit' => 'Add new Unit'
+    'Add new Unit' => 'Add new Unit',
+    'Supplier' => 'Supplier',
+    'Address' => 'Address',
+    'Company Name' => 'Company Name',
+    'Phone' => 'Phone',
+    'Supplier List' => 'Supplier List',
+    'Add new Supplier' => 'Add new Supplier'
 ];

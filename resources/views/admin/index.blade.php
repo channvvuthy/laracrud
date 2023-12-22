@@ -12,7 +12,7 @@
         <thead>
             <tr>
                 @if (isset($data['display_id']) && $data['display_id'])
-                    <th>{{__('common.ID')}}</th>
+                    <th>{{ __('common.ID') }}</th>
                 @endif
                 @isset($data['head'])
                     @foreach ($data['head'] as $key => $col)
@@ -21,7 +21,7 @@
                         @endif
                     @endforeach
                     @if ($data['has_action'])
-                        <th class="text-center" width="{{ $data['action_with'] }}">{{__('common.Action')}}</th>
+                        <th class="text-center" width="{{ $data['action_with'] }}">{{ __('common.Action') }}</th>
                     @endif
                 @endisset
 
@@ -45,15 +45,15 @@
                                             </a>
                                         @elseif($col['type'] == 'gender')
                                             @if (is_array($result) ? $result[$col['field']] : $result->{$col['field']} == 1)
-                                                <span>{{__('common.Male')}}</span>
+                                                <span>{{ __('common.Male') }}</span>
                                             @else
-                                                <span>{{__('common.Female')}}</span>
+                                                <span>{{ __('common.Female') }}</span>
                                             @endif
                                         @elseif($col['type'] == 'status')
                                             @if (is_array($result) ? $result[$col['field']] : $result->{$col['field']} == 1)
-                                                <span>{{__('common.Enable')}}</span>
+                                                <span>{{ __('common.Enable') }}</span>
                                             @else
-                                                <span>{{__('common.Disable')}}</span>
+                                                <span>{{ __('common.Disable') }}</span>
                                             @endif
                                         @else
                                             <a href="#" class="files">
@@ -63,7 +63,11 @@
                                             </a>
                                         @endif
                                     @else
-                                        {{ Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 40) }}
+                                        @if ($col['field'] === 'status')
+                                            {{ $result->{$col['field']} == 2 ? __('common.Disable') : __('common.Enable') }}
+                                        @else
+                                            {{ Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 40) }}
+                                        @endif
                                     @endif
 
                                 </td>
@@ -78,7 +82,7 @@
                                                 href="{{ Helper::indexUrl() }}/detail/{{ is_array($result) ? $result[$data['pk']] : $result->{$data['pk']} }}">
                                                 <button type="button" class="btn btn-primary btn-sm">
                                                     <i class="fa fa-eye"></i>
-                                                    {{__('common.View')}}
+                                                    {{ __('common.View') }}
                                                 </button>
                                             </a>
                                         </div>
@@ -89,7 +93,7 @@
                                                 href="{{ Helper::indexUrl() }}/edit/{{ is_array($result) ? $result[$data['pk']] : $result->{$data['pk']} }}">
                                                 <button type="button" class="btn btn-success btn-sm">
                                                     <i class="fa fa-edit"></i>
-                                                    {{__('common.Edit')}}
+                                                    {{ __('common.Edit') }}
                                                 </button>
                                             </a>
                                         </div>
@@ -101,7 +105,7 @@
                                                 <button type="button" class="btn btn-danger btn-sm"
                                                     data-id="{{ is_array($result) ? $result[$data['pk']] : $result->{$data['pk']} }}">
                                                     <i class="fa fa-trash"></i>
-                                                    {{__('common.Delete')}}
+                                                    {{ __('common.Delete') }}
                                                 </button>
                                             </a>
                                         </div>
@@ -138,41 +142,42 @@
 @endsection
 @push('script')
     <script>
-        let delete_id;
+        $(document).ready(function() {
+            let deleteId;
 
-        $(".btn-delete").on("click", function(e) {
-            $("#confirm").modal("show");
-            delete_id = e.target.getAttribute('data-id');
-        });
+            $(".btn-delete").on("click", function(e) {
+                $("#confirm").modal("show");
+                deleteId = e.target.getAttribute('data-id');
+            });
 
-        $(".btn-delete-item").on("click", function() {
-            window.location.href = "{{ Helper::indexUrl() }}/delete/" + delete_id;
-        });
+            $(".btn-delete-item").on("click", function() {
+                window.location.href = `${Helper.indexUrl()}/delete/${deleteId}`;
+            });
 
-        $(".files").on("click", function(e) {
-            let uri = e.target.getAttribute('data-url');
-            let type = e.target.getAttribute('data-type');
-            if (type == 'single_file') {
-                let image = document.createElement("img");
-                image.classList.add("img-fluid");
-                image.classList.add("rounded");
-                image.src = uri
-                $("#content_preview").html(image)
-            } else {
-                let files = uri.split(",");
-                let fileDisplay = document.createElement("div")
+            $(".files").on("click", function(e) {
+                let uri = e.target.getAttribute('data-url');
+                let type = e.target.getAttribute('data-type');
+                let contentPreview = $("#content_preview");
 
-                files.forEach(item => {
-                    let image = document.createElement("img");
-                    image.src = item
-                    image.classList.add("img-fluid");
-                    image.classList.add("mb-3");
-                    image.classList.add("rounded");
-                    fileDisplay.append(image)
-                })
-                $("#content_preview").html(fileDisplay);
-            }
-            $("#file_preview").modal("show");
+                if (type === 'single_file') {
+                    contentPreview.html(`<img src="${uri}" class="img-fluid rounded">`);
+                } else {
+                    let files = uri.split(",");
+                    let fileDisplay = $("<div>");
+
+                    files.forEach(item => {
+                        let image = $("<img>").attr({
+                            src: item,
+                            class: "img-fluid mb-3 rounded"
+                        });
+                        fileDisplay.append(image);
+                    });
+
+                    contentPreview.html(fileDisplay);
+                }
+
+                $("#file_preview").modal("show");
+            });
         });
     </script>
 @endpush

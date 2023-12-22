@@ -7,6 +7,8 @@ use Illuminate\Support\Str;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 trait CommonTrait
 {
     public function validationForm(): array

@@ -52,7 +52,7 @@ class CRUDBaseController extends Controller
     {
         return DB::table('menus')
             ->select('icon', 'name', 'action')
-            ->orderByDesc('order')
+            ->orderBy('order', 'asc')
             ->get();
     }
 

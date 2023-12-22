@@ -1,4 +1,4 @@
-<div class="modal fade" id="file_preview" tabindex="-1" role="dialog"
+<div class="modal" id="file_preview" tabindex="-1" role="dialog"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
