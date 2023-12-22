@@ -48,4 +48,9 @@ return [
     'Brand List' => 'បញ្ជីម៉ាក',
     'Add new Brand' => 'បន្ថែមម៉ាកថ្មី',
     'Edit menu' => 'កែប្រែមីនុយ',
+    'Clear Cache' => 'សម្អាតប្រព័ន្ធ',
+    'Add new Menu' => 'បន្ថែមមីនុយថ្មី',
+    'Unit' => 'ខ្នាត',
+    'Unit List' => 'បញ្ជីខ្នាត',
+    'Add new Unit' => 'បន្ថែមខ្នាតថ្មី'
 ];

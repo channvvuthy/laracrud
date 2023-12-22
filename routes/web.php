@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController;
+use App\Http\Controllers\admin\SettingController;
 
 // Authentication Routes
 Route::group([
@@ -17,6 +18,9 @@ Route::group([
     'as' => 'admin',
     'namespace' => 'App\Http\Controllers\admin',
 ], function () {
+
+    Route::get('/clear-cache', [SettingController::class, 'clearCache']);
+
     $controllerDirectory = realpath(__DIR__ . '/../app/Http/Controllers/admin');
 
     // Get all PHP files in the directory

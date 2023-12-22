@@ -15,7 +15,6 @@ class BrandController extends LaraCRUDController
 
         $this->model = $brand;
         $this->limit = 10;
-        $this->title = trans('common.Category List');
 
         $this->head = [
             array('field' => 'title', 'title' => 'Name'),

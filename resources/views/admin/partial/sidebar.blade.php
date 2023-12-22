@@ -60,6 +60,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="/admin/clear-cache" class="nav-link">
+                        <i class="fa fa-trash"></i>
+                        <p class="pl-2">
+                            {{ __('common.Clear Cache') }}
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/auth/logout" class="nav-link">
                         <i class="fa fa-lock"></i>
                         <p class="pl-2">

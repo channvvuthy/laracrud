@@ -47,5 +47,10 @@ return [
     'Brand' => 'Brand',
     'Brand List' => 'Brand List',
     'Add new Brand' => 'Add new Brand',
-    'Edit menu' => 'Edit menu'
+    'Edit menu' => 'Edit menu',
+    'Clear Cache' => 'Clear Cache',
+    'Add new Menu' => 'Add new Menu',
+    'Unit' => 'Unit',
+    'Unit List' => 'Unit List',
+    'Add new Unit' => 'Add new Unit'
 ];
