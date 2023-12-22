@@ -28,6 +28,15 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
+                <li class="nav-item">
+                    <a href="/admin/menu"
+                        class="nav-link {{ Str::contains(strtolower(URL::current()), 'dashboard') ? 'active' : '' }}">
+                        <i class="fa  fa-home"></i>
+                        <p class="pl-2">
+                            {{ __('common.Dashboard') }}
+                        </p>
+                    </a>
+                </li>
                 @if (Cache::has('menus') && count(Cache::get('menus')))
                     @foreach (Cache::get('menus') as $key => $menu)
                         <li class="nav-item">

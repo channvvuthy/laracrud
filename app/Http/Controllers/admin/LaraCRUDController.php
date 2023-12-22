@@ -229,7 +229,9 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         foreach ($this->form as $relation) {
             if (isset($relation['database']) && $relation['database']) {
                 $database = explode(",", $relation['database']);
+
                 $table = array_shift($database);
+                
 
                 $query = DB::table($table)->select($database);
 

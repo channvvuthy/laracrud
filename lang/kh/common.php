@@ -58,5 +58,14 @@ return [
     'Company Name' => 'ឈ្មោះក្រុមហ៊ុន',
     'Phone' => 'លេខទូរស័ព្ទ',
     'Supplier List' => 'បញ្ជីអ្នកផ្គត់ផ្គង់',
-    'Add new Supplier' => 'បន្ថែមអ្នកផ្គត់ផ្គង់ថ្មី'
+    'Add new Supplier' => 'បន្ថែមអ្នកផ្គត់ផ្គង់ថ្មី',
+    'Dashboard' => 'ទំព័រដើម',
+    'Product' => 'ទំនិញ',
+    'Code' => 'កូដ',
+    'Purchase Price' => 'តម្លៃទិញ',
+    'Sale Price' => 'តម្លៃលក់',
+    'Quantity' => 'ចំនួន',
+    'Branch' => 'ម៉ាក',
+    'Product List' => 'បញ្ជីទំនិញ',
+    'Add new Product' => 'បន្ថែមទំនិញថ្មី'
 ];

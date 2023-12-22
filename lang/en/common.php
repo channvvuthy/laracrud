@@ -58,5 +58,14 @@ return [
     'Company Name' => 'Company Name',
     'Phone' => 'Phone',
     'Supplier List' => 'Supplier List',
-    'Add new Supplier' => 'Add new Supplier'
+    'Add new Supplier' => 'Add new Supplier',
+    'Dashboard' => 'Dashboard',
+    'Product' => 'Product',
+    'Code' => 'Code',
+    'Purchase Price' => 'Purchase Price',
+    'Sale Price' => 'Sale Price',
+    'Quantity' => 'Quantity',
+    'Branch' => 'Branch',
+    'Product List' => 'Product List',
+    'Add new Product' => 'បន្ថែមទំនិញថ្មី'
 ];
