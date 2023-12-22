@@ -3,16 +3,14 @@
         <div class="d-flex flex-row align-items-center">
             <div>
                 <h3 class="m-0">
-                    @if (isset($data['title']))
-                        {{ $data['title'] }}
-                    @endif
+                    {{ __('common.' . Helper::getListTitle()) }}
                 </h3>
             </div>
             @if ($data['add'] ?? false && !in_array($data['method'], ['add', 'edit']))
                 <div class="mx-2">
                     <a href="{{ Request::url() }}/add">
                         <button type="button" class="btn btn-success btn-sm">
-                            <i class="fa fa-plus"></i> {{__('common.Add New')}}
+                            <i class="fa fa-plus"></i> {{ __('common.Add New') }}
                         </button>
                     </a>
                 </div>
@@ -20,4 +18,3 @@
         </div>
     </div>
 </div>
-

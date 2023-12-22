@@ -87,6 +87,21 @@ class Helper
     }
 
     /**
+     * Retrieves the title for adding a new module.
+     *
+     * @return string The title for adding a new module.
+     */
+    public static function getAddTitle(): string
+    {
+        return 'Add new ' . self::getModuleName();
+    }
+
+    public static function getListTitle(): string
+    {
+        return self::getModuleName() . ' List';
+    }
+
+    /**
      * Retrieves the module name from the current request.
      *
      * @return string|null The module name if found, or null if not found.

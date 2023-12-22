@@ -39,4 +39,13 @@ return [
     'Confirm Message' => 'Confirm Message',
     'Are you sure to delete this record' => 'Are you sure to delete this record?',
     'Close' => 'Close',
+    'Preview' => 'Preview',
+    'Menu List' => 'Menu List',
+    'Icon' => 'Icon',
+    'Path' => 'Path',
+    'Order' => 'Order',
+    'Brand' => 'Brand',
+    'Brand List' => 'Brand List',
+    'Add new Brand' => 'Add new Brand',
+    'Edit menu' => 'Edit menu'
 ];

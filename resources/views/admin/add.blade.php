@@ -3,18 +3,16 @@
     <div class="d-flex flex-row">
         <a href="{{ Helper::indexUrl() }}">
             <i class="fa fa-chevron-circle-left text-info"></i>
-            <span class="text-info">{{ __('common.Back to list') }} @if (isset($data['back']) && $data['back'])
-                    {{ __('common.' . $data['back']) }}
-                @endif
+            <span class="text-info">
+                {{ __('common.Back to list') }}
+                {{ __('common.' . Helper::getModuleName()) }}
             </span>
         </a>
     </div>
     <div class="card mt-3">
         <div class="card-header">
             <h4>
-                @if (isset($data['title']))
-                    {{ $data['title'] }}
-                @endif
+                {{ __('common.' . Helper::getAddTitle()) }}
             </h4>
         </div>
         <form method="POST" enctype="multipart/form-data" action="post">
@@ -28,7 +26,7 @@
                                     <div class="mb-3 row">
                                         @if ($form['type'] == 'text' || $form['type'] == 'number')
                                             <label for="{{ $form['field'] }}" class="col-sm-2 col-form-label">
-                                                {{ __('common.'.$form['title']) }}@if (isset($form['required']) && $form['required'])
+                                                {{ __('common.' . $form['title']) }}@if (isset($form['required']) && $form['required'])
                                                     <span class="text-danger">*</span>
                                                 @endif
                                             </label>
@@ -39,7 +37,7 @@
                                             </div>
                                         @elseif($form['type'] == 'textarea')
                                             <label for="{{ $form['field'] }}" class="col-sm-2 col-form-label">
-                                                {{ __('common.'.$form['title']) }}@if (isset($form['required']) && $form['required'])
+                                                {{ __('common.' . $form['title']) }}@if (isset($form['required']) && $form['required'])
                                                     <span class="text-danger">*</span>
                                                 @endif
                                             </label>
@@ -49,7 +47,7 @@
                                             </div>
                                         @elseif($form['type'] == 'wysiwyg')
                                             <label for="{{ $form['field'] }}" class="col-sm-2 col-form-label">
-                                                {{ __('common.'.$form['title']) }}@if (isset($form['required']) && $form['required'])
+                                                {{ __('common.' . $form['title']) }}@if (isset($form['required']) && $form['required'])
                                                     <span class="text-danger">*</span>
                                                 @endif
                                             </label>
@@ -59,11 +57,12 @@
                                             </div>
                                         @elseif($form['type'] == 'select')
                                             <label for="{{ $form['field'] }}"
-                                                class="col-sm-2 col-form-label">{{ __('common.'.$form['title']) }}</label>
+                                                class="col-sm-2 col-form-label">{{ __('common.' . $form['title']) }}</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control" name="{{ $form['field'] }}"
                                                     @if (isset($form['required']) && $form['required']) required @endif>
-                                                    <option selected>{{__('common.Please select')}} {{ __('common.'.$form['title']) }}</option>
+                                                    <option selected>{{ __('common.Please select') }}
+                                                        {{ __('common.' . $form['title']) }}</option>
                                                     @foreach ($data[$form['field']] as $select)
                                                         <option value="{{ $select->id }}">{{ $select->name }}</option>
                                                     @endforeach
@@ -71,11 +70,12 @@
                                             </div>
                                         @elseif($form['type'] == 'select2')
                                             <label for="{{ $form['field'] }}"
-                                                class="col-sm-2 col-form-label">{{ __('common.'.$form['title']) }}</label>
+                                                class="col-sm-2 col-form-label">{{ __('common.' . $form['title']) }}</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" style="width: 100%;"
                                                     @if (isset($form['required']) && $form['required']) required @endif>
-                                                    <option selected>{{__('common.Please select')}} {{ __('common.'.$form['title']) }}</option>
+                                                    <option selected>{{ __('common.Please select') }}
+                                                        {{ __('common.' . $form['title']) }}</option>
                                                     @foreach ($data[$form['field']] as $select)
                                                         <option value="{{ $select->id }}">{{ $select->name }}</option>
                                                     @endforeach
@@ -83,32 +83,34 @@
                                             </div>
                                         @elseif($form['type'] == 'gender')
                                             <label for="{{ $form['field'] }}"
-                                                class="col-sm-2 col-form-label">{{ __('common.'.$form['title']) }}</label>
+                                                class="col-sm-2 col-form-label">{{ __('common.' . $form['title']) }}</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" style="width: 100%;"
                                                     @if (isset($form['required']) && $form['required']) required @endif>
-                                                    <option selected>{{__('common.Please select')}} {{ __('common.'.$form['title']) }}</option>
-                                                    <option value="1">{{__('common.Male')}}</option>
-                                                    <option value="2">{{__('common.Female')}}</option>
+                                                    <option selected>{{ __('common.Please select') }}
+                                                        {{ __('common.' . $form['title']) }}</option>
+                                                    <option value="1">{{ __('common.Male') }}</option>
+                                                    <option value="2">{{ __('common.Female') }}</option>
 
                                                 </select>
                                             </div>
                                         @elseif($form['type'] == 'status')
                                             <label for="{{ $form['field'] }}"
-                                                class="col-sm-2 col-form-label">{{ __('common.'.$form['title']) }}</label>
+                                                class="col-sm-2 col-form-label">{{ __('common.' . $form['title']) }}</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" style="width: 100%;"
                                                     @if (isset($form['required']) && $form['required']) required @endif>
-                                                    <option selected>{{__('common.Please select')}} {{ __('common.'.$form['title']) }}</option>
-                                                    <option value="1">{{__('common.Enable')}}</option>
-                                                    <option value="2">{{__('common.Disable')}}</option>
+                                                    <option selected>{{ __('common.Please select') }}
+                                                        {{ __('common.' . $form['title']) }}</option>
+                                                    <option value="1">{{ __('common.Enable') }}</option>
+                                                    <option value="2">{{ __('common.Disable') }}</option>
 
                                                 </select>
                                             </div>
                                         @else
                                             @if (isset($form['multiple']) && $form['multiple'])
                                                 <label for="{{ $form['field'] }}" class="col-sm-2 col-form-label">
-                                                    {{ __('common.'.$form['title']) }}
+                                                    {{ __('common.' . $form['title']) }}
                                                     @if (isset($form['required']) && $form['required'])
                                                         <span class="text-danger">*</span>
                                                     @endif
@@ -122,7 +124,7 @@
                                                 </div>
                                             @else
                                                 <label for="{{ $form['field'] }}"
-                                                    class="col-sm-2 col-form-label">{{ __('common.'.$form['title']) }}
+                                                    class="col-sm-2 col-form-label">{{ __('common.' . $form['title']) }}
                                                     @if (isset($form['required']) && $form['required'])
                                                         <span class="text-danger">*</span>
                                                     @endif
@@ -148,12 +150,13 @@
                     <div class="col-sm-2 "></div>
                     <div class="col-sm-10 d-flex flex-row">
                         <a href="{{ Helper::indexUrl() }}">
-                            <button type="button" class="btn btn-secondary">{{__('common.Back')}}</button>
+                            <button type="button" class="btn btn-secondary">{{ __('common.Back') }}</button>
                         </a>
                         <button type="submit" class="btn btn-success mx-2" value="{{ URL::current() }}" name="save">
-                            {{__('common.Save & Add More')}}
+                            {{ __('common.Save & Add More') }}
                         </button>
-                        <button type="submit" class="btn btn-success" value="{{ Helper::indexUrl() }}" name="save">{{__('common.Save')}}
+                        <button type="submit" class="btn btn-success" value="{{ Helper::indexUrl() }}"
+                            name="save">{{ __('common.Save') }}
                         </button>
                     </div>
                 </div>

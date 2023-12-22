@@ -39,4 +39,13 @@ return [
     'Confirm Message' => 'បញ្ជាក់សម្មភាព',
     'Are you sure to delete this record' => 'តើអ្នកពិតជាចង់ចាកចេញមែនទេ?',
     'Close' => 'បិទ',
+    'Preview' => 'បង្ហាញ',
+    'Menu List' => 'បញ្ជីមីនុយ',
+    'Icon' => 'រូបតំណាង',
+    'Path' => 'តម្រុយ',
+    'Order' => 'លំដាប់',
+    'Brand' => 'ម៉ាក',
+    'Brand List' => 'បញ្ជីម៉ាក',
+    'Add new Brand' => 'បន្ថែមម៉ាកថ្មី',
+    'Edit menu' => 'កែប្រែមីនុយ',
 ];

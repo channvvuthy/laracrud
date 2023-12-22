@@ -52,9 +52,7 @@ class CategoryController extends LaraCRUDController
      */
     public function getAdd(): View|Factory|Application
     {
-        $this->data['title'] = trans('common.Add new Category');
         $this->data['form'] = $this->form;
-        $this->data['back'] = "Category";
         return view('admin.add', ['data' => $this->data]);
     }
 
