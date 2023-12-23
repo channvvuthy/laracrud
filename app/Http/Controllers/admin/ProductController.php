@@ -57,7 +57,6 @@ class ProductController extends LaraCRUDController
     public function getIndex(): View|Factory|Application
     {
         $this->result = $this->paginate();
-        $this->init();
         return view('admin.index', ['data' => $this->data]);
     }
 
