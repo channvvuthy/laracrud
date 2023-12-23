@@ -185,6 +185,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     {
         $query = DB::table($model->table);
         $select = [];
+        
 
         foreach ($header as $head) {
             if ($this->shouldJoin($head)) {

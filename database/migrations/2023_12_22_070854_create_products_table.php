@@ -16,15 +16,15 @@ return new class extends Migration {
             $table->id();
             $table->string('code')->nullable();
             $table->string('name');
-            $table->string('photo');
+            $table->string('photo')->nullable();
             $table->integer('category_id')->nullable();
             $table->integer('unit_id')->nullable();
             $table->integer('brand_id')->nullable();
             $table->double('purchase_price');
             $table->double('sale_price');
-            $table->integer('quantity')->default(0);
+            $table->integer('quantity')->nullable()->default(0);
             $table->integer('low_stock_alert')->default(0);
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->boolean('status')->default(true);
             $table->timestamps();
         });

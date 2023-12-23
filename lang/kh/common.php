@@ -67,5 +67,6 @@ return [
     'Quantity' => 'ចំនួន',
     'Branch' => 'ម៉ាក',
     'Product List' => 'បញ្ជីទំនិញ',
-    'Add new Product' => 'បន្ថែមទំនិញថ្មី'
+    'Add new Product' => 'បន្ថែមទំនិញថ្មី',
+    'Edit product' => 'កែប្រែទំនិញ'
 ];

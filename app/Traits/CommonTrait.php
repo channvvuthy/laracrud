@@ -68,7 +68,8 @@ trait CommonTrait
     public function performJoin($query, $model, $head, &$select, &$data): void
     {
         $relation = explode(",", $head['on']);
-        $query->join($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
+        
+        $query->leftJoin($head['join'], $model->table . '.' . $relation[0], '=', $head['join'] . '.' . $relation[1]);
 
         $colSelect = explode(",", $head['column']);
         $select = array_merge($select, $colSelect);
