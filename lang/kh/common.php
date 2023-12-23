@@ -68,5 +68,6 @@ return [
     'Branch' => 'ម៉ាក',
     'Product List' => 'បញ្ជីទំនិញ',
     'Add new Product' => 'បន្ថែមទំនិញថ្មី',
-    'Edit product' => 'កែប្រែទំនិញ'
+    'Edit product' => 'កែប្រែទំនិញ',
+    'Product detail' => 'ពត៍មានទំនិញ'
 ];

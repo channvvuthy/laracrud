@@ -67,6 +67,7 @@ return [
     'Quantity' => 'Quantity',
     'Branch' => 'Branch',
     'Product List' => 'Product List',
-    'Add new Product' => 'បន្ថែមទំនិញថ្មី',
-    'Edit product' => 'Edit product'
+    'Add new Product' => 'Add new Product',
+    'Edit product' => 'Edit product',
+    'Product detail' => 'Product detail'
 ];
