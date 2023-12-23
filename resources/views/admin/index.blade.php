@@ -151,7 +151,7 @@
             });
 
             $(".btn-delete-item").on("click", function() {
-                window.location.href = `${Helper.indexUrl()}/delete/${deleteId}`;
+                window.location.href = "{{ Helper::indexUrl() }}" + `/delete/${deleteId}`;
             });
 
             $(".files").on("click", function(e) {

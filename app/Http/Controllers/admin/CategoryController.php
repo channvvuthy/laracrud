@@ -22,14 +22,14 @@ class CategoryController extends LaraCRUDController
         $this->title = trans('common.Category List');
 
         $this->head = [
-            array('field' => 'title', 'title' => 'Name'),
+            array('field' => 'name', 'title' => 'Name'),
             array('field' => 'photo', 'title' => 'Photo', 'type' => 'image'),
             array('field' => 'description', 'title' => 'Description'),
             array('field' => 'status', 'title' => 'Status'),
         ];
 
         $this->form = [
-            array('field' => 'title', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'accept' => 'image/*', 'validated' => 'required'),
             array('field' => 'description', 'title' => 'Description', 'type' => 'text'),
             array('field' => 'status', 'title' => 'Status', 'type' => 'status'),
