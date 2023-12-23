@@ -69,5 +69,10 @@ return [
     'Product List' => 'Product List',
     'Add new Product' => 'Add new Product',
     'Edit product' => 'Edit product',
-    'Product detail' => 'Product detail'
+    'Product detail' => 'Product detail',
+    'Parent' => 'Parent',
+    'Parent ID' => "Parent ID",
+    'Setting List' => 'Setting List',
+    'Logo' => 'Logo',
+    'About' => 'About',
 ];

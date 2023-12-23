@@ -69,5 +69,10 @@ return [
     'Product List' => 'បញ្ជីទំនិញ',
     'Add new Product' => 'បន្ថែមទំនិញថ្មី',
     'Edit product' => 'កែប្រែទំនិញ',
-    'Product detail' => 'ពត៍មានទំនិញ'
+    'Product detail' => 'ពត៍មានទំនិញ',
+    'Parent' => 'មេ',
+    'Parent ID' => "លេខសម្គាល់មេ",
+    'Setting List' => 'បញ្ជីការកំណត់',
+    'Logo' => 'និមិត្តសញ្ញា',
+    'About' => 'អំពី',
 ];
