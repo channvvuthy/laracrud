@@ -73,16 +73,32 @@ class ProductController extends LaraCRUDController
     }
 
     /**
-     * Retrieves the detail of an item by its ID.
+     * Retrieves the detail of a specific record.
      *
-     * @param mixed $id The ID of the item.
-     * @return mixed The rendered view with the item detail.
+     * @param mixed $id The identifier of the record.
+     * @return mixed The view for the detail page.
      */
     public function detail($id): mixed
     {
-        $this->data['find'] = $this->model->findOrFail($id);
+        $this->data['find'] = $this->findJoin($this->model, $this->head, $id);
+        $this->data['detail'] = $this->model->detail;
 
         return view('admin.detail', ['data' => $this->data]);
     }
 
+ 
+    /**
+     * Retrieves the edit view for a specific record.
+     *
+     * @param mixed $id The ID of the record to be edited.
+     * @return mixed The rendered edit view with the record's data.
+     */
+    public function getEdit($id): mixed
+    {
+        $this->data['find'] = $this->findJoin($this->model, $this->head, $id, $this->data);
+        $this->data['form'] = $this->form;
+        return view('admin.edit', ['data' => $this->data]);
+    }
+
 }
+

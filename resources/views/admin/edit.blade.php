@@ -110,7 +110,7 @@
                                             <div class="col-sm-10">
                                                 <select class="form-control select2" name="{{ $form['field'] }}"
                                                     @if (isset($form['required']) && $form['required']) required @endif>
-                                                    <option>Please select {{ __('common.' . $form['title']) }}</option>
+                                                    <option value="">{{__('common.Please select')}} {{ __('common.' . $form['title']) }}</option>
                                                     @if (isset($data[$form['field']]))
                                                         @foreach ($data[$form['field']] as $select)
                                                             <option value="{{ $select->id }}"

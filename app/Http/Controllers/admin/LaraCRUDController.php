@@ -161,7 +161,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
             $this->processFileUpload($request, $key, $fields);
             $this->hashPasswordIfPresent($request, $key, $fields);
         }
-
+        
         $this->model->where($this->pk, $request->get('id'))->update($fields);
 
         return redirect($redirectUrl)->with('message', 'The data has been updated');
@@ -185,7 +185,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     {
         $query = DB::table($model->table);
         $select = [];
-        
+
 
         foreach ($header as $head) {
             if ($this->shouldJoin($head)) {
@@ -232,7 +232,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
                 $database = explode(",", $relation['database']);
 
                 $table = array_shift($database);
-                
+
 
                 $query = DB::table($table)->select($database);
 
