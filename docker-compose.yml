@@ -6,55 +6,60 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel-app
-    container_name: laravel-app
+    image: stock-management-system-image
+    container_name: stock-management-system-container
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
     networks:
-      - laravel
+      - stock
 
   # Nginx service
   web:
     image: nginx:alpine
-    container_name: laravel-nginx
+    container_name: nginx
     restart: unless-stopped
-    working_dir: /var/www/html
     volumes:
       - .:/var/www/html
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
     ports:
       - "8080:80"
     networks:
-      - laravel
+      - stock
+    depends_on:
+      - app  # Ensure that the 'app' service is ready before starting 'web'
 
   # MySQL service
   mysql:
     image: mysql:latest
-    container_name: laravel-mysql
+    container_name: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: Ab06sia==1b!
+      MYSQL_ROOT_PASSWORD: Ab06sia1b
       MYSQL_DATABASE: stock
       MYSQL_USER: admin
-      MYSQL_PASSWORD: Ab06sia==1b!
+      MYSQL_PASSWORD: Ab06sia1b
     ports:
       - "3306:3306"
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
+    networks:
+      - stock
 
   # PHPmyadmin
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
-    container_name: laravel-phpmyadmin
+    container_name: phpmyadmin
     environment:
-      PMA_HOST: laravel-mysql
+      PMA_HOST: mysql
       PMA_PORT: 3306
     ports:
       - "8081:80"
     depends_on:
       - mysql
+    networks:
+      - stock
 
 networks:
-  laravel:
+  stock:
     driver: bridge
