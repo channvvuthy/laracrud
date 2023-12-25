@@ -79,4 +79,5 @@ return [
     'Electronic' => 'Electronic',
     'Stock' => 'Stock',
     'Add new Stock' => 'Add new Stock',
+    'Stock Management' => 'Stock Management',
 ];

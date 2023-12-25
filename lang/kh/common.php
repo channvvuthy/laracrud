@@ -79,4 +79,5 @@ return [
     'Electronic' => 'អេឡិចត្រូនិច',
     'Stock' => 'ស្តុក',
     'Add new Stock' => 'បន្ថែមស្តុកថ្មី',
+    'Stock Management' => 'ការគ្រប់គ្រងស្តុក',
 ];

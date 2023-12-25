@@ -111,4 +111,27 @@ class Helper
         $segments = request()->segments();
         return ucfirst($segments[1] ?? null);
     }
+
+    /**
+     * Check if the given menu name is the parent menu.
+     *
+     * @param mixed $menuName The menu name to check.
+     * @return bool Returns true if the menu name is the parent menu, false otherwise.
+     */
+    public static function isParentMenu($menuName): bool
+    {
+        return $menuName == request()->input('parent_menu') ?? false;
+    }
+
+    /**
+     * Cleans the query string from the given URL and returns the path.
+     *
+     * @param string $url The URL to clean the query string from.
+     * @return string The path from the URL.
+     */
+    public static function cleanQueryString($url): string
+    {
+        $parsedUrl = parse_url($url);
+        return isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
+    }
 }

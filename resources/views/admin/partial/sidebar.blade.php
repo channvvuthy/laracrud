@@ -40,7 +40,7 @@
                 @if (Cache::has('menus') && count(Cache::get('menus')))
                     @foreach (Cache::get('menus') as $key => $menu)
                         @if ($menu->childrend->count())
-                            <li class="nav-item">
+                            <li class="nav-item @if(Helper::isParentMenu($menu->name)) menu-is-opening menu-open @endif">
                                 <a href="#" class="nav-link">
                                     <i class="{{ $menu->icon }}"></i>
                                     <p>
@@ -48,10 +48,10 @@
                                         <i class="fas fa-angle-left right"></i>
                                     </p>
                                 </a>
-                                <ul class="nav nav-treeview" style="display: none;">
+                                <ul class="nav nav-treeview" style="display: @if(Helper::isParentMenu($menu->name)) block @else none @endif">
                                     @foreach ($menu->childrend as $child)
                                         <li class="nav-item">
-                                            <a href="/{{ $child->action }}" class="nav-link">
+                                            <a href="/{{ $child->action }}" class="nav-link {{ request()->path() == Helper::cleanQueryString($child->action) ? 'active' : '' }}">
                                                 <i class="{{ $child->icon }}"></i>
                                                 {{ __('common.' . $child->name) }}
                                             </a>
