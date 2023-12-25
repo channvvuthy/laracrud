@@ -23,4 +23,14 @@ class Menu extends Model
     protected $fillable = [
         "icon", "name", "action", "parent_id", "order"
     ];
+
+    /**
+     * Get the childrend of the menu item.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function childrend()
+    {
+        return $this->hasMany(Menu::class, 'parent_id', 'id');
+    }
 }

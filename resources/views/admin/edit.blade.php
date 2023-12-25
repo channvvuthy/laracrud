@@ -47,9 +47,11 @@
                                                 @endif
                                             </label>
                                             <div class="col-sm-10">
+                                               
                                                 <select class="form-control" name="{{ $form['field'] }}"
                                                     @if (isset($form['required']) && $form['required']) required @endif>
                                                     <option>Please select {{ __('common.' . $form['title']) }}</option>
+                                                    
                                                     @if (isset($data[$form['field']]))
                                                         @foreach ($data[$form['field']] as $select)
                                                             <option value="{{ $select->id }}"
@@ -101,6 +103,7 @@
                                                 </select>
                                             </div>
                                         @elseif($form['type'] == 'select2')
+                                        
                                             <label for="{{ $form['field'] }}"
                                                 class="col-sm-2 col-form-label">{{ __('common.' . $form['title']) }}
                                                 @if (isset($form['required']) && $form['required'])

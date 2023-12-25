@@ -4,9 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
+use App\Models\Menu;
 
 class CRUDBaseController extends Controller
 {
@@ -50,10 +50,9 @@ class CRUDBaseController extends Controller
      */
     public function getMenus(): Collection
     {
-        return DB::table('menus')
-            ->select('icon', 'name', 'action')
-            ->orderBy('order', 'asc')
-            ->get();
+        return Menu::with('childrend')
+            ->where('parent_id', NULL)
+            ->orderBy('order')->get();
     }
 
     /**

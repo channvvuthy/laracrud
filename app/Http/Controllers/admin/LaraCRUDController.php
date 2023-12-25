@@ -161,7 +161,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
             $this->processFileUpload($request, $key, $fields);
             $this->hashPasswordIfPresent($request, $key, $fields);
         }
-        
+
         $this->model->where($this->pk, $request->get('id'))->update($fields);
 
         return redirect($redirectUrl)->with('message', 'The data has been updated');
@@ -238,6 +238,9 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
 
                 if (isset($relation['where']) && $relation['where']) {
                     list($column, $value) = explode(",", $relation['where']);
+
+                    $value = ($value === 'NULL') ? null : $value;
+
                     $query->where($column, '=', $value);
                 }
 

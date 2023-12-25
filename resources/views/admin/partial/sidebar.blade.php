@@ -39,15 +39,37 @@
                 </li>
                 @if (Cache::has('menus') && count(Cache::get('menus')))
                     @foreach (Cache::get('menus') as $key => $menu)
-                        <li class="nav-item">
-                            <a href="/{{ $menu->action }}"
-                                class="nav-link {{ request()->path() == $menu->action ? 'active' : '' }} @if (isset($_GET['parent']) && $_GET['parent'] == $menu->action) active @endif">
-                                <i class="{{ $menu->icon }}"></i>
-                                <p class="pl-2">
-                                    {{ __('common.' . $menu->name) }}
-                                </p>
-                            </a>
-                        </li>
+                        @if ($menu->childrend->count())
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="{{ $menu->icon }}"></i>
+                                    <p>
+                                        {{ __('common.' . $menu->name) }}
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview" style="display: none;">
+                                    @foreach ($menu->childrend as $child)
+                                        <li class="nav-item">
+                                            <a href="/{{ $child->action }}" class="nav-link">
+                                                <i class="{{ $child->icon }}"></i>
+                                                {{ __('common.' . $child->name) }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @else
+                            <li class="nav-item">
+                                <a href="/{{ $menu->action }}"
+                                    class="nav-link {{ request()->path() == $menu->action ? 'active' : '' }} @if (isset($_GET['parent']) && $_GET['parent'] == $menu->action) active @endif">
+                                    <i class="{{ $menu->icon }}"></i>
+                                    <p class="pl-2">
+                                        {{ __('common.' . $menu->name) }}
+                                    </p>
+                                </a>
+                            </li>
+                        @endif
                     @endforeach
                 @endif
                 <li class="nav-item">
