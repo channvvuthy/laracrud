@@ -51,7 +51,7 @@
                                 <ul class="nav nav-treeview" style="display: @if(Helper::isParentMenu($menu->name)) block @else none @endif">
                                     @foreach ($menu->childrend as $child)
                                         <li class="nav-item">
-                                            <a href="/{{ $child->action }}" class="nav-link {{ request()->path() == Helper::cleanQueryString($child->action) ? 'active' : '' }}">
+                                            <a href="/{{ $child->action }}" class="nav-link {{ Helper::getMainPath() == Helper::cleanQueryString($child->action) ? 'active' : '' }}">
                                                 <i class="{{ $child->icon }}"></i>
                                                 {{ __('common.' . $child->name) }}
                                             </a>
@@ -62,7 +62,7 @@
                         @else
                             <li class="nav-item">
                                 <a href="/{{ $menu->action }}"
-                                    class="nav-link {{ request()->path() == $menu->action ? 'active' : '' }} @if (isset($_GET['parent']) && $_GET['parent'] == $menu->action) active @endif">
+                                    class="nav-link {{ Helper::getMainPath() == $menu->action ? 'active' : '' }} @if (isset($_GET['parent']) && $_GET['parent'] == $menu->action) active @endif">
                                     <i class="{{ $menu->icon }}"></i>
                                     <p class="pl-2">
                                         {{ __('common.' . $menu->name) }}

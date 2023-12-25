@@ -134,4 +134,28 @@ class Helper
         $parsedUrl = parse_url($url);
         return isset($parsedUrl['path']) ? $parsedUrl['path'] : '';
     }
+
+    /**
+     * Retrieves the main path from the current request URL by removing any occurrences of '/add' or '/edit'.
+     *
+     * @return string The main path of the request URL.
+     */
+    public static function getMainPath(): string
+    {
+        $currentPath = request()->path();
+
+        // Remove '/add' and '/edit'
+        $patterns = ['/add', '/edit'];
+        $string = str_replace($patterns, '', $currentPath);
+
+        // Remove dynamic segments (numeric segments in this example)
+        $string = preg_replace('/\/\d+/', '', $string);
+
+        // Trim trailing slashes
+        $string = rtrim($string, '/');
+
+        return $string;
+    }
+
+
 }

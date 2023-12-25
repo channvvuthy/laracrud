@@ -1,7 +1,7 @@
 @extends('admin.layout.master')
 @section('content')
     <div class="d-flex flex-row">
-        <a href="{{ Helper::indexUrl() }}">
+        <a href="{{ Helper::indexUrl() }}?{{ Request::getQueryString() }}">
             <i class="fa fa-chevron-circle-left text-info"></i>
             <span class="text-info">
                 {{ __('common.Back to list') }}
