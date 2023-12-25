@@ -75,4 +75,8 @@ return [
     'Setting List' => 'បញ្ជីការកំណត់',
     'Logo' => 'និមិត្តសញ្ញា',
     'About' => 'អំពី',
+    'Stock List' => 'បញ្ជីស្តុក',
+    'Electronic' => 'អេឡិចត្រូនិច',
+    'Stock' => 'ស្តុក',
+    'Add new Stock' => 'បន្ថែមស្តុកថ្មី',
 ];

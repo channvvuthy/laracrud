@@ -75,4 +75,8 @@ return [
     'Setting List' => 'Setting List',
     'Logo' => 'Logo',
     'About' => 'About',
+    'Stock List' => 'Stock List',
+    'Electronic' => 'Electronic',
+    'Stock' => 'Stock',
+    'Add new Stock' => 'Add new Stock',
 ];
