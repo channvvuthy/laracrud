@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\front\HomeController;
 
 // Authentication Routes
 Route::group([
@@ -87,4 +88,11 @@ function routeGenerator($controller, $getUrls = [], $postUrls = [])
             ->name($controllerPrefix . '.' . $method);
     }
 }
+
+Route::group([
+    'prefix' => '/',
+    'middleware' => 'pages',
+], function () {
+    Route::get('/', [HomeController::class, 'index']);
+});
 

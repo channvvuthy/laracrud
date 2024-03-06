@@ -56,7 +56,7 @@
                                                         @foreach ($data[$form['field']] as $select)
                                                             <option value="{{ $select->id }}"
                                                                 @if ($select->id == $data['find']->{$form['field']}) selected @endif>
-                                                                {{ $select->name }}
+                                                                {{ Helper::modifySelectAttribute($select)->name }}
                                                             </option>
                                                         @endforeach
                                                     @endif
@@ -118,7 +118,7 @@
                                                         @foreach ($data[$form['field']] as $select)
                                                             <option value="{{ $select->id }}"
                                                                 @if ($select->id == $data['find']->{$form['field']}) selected @endif>
-                                                                {{ $select->name }}
+                                                                {{ Helper::modifySelectAttribute($select)->name }}
                                                             </option>
                                                         @endforeach
                                                     @endif

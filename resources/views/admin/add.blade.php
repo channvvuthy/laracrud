@@ -64,7 +64,7 @@
                                                     <option selected>{{ __('common.Please select') }}
                                                         {{ __('common.' . $form['title']) }}</option>
                                                     @foreach ($data[$form['field']] as $select)
-                                                        <option value="{{ $select->id }}">{{ $select->name }}</option>
+                                                        <option value="{{ $select->id }}">{{ Helper::modifySelectAttribute($select)->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -72,12 +72,13 @@
                                             <label for="{{ $form['field'] }}"
                                                 class="col-sm-2 col-form-label">{{ __('common.' . $form['title']) }}</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control select2" style="width: 100%;"
+                                                <select class="form-control select2" name="{{ $form['field']}}" style="width: 100%;"
                                                     @if (isset($form['required']) && $form['required']) required @endif>
                                                     <option selected>{{ __('common.Please select') }}
                                                         {{ __('common.' . $form['title']) }}</option>
                                                     @foreach ($data[$form['field']] as $select)
-                                                        <option value="{{ $select->id }}">{{ $select->name }}</option>
+                                                    
+                                                        <option value="{{ $select->id }}">{{ Helper::modifySelectAttribute($select)->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

@@ -16,6 +16,7 @@ class CRUDBaseController extends Controller
     {
         $this->method = $this->getMethodFromUrl();
         $this->initMenu();
+        $this->initStaticMenus();
     }
 
     /**
@@ -78,6 +79,27 @@ class CRUDBaseController extends Controller
     private function getCachedMenus(): mixed
     {
         return Cache::get('menus');
+    }
+
+    /**
+     * Initialize static menus.
+     */
+    private function initStaticMenus()
+    {
+        $staticMenus = [
+            [
+                'name' => 'Dashboard',
+                'action' => 'admin/home',
+                'icon' => 'fa fa-home',
+            ],
+            [
+                'name' => 'Who We Are',
+                'action' => 'admin/whoweare',
+                'icon' => 'fa fa-question',
+            ]
+        ];
+
+        Cache::put('staticMenus', $staticMenus, now()->addYear(1)->diffInMinutes());
     }
 
 

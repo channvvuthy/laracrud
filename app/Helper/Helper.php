@@ -157,5 +157,30 @@ class Helper
         return $string;
     }
 
+    /**
+     * Modifies the provided object to standardize the name attribute.
+     *
+     * This function checks if the given object has a 'name_en' or 'name_kh' attribute 
+     * and standardizes it to a 'name' attribute. If 'name_en' or 'name_kh' is found,
+     * it sets the value to 'name' and removes the original attribute from the object.
+     *
+     * @param object $attributes The object containing potential 'name', 'name_en', or 'name_kh' attributes.
+     * @return object The modified object with a standardized 'name' attribute.
+     */
+    public static function modifySelectAttribute($attributes)
+    {
+        $nameKey = 'name';
+        if (isset($attributes->name_en)) {
+            $nameKey = 'name_en';
+        } elseif (isset($attributes->name_kh)) {
+            $nameKey = 'name_kh';
+        }
 
+        if ($nameKey !== 'name') {
+            $attributes->name = $attributes->{$nameKey};
+            unset($attributes->{$nameKey});
+        }
+
+        return $attributes;
+    }
 }

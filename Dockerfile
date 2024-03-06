@@ -29,6 +29,7 @@ RUN mkdir -p /var/www/html/storage \
     && chown -R www-data:www-data /var/www/html/storage
 
 RUN php artisan key:generate
+RUN php artisan migrate
 
 EXPOSE 9000
 CMD ["php-fpm"]

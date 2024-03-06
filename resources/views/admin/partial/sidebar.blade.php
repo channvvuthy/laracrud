@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <div class="text-center">
         <a href="{{ URL::to('/') }}" class="brand-link">
-            {{ __('common.VSM') }}
+            {{ __('common.ECC') }}
         </a>
     </div>
     <!-- Sidebar -->
@@ -28,53 +28,22 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
-                <li class="nav-item">
-                    <a href="/admin/menu"
-                        class="nav-link {{ Str::contains(strtolower(URL::current()), 'dashboard') ? 'active' : '' }}">
-                        <i class="fa  fa-home"></i>
-                        <p class="pl-2">
-                            {{ __('common.Dashboard') }}
-                        </p>
-                    </a>
-                </li>
-                @if (Cache::has('menus') && count(Cache::get('menus')))
-                    @foreach (Cache::get('menus') as $key => $menu)
-                        @if ($menu->childrend->count())
-                            <li class="nav-item @if(Helper::isParentMenu($menu->name)) menu-is-opening menu-open @endif">
-                                <a href="#" class="nav-link">
-                                    <i class="{{ $menu->icon }}"></i>
-                                    <p>
-                                        {{ __('common.' . $menu->name) }}
-                                        <i class="fas fa-angle-left right"></i>
-                                    </p>
-                                </a>
-                                <ul class="nav nav-treeview" style="display: @if(Helper::isParentMenu($menu->name)) block @else none @endif">
-                                    @foreach ($menu->childrend as $child)
-                                        <li class="nav-item">
-                                            <a href="/{{ $child->action }}" class="nav-link {{ Helper::getMainPath() == Helper::cleanQueryString($child->action) ? 'active' : '' }}">
-                                                <i class="{{ $child->icon }}"></i>
-                                                {{ __('common.' . $child->name) }}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
-                        @else
-                            <li class="nav-item">
-                                <a href="/{{ $menu->action }}"
-                                    class="nav-link {{ Helper::getMainPath() == $menu->action ? 'active' : '' }} @if (isset($_GET['parent']) && $_GET['parent'] == $menu->action) active @endif">
-                                    <i class="{{ $menu->icon }}"></i>
-                                    <p class="pl-2">
-                                        {{ __('common.' . $menu->name) }}
-                                    </p>
-                                </a>
-                            </li>
-                        @endif
+                @if (Cache::has('staticMenus') && count(Cache::get('staticMenus')))
+                    @foreach (Cache::get('staticMenus') as $key => $staticMenu)
+                        <li class="nav-item">
+                            <a href="/{{ $staticMenu['action'] }}"
+                                class="nav-link {{ Helper::getMainPath() == $staticMenu['action'] ? 'active' : '' }} @if (isset($_GET['parent']) && $_GET['parent'] == $staticMenu['action']) active @endif">
+                                <i class="{{ $staticMenu['icon'] }}"></i>
+                                <p class="pl-2">
+                                    {{ __('common.' . $staticMenu['name']) }}
+                                </p>
+                            </a>
+                        </li>
                     @endforeach
                 @endif
                 <li class="nav-item">
-                    <a href="/admin/menu"
-                        class="nav-link {{ Str::contains(strtolower(URL::current()), 'menu') ? 'active' : '' }}">
+                    <a href="/admin/page"
+                        class="nav-link {{ Str::contains(strtolower(URL::current()), 'page') ? 'active' : '' }}">
                         <i class="fa-cloud-download-alt fa"></i>
                         <p class="pl-2">
                             {{ __('common.Menu') }}
