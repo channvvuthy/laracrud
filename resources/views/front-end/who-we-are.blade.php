@@ -8,14 +8,14 @@
     @if($whoWeAre)
         <div class="container">
             <div class="row">
-                <div class="col-sm-5">
+                <div class="col-sm-6">
                     <h1 class="text-white text-uppercase fw-bold fs-1" style="white-space: nowrap;">
                         {{$whoWeAre->$title}}
                     </h1>
                     <br />
-                    <img src="{{$whoWeAre->photo}}" alt="" class="rounded-lg">
+                    <img src="{{$whoWeAre->photo}}" alt="" class="rounded-lg img-fluid">
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="col-sm-1"></div>
                 <div class="col-sm-5 text-white break-word lh-lg fs-5">
                     {!! trim($whoWeAre->$description) !!}
 

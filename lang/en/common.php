@@ -115,5 +115,8 @@ return [
     'Churchservice' => 'Church Service',
     'Add new Churchservice' => 'Add New Church Service',
     'Churchservice detail' => 'Church Service detail',
-    'Edit churchservice' => 'Edit Church Service'
+    'Edit churchservice' => 'Edit Church Service',
+    'Time & Session' => 'Time & Session',
+    'Time' => 'Time',
+    'Session' => 'Session'
 ];

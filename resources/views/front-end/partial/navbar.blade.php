@@ -23,7 +23,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               @foreach($page->children as $child)
               <li>
-                <a class="dropdown-item" href="{{$child->slug}}">
+                <a class="dropdown-item" href="{{$page->slug}}?type={{$child->slug}}">
                   {{$child->$displayName}}
                 </a>
               </li>

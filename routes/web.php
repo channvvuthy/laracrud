@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\front\ChurchServiceController;
 use App\Http\Controllers\front\WhoWeAreController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\VisionAndMissionController;
@@ -101,4 +102,6 @@ Route::group([
         ->name('who-we-are');
     Route::get('/vision-and-mission', [VisionAndMissionController::class, 'index'])
         ->name('vision-and-mission');
+    Route::get('/church-services', [ChurchServiceController::class, 'index'])
+    ->name('church-services');
 });

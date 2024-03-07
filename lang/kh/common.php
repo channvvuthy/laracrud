@@ -111,6 +111,9 @@ return [
     'Churchservice' => 'សេវាកម្មព្រះវិហារ',
     'Add new Churchservice' => 'បន្ថែមសេវាកម្មព្រះវិហារ',
     'Churchservice detail' => 'ព័ត៌មានលម្អិតអំពីសេវាកម្មព្រះវិហារ',
-    'Edit churchservice' => 'កែប្រែសេវាកម្មព្រះវិហារ'
+    'Edit churchservice' => 'កែប្រែសេវាកម្មព្រះវិហារ',
+    'Time & Session' => 'ពេលវេលា និងសម័យ',
+    'Time' => 'ពេលវេលា',
+    'Session' => 'សម័យ'
 
 ];
