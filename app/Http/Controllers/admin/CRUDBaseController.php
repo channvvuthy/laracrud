@@ -88,7 +88,7 @@ class CRUDBaseController extends Controller
     {
         $staticMenus = [
             [
-                'name' => 'Dashboard',
+                'name' => 'Home',
                 'action' => 'admin/home',
                 'icon' => 'fa fa-home',
             ],
@@ -96,6 +96,16 @@ class CRUDBaseController extends Controller
                 'name' => 'Who We Are',
                 'action' => 'admin/whoweare',
                 'icon' => 'fa fa-question',
+            ],
+            [
+                'name' => 'Vision & Mission',
+                'action' => 'admin/visionandmission',
+                'icon' => 'fa fa-eye',
+            ],
+            [
+                'name' => 'Church Service',
+                'action' => 'admin/churchservice',
+                'icon' => 'fa fa-church',
             ]
         ];
 

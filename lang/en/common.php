@@ -102,5 +102,18 @@ return [
     'Page List' => 'Page List',
     'Add new Page' => 'Add new Page',
     'Page' => 'Page',
-    'Page detail' => 'Page detail'
+    'Page detail' => 'Page detail',
+    'Whoweare detail' => 'Who we are detail',
+    'Vision & Mission' => 'Vision & Mission',
+    'Visionandmission List' => 'Vision and Mission List',
+    'Edit whoweare' => 'Edit who we are',
+    'Visionandmission' => 'Vision & Mission',
+    'Add new Visionandmission' => 'Add new Vision & Mission',
+    'Visionandmission detail' => 'Vision & Mission Detail',
+    'Church Service' => 'Church Service',
+    'Churchservice List' => 'Church Service List',
+    'Churchservice' => 'Church Service',
+    'Add new Churchservice' => 'Add New Church Service',
+    'Churchservice detail' => 'Church Service detail',
+    'Edit churchservice' => 'Edit Church Service'
 ];

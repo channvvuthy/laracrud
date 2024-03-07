@@ -66,7 +66,7 @@
                                         @if ($col['field'] === 'status')
                                             {{ $result->{$col['field']} == 2 ? __('common.Disable') : __('common.Enable') }}
                                         @else
-                                            {{ Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 40) }}
+                                            {!! Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 40) !!}
                                         @endif
                                     @endif
 

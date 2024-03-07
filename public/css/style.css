@@ -1,7 +1,46 @@
-body, html, * {
+body,
+html,
+* {
     padding: 0px;
     margin: 0px;
 }
+
+html,
+body {
+    height: 100%;
+}
+
 .shadow-bottom {
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.bg-black-rgba {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-item a {
+    font-weight: bold;
+}
+
+.nav-link.active {
+    background: #054373;
+    border-radius: 20px;
+    color: white !important;
+}
+.nav-link {
+    padding-right: 1rem !important;
+    padding-left: 1rem !important;
+}
+
+
+.bg-template-primary {
+    background: #054373;
+}
+
+.rounded-lg {
+    border-radius: 2rem;
+}
+
+.who-we-are {
+    background-image: linear-gradient(to right top, #054373, #005492, #0065b3, #0076d5, #1587f7);
 }

@@ -102,5 +102,15 @@ return [
     'Page detail' => 'ពត៍មានលំអិត',
     'Edit page' => 'កែប្រែទំព័រ',
     'Page' => 'ទំព័រ',
+    'Whoweare detail' => 'ពត៍មានលំអិតយើងជានរណា',
+    'Vision & Mission' => 'ចក្ខុវិស័យ & បេសកកម្ម',
+    'Visionandmission List' => 'បញ្ជីចក្ខុវិស័យ និងបេសកកម្ម',
+    'Visionandmission detail' => 'ពត៍មានលំអិតចក្ខុវិស័យ និងបេសកកម្ម',
+    'Church Service' => 'សេវាកម្មព្រះវិហារ',
+    'Churchservice List' => 'បញ្ជីសេវាកម្មព្រះវិហារ',
+    'Churchservice' => 'សេវាកម្មព្រះវិហារ',
+    'Add new Churchservice' => 'បន្ថែមសេវាកម្មព្រះវិហារ',
+    'Churchservice detail' => 'ព័ត៌មានលម្អិតអំពីសេវាកម្មព្រះវិហារ',
+    'Edit churchservice' => 'កែប្រែសេវាកម្មព្រះវិហារ'
 
 ];

@@ -44,6 +44,8 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public bool $wysiwyg = false;
     public bool $select2 = false;
     public int $action_with = 250;
+    public string $appendHTML = "";
+    public string $appendScript = "";
 
     public function __construct()
     {
@@ -76,6 +78,9 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
         $this->data['select2'] = $this->select2;
         $this->data['action_with'] = $this->action_with;
         $this->data['form'] = $this->form;
+        $this->data['appendHTML'] = $this->appendHTML;
+        $this->data['appendScript'] = $this->appendScript;
+
     }
 
     /**

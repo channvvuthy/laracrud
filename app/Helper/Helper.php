@@ -183,4 +183,16 @@ class Helper
 
         return $attributes;
     }
+
+    /**
+     * Retrieve content by language.
+     *
+     * @param string $fileName The name of the file.
+     * @return string The content file name with appended locale.
+     */
+    public static function getContentByLang($fileName)
+    {
+        $locale = app()->getLocale();
+        return  $fileName . "_" . $locale;
+    }
 }

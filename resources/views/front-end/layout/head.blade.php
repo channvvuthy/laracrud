@@ -22,9 +22,15 @@
       font-weight: bold;
       font-style: normal;
     }
+    @font-face {
+      font-family: 'Koulen';
+      src: url("{{asset('fonts/Koulen-Regular.ttf')}}") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
     body {
-      font-family: 'Droid Serif', sans-serif !important;
+      font-family: 'Droid Serif', Koulen, sans-serif !important;
     }
   </style>
 </head>

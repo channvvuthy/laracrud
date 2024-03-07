@@ -52,7 +52,7 @@
                                                 @endif
                                             </label>
                                             <div class="col-sm-10">
-                                                <textarea id="summernote" name="{{ $form['field'] }}" @if (isset($form['required']) && $form['required']) required @endif>
+                                                <textarea class="summernote" name="{{ $form['field'] }}" @if (isset($form['required']) && $form['required']) required @endif>
                                                 </textarea>
                                             </div>
                                         @elseif($form['type'] == 'select')
@@ -143,6 +143,9 @@
                                 </div>
                             @endforeach
                         </div>
+                        @if (isset($data['appendHTML']) && $data['appendHTML'])
+                        {!! $data['appendHTML'] !!}
+                        @endif
                     </div>
                 @endif
             </div>
@@ -174,7 +177,7 @@
         <script>
             $(function() {
                 // Summernote
-                $('#summernote').summernote({
+                $('.summernote').summernote({
                     height: 200
                 })
             })
@@ -196,3 +199,10 @@
         </script>
     @endpush
 @endif
+
+@if (isset($data['appendScript']) && $data['appendScript'])
+    @push('script')
+        {!! $data['appendScript'] !!}
+    @endpush
+@endif
+

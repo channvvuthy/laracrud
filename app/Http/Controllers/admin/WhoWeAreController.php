@@ -20,21 +20,22 @@ class WhoWeAreController extends LaraCRUDController
         $this->model = $whoWeAre;
         $this->limit = 10;
         $this->title = "Who We Are List";
+        $this->data['wysiwyg'] = true;
 
         $this->head = [
             array('field' => 'photo', 'title' => 'Photo', 'type' => 'image'),
             array('field' => 'title_en', 'title' => 'Title (English)'),
-            array('field' => 'title_kh', 'title' => 'Title (Khmer)'),
             array('field' => 'description_en', 'title' => 'Description (English)'),
+            array('field' => 'title_kh', 'title' => 'Title (Khmer)'),
             array('field' => 'description_kh', 'title' => 'Description (Khmer)'),
         ];
 
         $this->form = [
             array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'required' => true, 'validated' => 'required', 'accept' => 'image/*'),
             array('field' => 'title_en', 'title' => 'Title (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'description_en', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
             array('field' => 'title_kh', 'title' => 'Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
-            array('field' => 'description_en', 'title' => 'Description (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
-            array('field' => 'description_kh', 'title' => 'Description (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'description_kh', 'title' => 'Description (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
         ];
     }
 
@@ -56,7 +57,6 @@ class WhoWeAreController extends LaraCRUDController
         $this->title = "Add new ".$this->model->moduleName;
         $this->data['form'] = $this->form;
         $this->data['back'] = $this->model->moduleName;
-        $this->init();
         return view('admin.add', ['data' => $this->data]);
     }
 

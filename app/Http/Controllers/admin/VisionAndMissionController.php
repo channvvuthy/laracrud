@@ -2,40 +2,39 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\Welcome;
+use App\Models\VisionMission;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
 
-class HomeController extends LaraCRUDController
+class VisionAndMissionController extends LaraCRUDController
 {
     /**
-     * @param Welcome $welcome
+     * @param VisionMission $visionMission
      */
-    public function __construct(Welcome $welcome)
+    public function __construct(VisionMission $visionMission)
     {
         parent::__construct();
 
-        $this->model = $welcome;
+        $this->model = $visionMission;
         $this->limit = 10;
-        $this->title = "Welcome List";
+        $this->title = "Vision & Mission List";
         $this->data['wysiwyg'] = true;
 
+
         $this->head = [
-            array('field' => 'photo', 'title' => 'Photo', 'type' => 'image'),
             array('field' => 'title_en', 'title' => 'Title (English)'),
-            array('field' => 'caption_en', 'title' => 'Caption (English)'),
+            array('field' => 'description_en', 'title' => 'Description (English)'),
             array('field' => 'title_kh', 'title' => 'Title (Khmer)'),
-            array('field' => 'caption_kh', 'title' => 'Caption (Khmer)'),
+            array('field' => 'description_kh', 'title' => 'Description (Khmer)'),
         ];
 
         $this->form = [
-            array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'required' => true, 'validated' => 'required', 'accept' => 'image/*'),
             array('field' => 'title_en', 'title' => 'Title (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
-            array('field' => 'caption_en', 'title' => 'Caption (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'description_en', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
             array('field' => 'title_kh', 'title' => 'Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
-            array('field' => 'caption_kh', 'title' => 'Caption (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'description_kh', 'title' => 'Description (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
         ];
     }
 
@@ -57,7 +56,6 @@ class HomeController extends LaraCRUDController
         $this->title = "Add new ".$this->model->moduleName;
         $this->data['form'] = $this->form;
         $this->data['back'] = $this->model->moduleName;
-        $this->init();
         return view('admin.add', ['data' => $this->data]);
     }
 

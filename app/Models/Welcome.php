@@ -13,6 +13,8 @@ class Welcome extends Model
     protected $fillable = [
         'caption_en',
         'caption_kh',
+        'title_en',
+        'title_kh',
         'photo',
     ];
 

@@ -40,7 +40,7 @@
                                     @if ($detail['field'] === 'status')
                                         {{ $detail['field'] == 2 ? __('common.Disable') : __('common.Enable') }}
                                     @else
-                                        {{ is_array($data['find']) ? $data['find'][$detail['field']] : $data['find']->{$detail['field']} }}
+                                        {{ strip_tags(is_array($data['find']) ? $data['find'][$detail['field']] : $data['find']->{$detail['field']}) }}
                                     @endif
                                 @endif
                             </div>

@@ -131,9 +131,8 @@
                                                 @endif
                                             </label>
                                             <div class="col-sm-10">
-                                                <textarea class="form-control" rows="3" style="resize: none;" id="{{ $form['field'] }}"
-                                                    name="{{ $form['field'] }}" @if (isset($form['required']) && $form['required']) required @endif>
-                                                    {{ is_array($data['find']) ? trim($data['find'][$form['field']]) : trim($data['find']->{$form['field']}) }}
+                                                <textarea class="form-control" rows="3" style="resize: none;" id="{{ $form['field'] }}" name="{{ $form['field'] }}" @if (isset($form['required']) && $form['required']) required @endif>
+                                                {{ is_array($data['find']) ? trim($data['find'][$form['field']]) : trim($data['find']->{$form['field']}) }}
                                                 </textarea>
                                             </div>
                                         @elseif($form['type'] == 'wysiwyg')
@@ -143,7 +142,7 @@
                                                 @endif
                                             </label>
                                             <div class="col-sm-10">
-                                                <textarea id="summernote" name="{{ $form['field'] }}" @if (isset($form['required']) && $form['required']) required @endif>
+                                                <textarea class="summernote" name="{{ $form['field'] }}" @if (isset($form['required']) && $form['required']) required @endif>
                                                      {{ is_array($data['find']) ? trim($data['find'][$form['field']]) : trim($data['find']->{$form['field']}) }}
                                                 </textarea>
                                             </div>
@@ -208,7 +207,7 @@
         <script>
             $(function() {
                 // Summernote
-                $('#summernote').summernote({
+                $('.summernote').summernote({
                     height: 200
                 })
             })

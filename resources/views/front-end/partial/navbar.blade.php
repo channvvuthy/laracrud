@@ -23,7 +23,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               @foreach($page->children as $child)
               <li>
-                <a class="dropdown-item" href="#">
+                <a class="dropdown-item" href="{{$child->slug}}">
                   {{$child->$displayName}}
                 </a>
               </li>
@@ -33,7 +33,7 @@
           </li>
           @else
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <a class="nav-link {{Route::currentRouteName() == $page->slug ? 'active' : ''}}" aria-current="page" href="{{$page->slug}}">
               {{$page->$displayName}}
             </a>
           </li>
