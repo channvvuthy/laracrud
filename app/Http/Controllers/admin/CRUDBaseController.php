@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use App\Models\Menu;
+use App\Services\BackEndMenuService;
 
 class CRUDBaseController extends Controller
 {
@@ -86,40 +87,9 @@ class CRUDBaseController extends Controller
      */
     private function initStaticMenus()
     {
-        $staticMenus = [
-            [
-                'name' => 'Home',
-                'action' => 'admin/home',
-                'icon' => 'fa fa-home',
-            ],
-            [
-                'name' => 'Who We Are',
-                'action' => 'admin/whoweare',
-                'icon' => 'fa fa-question',
-            ],
-            [
-                'name' => 'Vision & Mission',
-                'action' => 'admin/visionandmission',
-                'icon' => 'fa fa-eye',
-            ],
-            [
-                'name' => 'Church Service',
-                'action' => 'admin/churchservice',
-                'icon' => 'fa fa-church',
-            ],
-            [
-                'name' => 'Bible Study',
-                'action' => 'admin/biblestudy',
-                'icon' => 'fa fa-bible',
-            ],
-            [
-                'name' => 'Testimony',
-                'action' => 'admin/testimony',
-                'icon' => 'fa fa-comment-dots',
-            ]
-        ];
+        $staticMenus = BackEndMenuService::menus();
 
-        Cache::put('staticMenus', $staticMenus, now()->addYear(1)->diffInMinutes());
+        Cache::put('staticMenus', $staticMenus, now()->addYear()->diffInMinutes());
     }
 
 

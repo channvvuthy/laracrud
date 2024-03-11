@@ -43,8 +43,8 @@ body {
 }
 
 body {
-    background-image: linear-gradient(to right top, #054373, #005492, #0065b3, #0076d5, #1587f7);
-    /* background: #054373; */
+    /* background-image: linear-gradient(to right top, #054373, #005492, #0065b3, #0076d5, #1587f7); */
+    background: #054373;
 
 }
 .shadow-circle{

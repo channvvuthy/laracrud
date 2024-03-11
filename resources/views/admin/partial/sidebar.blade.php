@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <div class="text-center">
-        <a href="{{ URL::to('/') }}" class="brand-link">
+    <div>
+        <a href="{{ URL::to('/') }}" class="brand-link text-center" style="white-space: pre-wrap;">
             {{ __('common.ECC') }}
         </a>
     </div>
@@ -47,15 +47,6 @@
                         <i class="fa-cloud-download-alt fa"></i>
                         <p class="pl-2">
                             {{ __('common.Menu') }}
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/admin/setting"
-                        class="nav-link {{ Str::contains(strtolower(URL::current()), 'setting') ? 'active' : '' }}">
-                        <i class="fa fa-cogs"></i>
-                        <p class="pl-2">
-                            {{ __('common.Setting') }}
                         </p>
                     </a>
                 </li>

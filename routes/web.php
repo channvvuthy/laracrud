@@ -6,8 +6,10 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\front\TestimonyController;
 use App\Http\Controllers\front\BibleStudyController;
 use App\Http\Controllers\front\ChurchServiceController;
+use App\Http\Controllers\front\ContactUsController;
 use App\Http\Controllers\front\WhoWeAreController;
 use App\Http\Controllers\front\HomeController;
+use App\Http\Controllers\front\OfferingController;
 use App\Http\Controllers\front\VisionAndMissionController;
 
 // Authentication Routes
@@ -110,4 +112,9 @@ Route::group([
     Route::get('/bible-studies', [BibleStudyController::class, 'index'])->name('bible-studies');
 
     Route::get('/testimonies', [TestimonyController::class, 'index'])->name('testimonies');
+
+    Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
+
+    Route::get('/offerings', [OfferingController::class, 'index'])->name('offerings');
+
 });
