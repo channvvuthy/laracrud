@@ -66,7 +66,11 @@
                                         @if ($col['field'] === 'status')
                                             {{ $result->{$col['field']} == 2 ? __('common.Disable') : __('common.Enable') }}
                                         @else
-                                            {!! Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 40) !!}
+                                            @if(isset($col['database']))
+                                                {{ Helper::getRelatedNameById($col['database'], $result->{$col['field']}) }}
+                                            @else
+                                                {!! strip_tags(Helper::subStr(is_array($result) ? $result[$col['field']] : $result->{$col['field']}, 40)) !!}
+                                            @endif
                                         @endif
                                     @endif
 

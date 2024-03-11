@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-bottom">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="/">
         <img src="{{asset('images/logo/logo.jpg')}}" alt="" width="50">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,13 +17,13 @@
           @endphp
           @if($page->children->count())
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle {{Route::currentRouteName() == $page->slug ? 'active' : ''}}" aria-current="page" href="{{$page->slug}}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{$page->$displayName}}
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu rounded-1" aria-labelledby="navbarDropdown">
               @foreach($page->children as $child)
               <li>
-                <a class="dropdown-item" href="{{$page->slug}}?type={{$child->slug}}">
+                <a class="dropdown-item" style="background-color: transparent;" href="{{$page->slug}}?type={{$child->slug}}">
                   {{$child->$displayName}}
                 </a>
               </li>

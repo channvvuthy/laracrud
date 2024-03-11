@@ -40,7 +40,6 @@
         @endif
     </div>
 </div>
-<script src="{{asset('dist/js/jquery.min.js')}}"></script>
 <script>
     $(document).ready(function() {
         $(".session").click(function() {

@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\SettingController;
+use App\Http\Controllers\front\TestimonyController;
+use App\Http\Controllers\front\BibleStudyController;
 use App\Http\Controllers\front\ChurchServiceController;
 use App\Http\Controllers\front\WhoWeAreController;
 use App\Http\Controllers\front\HomeController;
@@ -98,10 +100,14 @@ Route::group([
     'middleware' => 'pages',
 ], function () {
     Route::get('/', [HomeController::class, 'index']);
-    Route::get('/who-we-are', [WhoWeAreController::class, 'index'])
-        ->name('who-we-are');
-    Route::get('/vision-and-mission', [VisionAndMissionController::class, 'index'])
-        ->name('vision-and-mission');
-    Route::get('/church-services', [ChurchServiceController::class, 'index'])
-    ->name('church-services');
+
+    Route::get('/who-we-are', [WhoWeAreController::class, 'index'])->name('who-we-are');
+
+    Route::get('/vision-and-mission', [VisionAndMissionController::class, 'index'])->name('vision-and-mission');
+
+    Route::get('/church-services', [ChurchServiceController::class, 'index'])->name('church-services');
+
+    Route::get('/bible-studies', [BibleStudyController::class, 'index'])->name('bible-studies');
+
+    Route::get('/testimonies', [TestimonyController::class, 'index'])->name('testimonies');
 });

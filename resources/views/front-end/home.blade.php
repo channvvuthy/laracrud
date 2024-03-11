@@ -1,3 +1,4 @@
+
 @extends('front-end.layout.master')
 @section('content')
 @isset($welcome)

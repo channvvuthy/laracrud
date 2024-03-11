@@ -6,8 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
+  <script src="{{asset('dist/js/jquery.min.js')}}"></script>
   <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-  <title>{{__('common.'.$title)}}</title>
+  <title>
+    @if(isset($siteTitle))
+      {{__('common.'.$siteTitle)}}
+    @else
+      Eternity Community church 
+    @endif
+  </title>
   <style>
     @font-face {
       font-family: 'Droid Serif';
@@ -25,6 +32,12 @@
     @font-face {
       font-family: 'Koulen';
       src: url("{{asset('fonts/Koulen-Regular.ttf')}}") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'innovate';
+      src: url("{{asset('fonts/innovate-regular.otf')}}") format('truetype');
       font-weight: normal;
       font-style: normal;
     }

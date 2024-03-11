@@ -106,6 +106,16 @@ class CRUDBaseController extends Controller
                 'name' => 'Church Service',
                 'action' => 'admin/churchservice',
                 'icon' => 'fa fa-church',
+            ],
+            [
+                'name' => 'Bible Study',
+                'action' => 'admin/biblestudy',
+                'icon' => 'fa fa-bible',
+            ],
+            [
+                'name' => 'Testimony',
+                'action' => 'admin/testimony',
+                'icon' => 'fa fa-comment-dots',
             ]
         ];
 

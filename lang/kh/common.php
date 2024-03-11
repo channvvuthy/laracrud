@@ -114,6 +114,16 @@ return [
     'Edit churchservice' => 'កែប្រែសេវាកម្មព្រះវិហារ',
     'Time & Session' => 'ពេលវេលា និងសម័យ',
     'Time' => 'ពេលវេលា',
-    'Session' => 'សម័យ'
+    'Session' => 'សម័យ',
+    'Bible Study' => 'ការសិក្សាព្រះគម្ពីរ',
+    'Biblestudy List' => 'បញ្ជីសិក្សាព្រះគម្ពីរ',
+    'Add new Biblestudy' => 'បន្ថែមការសិក្សាព្រះគម្ពីរថ្មី',
+    'Biblestudy' => 'ការសិក្សាព្រះគម្ពីរ',
+    'Edit biblestudy' => 'កែសម្រួលការសិក្សាព្រះគម្ពីរ',
+    'Type' => 'ប្រភេទ',
+    'Testimony' => 'សក្ខីកម្ម',
+    'Testimony List' => 'បញ្ជីសក្ខីកម្ម',
+    'Add new Testimony' => 'បន្ថែមសក្ខីកម្ម',
+    'Testimony detail'=> 'ពត៍មានលំអិតសក្ខីកម្ម'
 
 ];

@@ -8,9 +8,9 @@ use App\Models\WhoWeAre;
 class WhoWeAreController extends Controller
 {
     public function index(){
-        $title = 'Who We Are';
+        $siteTitle = 'Who We Are';
         $whoWeAre = WhoWeAre::first();
         
-        return view('front-end.who-we-are', compact('title', 'whoWeAre')); 
+        return view('front-end.who-we-are', compact('siteTitle', 'whoWeAre')); 
     }
 }

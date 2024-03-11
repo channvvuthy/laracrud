@@ -10,9 +10,9 @@ class VisionAndMissionController extends Controller
 {
     public function index()
     {
-        $title = 'Who We Are';
+        $siteTitle = 'Visionandmission';
         $visionMissions = VisionMission::orderBy('id', 'desc')->get();
 
-        return view('front-end.vision-and-mission', compact('title', 'visionMissions'));
+        return view('front-end.vision-and-mission', compact('siteTitle', 'visionMissions'));
     }
 }

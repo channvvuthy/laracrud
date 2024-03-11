@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class Helper
 {
@@ -194,5 +196,30 @@ class Helper
     {
         $locale = app()->getLocale();
         return  $fileName . "_" . $locale;
+    }
+
+    /**
+     * A function to retrieve a related name by ID from the given table.
+     *
+     * @param string $tableName The name of the table to retrieve the related name from
+     * @param int $id The ID used to retrieve the related name
+     * @return mixed The related name if found, or the ID if not found
+     */
+    public static function getRelatedNameById($tableName, $id)
+    {
+        $cacheKey = $tableName . $id;
+
+        if (Cache::has($cacheKey)) {
+            return Cache::get($cacheKey);
+        }
+
+        $relational = DB::table($tableName)->where('id', $id)->value('name');
+
+        if ($relational) {
+            Cache::put($cacheKey, $relational, 60);
+            return $relational;
+        }
+
+        return $id;
     }
 }

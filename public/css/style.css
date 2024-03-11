@@ -27,6 +27,7 @@ body {
     border-radius: 20px;
     color: white !important;
 }
+
 .nav-link {
     padding-right: 1rem !important;
     padding-left: 1rem !important;
@@ -41,6 +42,48 @@ body {
     border-radius: 2rem;
 }
 
-.who-we-are {
+body {
     background-image: linear-gradient(to right top, #054373, #005492, #0065b3, #0076d5, #1587f7);
+    /* background: #054373; */
+
+}
+.shadow-circle{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+.position-absolute.wrapper-testimony {
+    height: 100px;
+    width: 100%;
+    left: 0;
+    top: -60px;
+}
+.testimony-image {
+    width: 120px;
+    height: 120px;
+    background: red;
+    border-radius: 50%;
+    margin: auto;
+}
+
+.rounded-top-lg {
+    border-top-right-radius: 2rem;
+    border-top-left-radius: 2rem;
+}
+
+.rounded-b-lg {
+    border-bottom-right-radius: 2rem;
+    border-bottom-left-radius: 2rem;
+}
+
+.font-innovate {
+    font-family: innovate;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+@media screen and (max-width: 640px) {
+    .pt-sm-10 {
+        padding-top: 10px;
+    }
 }

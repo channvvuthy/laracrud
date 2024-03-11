@@ -115,6 +115,11 @@ class ChurchServiceController extends LaraCRUDController
                     <i class="fa fa-plus"></i>
                     </div>
                 </div>
+                <div class="col-sm-2 d-flex align-items-center btn-minus d-none">
+                    <div class="bg-danger p-1 rounded-circle d-flex justify-content-center align-items-center" style="cursor:pointer; width:28px; height: 28px;">
+                    <i class="fa fa-minus"></i>
+                    </div>
+                </div>
               </div>
            </div>
         </div>
@@ -130,8 +135,15 @@ class ChurchServiceController extends LaraCRUDController
                 var parentElement = $(this).parent();
                 var clonedElement = parentElement.clone();
                 clonedElement.find('.btn-plus').remove();
+                clonedElement.find('.btn-minus').removeClass('d-none');
                 parentElement.after(clonedElement);
             });
+
+            $(document).on('click', '.btn-minus',function(){
+                var parentElement = $(this).parent();
+                parentElement.remove();
+            });
+
         </script>
         HTML;
         $this->data['appendScript'] = $script;

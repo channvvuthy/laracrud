@@ -118,5 +118,16 @@ return [
     'Edit churchservice' => 'Edit Church Service',
     'Time & Session' => 'Time & Session',
     'Time' => 'Time',
-    'Session' => 'Session'
+    'Session' => 'Session',
+    'Bible Study' => 'Bible Study',
+    'Biblestudy List' => 'Bible Study List',
+    'Add new Biblestudy' => 'Add New Bible Study',
+    'Biblestudy' => 'Bible Study',
+    'Edit biblestudy' => 'Edit Bible Study',
+    'Type' => 'Type',
+    'Testimony' => 'Testimony',
+    'Testimony List' => 'Testimony List',
+    'Add new Testimony' => 'Add new Testimony',
+    'Testimony detail'=> 'Testimony Detail',
+    'Our Testimonies' => 'OUR TESTIMONIES',
 ];
