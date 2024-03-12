@@ -115,6 +115,7 @@ class LaraCRUDController extends CRUDBaseController implements LaraCRUDInterface
     public function postAdd(Request $request): Redirector|RedirectResponse|Application
     {
         $redirectUrl = $request->get('save');
+        dd($redirectUrl);
         $fields = $request->except('_token', 'save');
 
         $request->validate($this->validationForm());

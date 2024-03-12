@@ -57,5 +57,14 @@
         body {
             font-family: Ubuntu, Nokora !important;
         }
+
+        table tr {
+            background-color: white;
+        }
+
+        table tr td a {
+            white-space: nowrap;
+        }
+
     </style>
 </head>

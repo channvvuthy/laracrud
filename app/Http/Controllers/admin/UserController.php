@@ -52,7 +52,7 @@ class UserController extends LaraCRUDController
      */
     public function getIndex(): View|Factory|Application
     {
-        $this->result = $this->paginate();
+        $this->data['result'] = $this->paginate();
         $this->action_with = 380;
         $buttonAppend = [
             array('name' => 'Role', 'action' => 'role/assign_role', 'btn' => 'btn btn-info', 'icon' => 'fa fa-plus', 'parent' => 'admin/user')

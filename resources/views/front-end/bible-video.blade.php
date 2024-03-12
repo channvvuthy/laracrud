@@ -13,8 +13,8 @@
         <div class="row">
             @foreach($bibleStudies as $bibleStudy)
 
-            <div class="col-sm-3">
-                <a href="#" class="text-decoration-none" style="color: black;">
+            <div class="col-md-3 col-sm-6 mb-5 col">
+                <a href="bible-studies?type=bible-video&detail={{$bibleStudy->id}}" class="text-decoration-none" style="color: black;">
                     <div class="box rounded-lg shadow-bottom">
                         <div>
                             <img src="{{$bibleStudy->photo}}" class="rounded-top-lg img-fluid" id="main_image" data-url="{{$bibleStudy->photo}}" />
@@ -30,7 +30,7 @@
             </div>
             @endforeach
         </div>
-        <div class="py-5 d-flex justify-content-end">
+        <div class="d-flex justify-content-end">
             <a href="" class="text-white">View More -></a>
         </div>
 
@@ -39,7 +39,7 @@
 </div>
 <script>
     $(document).ready(function() {
-        var colums = $('.col-sm-3');
+        var colums = $('.col');
         var imageHeights = [];
 
         colums.each(function() {

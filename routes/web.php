@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\LoginController;
 use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\front\TestimonyController;
 use App\Http\Controllers\front\BibleStudyController;
+use App\Http\Controllers\admin\BibleStudyController as AdminBibleStudyController;
 use App\Http\Controllers\front\ChurchServiceController;
 use App\Http\Controllers\front\ContactUsController;
 use App\Http\Controllers\front\WhoWeAreController;
@@ -29,6 +30,15 @@ Route::group([
 ], function () {
 
     Route::get('/clear-cache', [SettingController::class, 'clearCache']);
+    Route::get('/biblestudy/add-doc/{id}', [AdminBibleStudyController::class, 'addDoc']);
+    Route::get('/biblestudy/view-doc/{id}', [AdminBibleStudyController::class, 'viewDoc']);
+    Route::get('/biblestudy/view-doc/{bibleId}/detail/{id}', [AdminBibleStudyController::class, 'viewDocDetail']);
+    Route::get('/biblestudy/view-doc/{bibleId}/edit/{id}', [AdminBibleStudyController::class, 'editDoc']);
+    Route::post('/biblestudy/add-doc', [AdminBibleStudyController::class, 'postDoc'])->name('add-doc');
+    Route::post('/biblestudy/doc/update', [AdminBibleStudyController::class, 'updateDoc'])->name('update-doc');
+    Route::get('biblestudy/view-doc/{bibleId}/delete/{id}', [AdminBibleStudyController::class, 'deleteDoc'])->name('delete-doc');
+    
+
 
     $controllerDirectory = realpath(__DIR__ . '/../app/Http/Controllers/admin');
 
@@ -116,5 +126,4 @@ Route::group([
     Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
 
     Route::get('/offerings', [OfferingController::class, 'index'])->name('offerings');
-
 });

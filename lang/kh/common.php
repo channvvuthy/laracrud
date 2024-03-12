@@ -152,5 +152,20 @@ return [
     'Biblestudy detail' => 'ការសិក្សាព្រះគម្ពីរលម្អិត',
     'Offering detail' => 'ការផ្តល់ជូនលម្អិត',
     'Way To Give (English)' => 'វិធីផ្តល់ (អង់គ្លេស)',
-    'Way To Give (Khmer)' => 'វិធីផ្តល់ (ខ្មែរ)'
+    'Way To Give (Khmer)' => 'វិធីផ្តល់ (ខ្មែរ)',
+    'Library' => 'បណ្ណាល័យ',
+    'Library List' => 'បញ្ជីបណ្ណាល័យ',
+    'Thumbnail' => 'រូបភាពតូច',
+    'URL' => 'URL',
+    'Add new Library' => 'បន្ថែមបណ្ណាល័យថ្មី',
+    'File' => 'ឯកសារ',
+    'Add new User' => 'បន្ថែមអ្នកប្រើប្រាស់ថ្មី',
+    'Profile' => 'ប្រវត្តិរូប',
+    'Gender' => 'ភេទ',
+    'Date of birth' => 'ថ្ងៃខែ​ឆ្នាំ​កំណើត',
+    'Place of birth' => 'ទី​កន្លែង​កំណើត',
+    'User List' => 'បញ្ជីអ្នកប្រើប្រាស់',
+    'Add Document' => 'បន្ថែមឯកសារ',
+    'Back to' => 'ត្រឡប់ទៅ'
+
 ];

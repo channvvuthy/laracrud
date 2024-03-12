@@ -156,6 +156,19 @@ return [
     'Biblestudy detail' => 'Bible Study detail',
     'Offering detail' => 'Offering detail',
     'Way To Give (English)' => 'Way To Give (English)',
-    'Way To Give (Khmer)' => 'Way To Give (Khmer)'
-
+    'Way To Give (Khmer)' => 'Way To Give (Khmer)',
+    'Library' => 'Library',
+    'Library List' => 'Library List',
+    'Thumbnail' => 'Thumbnail',
+    'URL' => 'URL',
+    'Add new Library' => 'Add new Library',
+    'File' => 'File',
+    'Add new User' => 'Add new User',
+    'Profile' => 'Profile',
+    'Gender' => 'Gender',
+    'Date of birth' => 'Date of birth',
+    'Place of birth' => 'Place of birth',
+    'User List' => 'User List',
+    'Add Document' => 'Add Document',
+    'Back to' => 'Back to'
 ];
