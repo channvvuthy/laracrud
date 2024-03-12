@@ -41,9 +41,18 @@
       font-weight: normal;
       font-style: normal;
     }
+    @font-face {
+      font-family: 'siemreap';
+      src: url("{{asset('fonts/Siemreap-Regular.ttf')}}") format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
 
     body {
       font-family: 'Droid Serif', Koulen, sans-serif !important;
+    }
+    .font-siemreap{
+      font-family: innovate, 'siemreap' !important;
     }
   </style>
 </head>

@@ -44,7 +44,7 @@
                 <li class="nav-item">
                     <a href="/admin/page"
                         class="nav-link {{ Str::contains(strtolower(URL::current()), 'page') ? 'active' : '' }}">
-                        <i class="fa-cloud-download-alt fa"></i>
+                        <i class="fa fa-th-list"></i>
                         <p class="pl-2">
                             {{ __('common.Menu') }}
                         </p>

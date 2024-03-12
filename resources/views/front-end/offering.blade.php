@@ -18,10 +18,21 @@ $wayToGive = "way_to_give_" . $locale;
         <div class="text-white">
             {!!$offering->$description!!}
         </div>
-        <div class="text-white py-3">
+        <!-- <br>
+        <br>
+        <div class="text-white">
             <h1 class="fs-1">{!!$offering->$wayToGive!!}</h1>
-        </div>
+        </div> -->
+        <!-- <div class="row">
+            <div class="col-6 text-white">
+                <h3>In Service</h3>
+            </div>
+            <div class="col-6 text-white">
+                <h3>Via Bank Account Below</h3>
+            </div>
+        </div> -->
     </div>
+
 </div>
 @endif
 @endsection

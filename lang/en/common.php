@@ -151,6 +151,11 @@ return [
     'Offering List' => 'Offering List',
     'Add new Offering' => 'Add new Offering',
     'Way to give (English)' => 'Way to give (English)',
-    'Way to give (Khmer)' => 'Way to give (Khmer)'
+    'Way to give (Khmer)' => 'Way to give (Khmer)',
+    'Edit visionandmission' => 'Edit vision & mission',
+    'Biblestudy detail' => 'Bible Study detail',
+    'Offering detail' => 'Offering detail',
+    'Way To Give (English)' => 'Way To Give (English)',
+    'Way To Give (Khmer)' => 'Way To Give (Khmer)'
 
 ];

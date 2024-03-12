@@ -147,5 +147,10 @@ return [
     'Offering List' => 'បញ្ជីផ្តល់ជូន',
     'Add new Offering' => 'បន្ថែមការផ្តល់ជូនថ្មី',
     'Way to give (English)' => 'វិធីផ្តល់ (អង់គ្លេស)',
-    'Way to give (Khmer)' => 'វិធីផ្តល់ឱ្យ (ខ្មែរ)'
+    'Way to give (Khmer)' => 'វិធីផ្តល់ឱ្យ (ខ្មែរ)',
+    'Edit visionandmission' => 'កែសម្រួលចក្ខុវិស័យ និងបេសកកម្ម',
+    'Biblestudy detail' => 'ការសិក្សាព្រះគម្ពីរលម្អិត',
+    'Offering detail' => 'ការផ្តល់ជូនលម្អិត',
+    'Way To Give (English)' => 'វិធីផ្តល់ (អង់គ្លេស)',
+    'Way To Give (Khmer)' => 'វិធីផ្តល់ (ខ្មែរ)'
 ];

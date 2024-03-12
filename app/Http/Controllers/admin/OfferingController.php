@@ -84,6 +84,6 @@ class OfferingController extends LaraCRUDController
         $this->data['title'] = 'Detail of ' . $this->model->moduleName;
         $this->data['back'] = $this->model->moduleName;
         $this->init();
-        return view('admin.custom.church_detail', ['data' => $this->data]);
+        return view('admin.detail', ['data' => $this->data]);
     }
 }

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{__('common.VSM')}}</title>
+    <title>{{__('common.ECC')}}</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -48,6 +48,10 @@
         @font-face {
             font-family: "Nokora";
             src: url("{{asset('fonts/Nokora.ttf')}}");
+        }
+
+        .d-none {
+            display: none !important;
         }
 
         body {

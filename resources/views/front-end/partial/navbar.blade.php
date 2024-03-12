@@ -20,10 +20,10 @@
             <a class="nav-link dropdown-toggle {{Route::currentRouteName() == $page->slug ? 'active' : ''}}" aria-current="page" href="{{$page->slug}}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               {{$page->$displayName}}
             </a>
-            <ul class="dropdown-menu rounded-1" aria-labelledby="navbarDropdown">
+            <ul class="dropdown-menu  px-2 py-2" aria-labelledby="navbarDropdown" style="border-radius:1rem;">
               @foreach($page->children as $child)
-              <li>
-                <a class="dropdown-item" style="background-color: transparent;" href="{{$page->slug}}?type={{$child->slug}}">
+              <li class="nav-item my-2">
+                <a class="dropdown-item rounded-lg {{request()->get('type') == $child->slug ? 'active' : ''}}" href="{{$page->slug}}?type={{$child->slug}}">
                   {{$child->$displayName}}
                 </a>
               </li>

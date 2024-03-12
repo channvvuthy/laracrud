@@ -57,7 +57,6 @@ class HomeController extends LaraCRUDController
         $this->title = "Add new ".$this->model->moduleName;
         $this->data['form'] = $this->form;
         $this->data['back'] = $this->model->moduleName;
-        $this->init();
         return view('admin.add', ['data' => $this->data]);
     }
 
