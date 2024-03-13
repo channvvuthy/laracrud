@@ -2,6 +2,13 @@
 /public/build
 /public/hot
 /public/storage
+# Ignore everything in the images folder
+/public/images/*
+
+# But don't ignore icons and logo folders
+!/public/images/icons/
+!/public/images/logo/
+!/public/images/loading/
 /storage/*.key
 /vendor
 .env
