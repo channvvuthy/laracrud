@@ -170,5 +170,8 @@ return [
     'Place of birth' => 'Place of birth',
     'User List' => 'User List',
     'Add Document' => 'Add Document',
-    'Back to' => 'Back to'
+    'Back to' => 'Back to',
+    'Edit bank' => 'Edit bank',
+    'Account Number' => 'Account Number',
+    'Account Name' => 'Account Name'
 ];

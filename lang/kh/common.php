@@ -166,6 +166,9 @@ return [
     'Place of birth' => 'ទី​កន្លែង​កំណើត',
     'User List' => 'បញ្ជីអ្នកប្រើប្រាស់',
     'Add Document' => 'បន្ថែមឯកសារ',
-    'Back to' => 'ត្រឡប់ទៅ'
+    'Back to' => 'ត្រឡប់ទៅ',
+    'Edit bank' => 'កែប្រគណនីធនាគារ',
+    'Account Number' => 'លេខគណនី',
+    'Account Name' => 'ឈ្មោះគណនី',
 
 ];

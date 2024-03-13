@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('icon');
             $table->string('number');
+            $table->string('account_name')->nullable();
             $table->string('qr_code')->nullable();
             $table->timestamps();
         });

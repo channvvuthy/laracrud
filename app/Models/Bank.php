@@ -15,6 +15,7 @@ class Bank extends Model
         'name',
         'icon',
         'number',
+        'account_name',
         'qr_code',
     ];
 }
