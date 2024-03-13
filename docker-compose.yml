@@ -6,14 +6,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: stock-management-system-image
-    container_name: stock-management-system-container
+    image: ecc-image
+    container_name: ecc-container
     restart: unless-stopped
     working_dir: /var/www/html
     volumes:
       - .:/var/www/html
     networks:
-      - stock
+      - ecc
 
   # Nginx service
   web:
@@ -26,41 +26,10 @@ services:
     ports:
       - "8080:80"
     networks:
-      - stock
+      - ecc
     depends_on:
       - app  # Ensure that the 'app' service is ready before starting 'web'
-
-  # MySQL service
-  mysql:
-    image: mysql:latest
-    container_name: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: Ab06sia1b
-      MYSQL_DATABASE: stock
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: Ab06sia1b
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./docker/mysql/data:/var/lib/mysql
-    networks:
-      - stock
-
-  # PHPmyadmin
-  phpmyadmin:
-    image: phpmyadmin/phpmyadmin:latest
-    container_name: phpmyadmin
-    environment:
-      PMA_HOST: mysql
-      PMA_PORT: 3306
-    ports:
-      - "8081:80"
-    depends_on:
-      - mysql
-    networks:
-      - stock
-
+  
 networks:
-  stock:
+  ecc:
     driver: bridge
