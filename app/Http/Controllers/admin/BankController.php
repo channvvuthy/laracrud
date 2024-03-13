@@ -26,6 +26,7 @@ class BankController extends LaraCRUDController
             array('field' => 'qr_code', 'title' => 'QR Code', 'type' => 'image'),
             array('field' => 'name', 'title' => 'Name'),
             array('field' => 'number', 'title' => 'Number'),
+            array('field' => 'account_name', 'title' => 'Account Name'),
         ];
 
 
@@ -34,6 +35,7 @@ class BankController extends LaraCRUDController
             array('field' => 'qr_code', 'title' => 'QR Code', 'type' => 'file', 'required' => true, 'validated' => 'required', 'accept' => 'image/*'),
             array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required',),
             array('field' => 'number', 'title' => 'Number', 'type' => 'text', 'required' => true, 'validated' => 'required',),
+            array('field' => 'account_name', 'title' => 'Account Name', 'type' => 'text', 'required' => true, 'validated' => 'required',),
         ];
     }
 

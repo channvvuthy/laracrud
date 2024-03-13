@@ -170,5 +170,7 @@ return [
     'Edit bank' => 'កែប្រគណនីធនាគារ',
     'Account Number' => 'លេខគណនី',
     'Account Name' => 'ឈ្មោះគណនី',
+    'Amount' => 'ចំនួន',
+    'Process Now' => 'ដំណើរការឥឡូវនេះ'
 
 ];

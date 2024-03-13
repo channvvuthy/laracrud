@@ -11,6 +11,7 @@ use App\Http\Controllers\front\ContactUsController;
 use App\Http\Controllers\front\WhoWeAreController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\OfferingController;
+use App\Http\Controllers\front\PayPalController;
 use App\Http\Controllers\front\VisionAndMissionController;
 
 // Authentication Routes
@@ -37,7 +38,7 @@ Route::group([
     Route::post('/biblestudy/add-doc', [AdminBibleStudyController::class, 'postDoc'])->name('add-doc');
     Route::post('/biblestudy/doc/update', [AdminBibleStudyController::class, 'updateDoc'])->name('update-doc');
     Route::get('biblestudy/view-doc/{bibleId}/delete/{id}', [AdminBibleStudyController::class, 'deleteDoc'])->name('delete-doc');
-    
+
 
 
     $controllerDirectory = realpath(__DIR__ . '/../app/Http/Controllers/admin');
@@ -107,6 +108,16 @@ function routeGenerator($controller, $getUrls = [], $postUrls = [])
     }
 }
 
+
+
+Route::group([
+    'prefix' => '/paypal',
+], function () {
+    Route::post('/payment', [PayPalController::class, 'payment'])->name('paypal_payment');
+    Route::get('/success', [PayPalController::class, 'success'])->name('paypal_success');
+    Route::get('/cancel', [PayPalController::class, 'cancel'])->name('paypal_cancel');
+});
+
 Route::group([
     'prefix' => '/',
     'middleware' => 'pages',
@@ -126,4 +137,8 @@ Route::group([
     Route::get('/contact-us', [ContactUsController::class, 'index'])->name('contact-us');
 
     Route::get('/offerings', [OfferingController::class, 'index'])->name('offerings');
+
+    Route::get('/home', function () {
+        return view('home');
+    });
 });

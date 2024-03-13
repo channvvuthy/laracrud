@@ -173,5 +173,7 @@ return [
     'Back to' => 'Back to',
     'Edit bank' => 'Edit bank',
     'Account Number' => 'Account Number',
-    'Account Name' => 'Account Name'
+    'Account Name' => 'Account Name',
+    'Amount' => 'Amount',
+    'Process Now' => 'Process Now'
 ];
