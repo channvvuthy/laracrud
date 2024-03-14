@@ -30,6 +30,8 @@ class BibleStudyService
     {
         if ($type === 'bible-video') {
             return 'video';
+        } else if ($type === 'bible-audio') {
+            return 'audio';
         }
         return 'document';
     }

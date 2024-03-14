@@ -171,6 +171,8 @@ return [
     'Account Number' => 'លេខគណនី',
     'Account Name' => 'ឈ្មោះគណនី',
     'Amount' => 'ចំនួន',
-    'Process Now' => 'ដំណើរការឥឡូវនេះ'
-
+    'Process Now' => 'ដំណើរការឥឡូវនេះ',
+    'Videos' => 'វីដេអូ',
+    'Books' => 'សៀវភៅ',
+    'Add New Doc' => 'បន្ថែមឯកសារថ្មី'
 ];

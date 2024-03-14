@@ -34,7 +34,7 @@
                             </thead>
                             <tbody>
                                 @foreach (json_decode($churchServce->timetables) as $key => $value)
-                                    <tr data-image="{{ $value->image }}" class="session" style="cursor:pointer"
+                                    <tr data-image="{{ $value->image }}" class="session"
                                         data-index="{{ $key }}">
                                         <td class="text-white fs-6 text-center" style="padding:2.25rem 0rem;">
                                             {{ $value->time }}</td>
@@ -66,9 +66,11 @@
             $(".session").on('mouseover', function() {
                 var index = $(this).data("index");
                 showService(index + 1);
+            });
+
+            $("table").on('mouseleave', function() {
+                showService(0);
             })
-
-
         });
     </script>
 @endsection

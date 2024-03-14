@@ -29,7 +29,7 @@ class PageController extends LaraCRUDController
         ];
 
         $this->form = [
-            array('field' => 'parent_id', 'title' => 'Parent', 'type' => 'select2', 'database' => 'pages,id,name_en', 'where' => 'parent_id,NULL'),
+            array('field' => 'parent_id', 'title' => 'Parent', 'type' => 'select2', 'database' => 'pages,id,name_'. app()->getLocale(), 'where' => 'parent_id,NULL'),
             array('field' => 'name_en', 'title' => 'Name (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'name_kh', 'title' => 'Name (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'slug', 'title' => 'Slug', 'type' => 'text', 'required' => true, 'validated' => 'required'),

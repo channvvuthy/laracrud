@@ -33,9 +33,9 @@
                         @endif
                     </div>
                     <div class="col-md-5 documents px-5">
-                        <h1 class="text-white fw-bold fs-1 mb-4">{{__('common.Videos')}}</h1>
+                        <h1 class="text-white fw-bold fs-1 mb-4">{{__('common.Books')}}</h1>
                         <ul class="list-unstyled">
-                            @include('front-end.partial.bible-video-play-list')
+                            @include('front-end.partial.bible-book-list')
                         </ul>
                     </div>
                 </div>

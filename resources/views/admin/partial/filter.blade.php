@@ -1,7 +1,7 @@
 @if (isset($data['filter']) && $data['filter'])
     @if (is_array($data['filter']))
         <div class="mb-3">
-            <form>
+            <form method="get">
                 <div class="d-flex flex-row mb-3 justify-content-end">
                     @foreach ($data['filter'] as $key => $field)
                         <div class="mr-2">
@@ -24,7 +24,7 @@
                         </div>
                     @endforeach
                     <div>
-                        <button type="button" class="btn btn-dark">Search</button>
+                        <button type="submit" class="btn btn-dark">Search</button>
                     </div>
                 </div>
             </form>

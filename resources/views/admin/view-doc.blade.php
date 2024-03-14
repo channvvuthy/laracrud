@@ -4,13 +4,20 @@
 @endsection
 @section('content')
     <div class="row mb-3">
-        <div class="col-12">
+        <div class="">
             <h3 class="m-0">
                 @if (isset($data['bible']))
                     <?php $name = Helper::getContentByLang('title'); ?>
                     {{ $data['bible']->$name }}
                 @endif
             </h3>
+        </div>
+        <div class="ml-4">
+            <a href="/admin/biblestudy/add-doc/{{$data['bible']->id}}?parent=admin/biblestudy">
+                <button type="button" class="btn btn-success btn-sm">
+                    <i class="fa fa-plus"></i> {{ __('common.Add New Doc') }}
+                </button>
+            </a>
         </div>
     </div>
 
@@ -173,15 +180,21 @@
 
             $(".media").on("click", function(e) {
                 let uri = e.target.getAttribute('data-url');
+
                 let contentPreview = $("#content_preview");
                 let isVideo = uri.includes(".mp4");
+                let isPdf = uri.includes(".pdf");
 
-                if (!isVideo) {
+                if (isPdf) {
+                    contentPreview.html(
+                        `<embed src="${uri}" type="application/pdf" width="100%" height="600px">`);
+
+                } else if (!isVideo) {
                     contentPreview.html(`<audio controls><source src="${uri}" type="audio/ogg"></audio>`);
                 } else {
                     contentPreview.html(`<video controls><source src="${uri}" type="video/mp4"></video>`);
                 }
-                
+
                 $("#file_preview").modal("show");
             });
 

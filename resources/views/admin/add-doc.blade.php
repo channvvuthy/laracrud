@@ -1,5 +1,11 @@
 @extends('admin.layout.master')
 @section('content')
+    @php  $title = Helper::getContentByLang('title'); @endphp
+    <div>
+        <h3 class="mb-2">
+            {{ $data['bible']->$title }}
+        </h3>
+    </div>
     <div class="d-flex flex-row">
         <a href="/admin/biblestudy">
             <i class="fa fa-chevron-circle-left text-info"></i>
@@ -19,6 +25,7 @@
                 @endif
             </h4>
         </div>
+        
         <form method="POST" enctype="multipart/form-data" action="{{ URL::to('admin/biblestudy/add-doc') }}">
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <input type="hidden" name="bible_study_id" value="{{ request()->route('id') }}" value="{{ csrf_token() }}" />

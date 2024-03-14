@@ -175,5 +175,9 @@ return [
     'Account Number' => 'Account Number',
     'Account Name' => 'Account Name',
     'Amount' => 'Amount',
-    'Process Now' => 'Process Now'
+    'Process Now' => 'Process Now',
+    'Videos' => 'Videos',
+    'Books' => 'Books',
+    'Audios' => 'Audios',
+    'Add New Doc' => 'Add New Doc'
 ];
