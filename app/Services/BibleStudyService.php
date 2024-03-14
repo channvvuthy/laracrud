@@ -7,7 +7,7 @@ use App\Models\BibleType;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Date;
 use App\Models\BibleStudyLibrary;
-
+use App\Models\Library;
 
 class BibleStudyService
 {
@@ -72,7 +72,7 @@ class BibleStudyService
     public static function getLibraries($id)
     {
         return Cache::remember('bible_study_libraries_' . $id, Date::now()->addMonth(), function () use ($id) {
-            return BibleStudyLibrary::where('bible_study_id', $id)->get();
+            return Library::where('bible_study_id', $id)->get();
         });
     }
 }

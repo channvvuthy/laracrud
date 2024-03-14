@@ -19,4 +19,13 @@ class BibleStudy extends Model
         'caption_kh',
         'type',
     ];
+
+    /**
+     * Retrieve the libraries associated with the bible study.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function libraries(){
+        return $this->hasMany(Library::class, 'bible_study_id', 'id');
+    }
 }

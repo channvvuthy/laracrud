@@ -9,6 +9,7 @@
 !/public/images/icons/
 !/public/images/logo/
 !/public/images/loading/
+!/public/images/files/
 /storage/*.key
 /vendor
 .env

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('description_kh')->nullable();
             $table->text('file')->nullable();
             $table->text('thumbnail')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }

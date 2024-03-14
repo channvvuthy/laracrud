@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('bible_study_id');
             $table->string('title_en');
             $table->string('title_kh');
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('thumbnail');
             $table->timestamps();
         });
