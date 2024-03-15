@@ -5,7 +5,7 @@
             $title = Helper::getContentByLang('title');
             $description = Helper::getContentByLang('description');
         @endphp
-        <div class="container">
+        <div class="container py-5">
             @if ($visionMissions && $visionMissions->count())
                 <div class="row vision-mission">
                     @foreach ($visionMissions as $visionMission)
@@ -22,10 +22,4 @@
             @endif
         </div>
     </div>
-    @push('footerScript')
-        var visionMissionHeight = $(".vision-mission").height();
-        var spaceHeight = contentHeight - visionMissionHeight;
-        var shouldMarginTop = spaceHeight / 2;
-        $(".vision-mission").css("margin-top", shouldMarginTop);
-    @endpush
 @endsection
