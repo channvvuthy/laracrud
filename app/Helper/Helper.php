@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Str;
 
 class Helper
 {
@@ -221,5 +222,20 @@ class Helper
         }
 
         return $id;
+    }
+
+    /**
+     * Limit a string to a specified length.
+     *
+     * @param string $string The input string to be limited.
+     * @param int $limit The maximum length of the string (default is 50).
+     * @return string The limited string.
+     */
+    public static function  limitString($string, $limit = 50)
+    {
+        if (Str::length($string) > $limit) {
+            return Str::limit($string, $limit, '...');
+        }
+        return $string;
     }
 }
