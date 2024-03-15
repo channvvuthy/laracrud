@@ -180,5 +180,8 @@ return [
     'Document' => 'ឯកសារ',
     'Select type' => 'ជ្រើសរើសប្រភេទ',
     'Edit testimony' => 'កែសម្រួលទីបន្ទាល់',
-    'Edit offering' => 'កែសម្រួលការផ្តល់ជូន'
+    'Edit offering' => 'កែសម្រួលការផ្តល់ជូន',
+    'In Service' => 'នៅក្នុងសេវាកម្ម',
+    'Please kindly bring your cash or check to our Sunday service.' => 'សូមនាំយកសាច់ប្រាក់ ឬមូលប្បទានប័ត្ររបស់អ្នកមកកាន់សេវាថ្ងៃអាទិត្យរបស់យើង។',
+    'Via Bank Account Below' => 'តាមរយៈគណនីធនាគារខាងក្រោម'
 ];

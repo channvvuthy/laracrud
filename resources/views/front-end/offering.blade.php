@@ -36,9 +36,9 @@
                 </div>
                 <div class="rounded-lg bg-dark px-5 d-flex">
                     <div class="flex-grow-1 mt-4">
-                        <h3 class="text-white">In Service</h3>
+                        <h3 class="text-white">{{__('common.In Service')}}</h3>
                         <p class="text-white" style="margin:0px;">
-                            Please kindly bring your cash or check to our Sunday service.
+                            {{__('common.Please kindly bring your cash or check to our Sunday service.')}}
                         </p>
                         <div>
                             <a href="#" class="bg-white rounded-lg p-4 paypal">
@@ -50,7 +50,7 @@
                         <div style="border-left:1px solid #4f5459;"></div>
                     </div>
                     <div class="flex-grow-1 mt-4">
-                        <h3 class="text-white mb-3">Via Bank Account Below</h3>
+                        <h3 class="text-white mb-3">{{__('common.Via Bank Account Below')}}</h3>
                         @if (isset($banks) && $banks->count())
                             <div class="d-flex">
                                 @foreach ($banks as $key => $bank)
