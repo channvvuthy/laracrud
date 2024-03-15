@@ -10,9 +10,9 @@
     <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}"></script>
     <title>
         @if (isset($siteTitle))
-        {{ __('common.' . $siteTitle) }}
+            {{ __('common.' . $siteTitle) }}
         @else
-        Eternity Community church
+            Eternity Community church
         @endif
     </title>
     <style>
@@ -62,7 +62,8 @@
         .documents {
             border-left: 1px solid #236DA3;
         }
-        .border-b{
+
+        .border-b {
             border-bottom: 1px solid #236DA3;
         }
 
@@ -82,6 +83,9 @@
             width: 40px;
         }
 
+        .rounded-base {
+            border-radius: 1rem;
+        }
     </style>
 </head>
 
