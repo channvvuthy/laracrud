@@ -52,7 +52,10 @@
         }
 
         body {
-            font-family: 'Droid Serif', Koulen, sans-serif !important;
+            font-family: 'siemreap', Droid Serif', Koulen, sans-serif !important;
+        }
+        .f-koulen{
+            font-family: 'Koulen' !important;
         }
 
         .font-siemreap {

@@ -14,6 +14,8 @@ use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\OfferingController;
 use App\Http\Controllers\front\PayPalController;
 use App\Http\Controllers\front\VisionAndMissionController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 // Authentication Routes
 Route::group([
@@ -29,6 +31,7 @@ Route::group([
     'prefix' => '/admin',
     'as' => 'admin',
     'namespace' => 'App\Http\Controllers\admin',
+    'middleware' => ['language']
 ], function () {
 
     Route::get('/clear-cache', [SettingController::class, 'clearCache']);
@@ -115,15 +118,22 @@ function routeGenerator($controller, $getUrls = [], $postUrls = [])
 
 Route::group([
     'prefix' => '/paypal',
+    'middleware' => ['language'],
 ], function () {
     Route::post('/payment', [PayPalController::class, 'payment'])->name('paypal_payment');
     Route::get('/success', [PayPalController::class, 'success'])->name('paypal_success');
     Route::get('/cancel', [PayPalController::class, 'cancel'])->name('paypal_cancel');
 });
 
+Route::post('switch-language', function(Request $request){
+    App::setLocale($request->lang);
+    session()->put('locale', $request->lang);
+    return redirect()->back();
+})->name('switch-language');
+
 Route::group([
     'prefix' => '/',
-    'middleware' => 'pages',
+    'middleware' => ['pages', 'language'],
 ], function () {
     Route::get('/', [HomeController::class, 'index']);
 

@@ -6,6 +6,10 @@
         var contentHeight = widowHeight - navbarHeight;
         $('.content').height(contentHeight);
         @stack('footerScript')
+
+        $(".switch-language").on("click", function() {
+            $("#switch-language-form").submit();
+        });
     })
 </script>
 </body>
