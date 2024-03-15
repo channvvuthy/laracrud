@@ -5,6 +5,7 @@
         var bodyHeight = $(document).height();
         var contentHeight = widowHeight - navbarHeight;
         $('.content').height(contentHeight);
+        @stack('footerScript')
     })
 </script>
 </body>
