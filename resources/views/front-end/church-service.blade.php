@@ -1,28 +1,28 @@
 @extends('front-end.layout.master')
 @section('content')
-    <div class="who-we-are w-100 h-100 d-flex justify-content-center align-items-center">
+    <div class="justify-content-center align-items-center">
         @php
             $title = Helper::getContentByLang('title');
             $description = Helper::getContentByLang('description');
         @endphp
-        <div class="container">
+        <div class="container py-5">
             @if ($churchServce && $churchServce)
                 <div class="row">
-                    <div class="col-sm-6">
-                        <h1 class="text-white text-uppercase fw-bold fs-1" style="white-space: nowrap;">
+                    <div class="col-sm-6 col-12 mb-5">
+                        <h1 class="text-white text-uppercase fw-bold fs-1">
                             {{ $churchServce->$title }}
                         </h1>
                         <br />
                         <div class="w3-content w3-display-container">
-                            <img class="services rounded-lg" src="{{ $churchServce->photo }}" style="width:100%">
+                            <img class="services rounded-base" src="{{ $churchServce->photo }}" style="max-width:100%;">
                             @foreach (json_decode($churchServce->timetables) as $key => $value)
-                                <img class="services rounded-lg" src="{{ $value->image }}" style="width:100%">
+                                <img class="services rounded-base" src="{{ $value->image }}" style="max-width:100%">
                             @endforeach
 
                         </div>
                     </div>
                     <div class="col-sm-1"></div>
-                    <div class="col-sm-5">
+                    <div class="col-sm-5 col-12 mb-5">
                         <table class="table table-bordered">
                             <thead>
                                 <tr>

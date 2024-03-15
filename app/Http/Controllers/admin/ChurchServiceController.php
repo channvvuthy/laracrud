@@ -74,6 +74,7 @@ class ChurchServiceController extends LaraCRUDController
     public function getEdit($id): mixed
     {
         $this->data['find'] = $this->model->findOrFail($id);
+        $this->form[0] = array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'accept' => 'image/*');
         $this->data['form'] = $this->form;
         return view('admin.custom.church_edit', ['data' => $this->data]);
     }
@@ -190,6 +191,7 @@ class ChurchServiceController extends LaraCRUDController
     {
         $timetables = [];
         $redirectUrl = $request->get('save');
+        $this->form[0] = array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'accept' => 'image/*');
 
         if (!empty($request->times) && !empty($request->sessions)) {
             foreach ($request->times as $key => $time) {

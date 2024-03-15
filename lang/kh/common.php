@@ -178,5 +178,7 @@ return [
     'Audio' => 'សំឡេង',
     'Video' => 'វីដេអូ',
     'Document' => 'ឯកសារ',
-    'Select type' => 'ជ្រើសរើសប្រភេទ'
+    'Select type' => 'ជ្រើសរើសប្រភេទ',
+    'Edit testimony' => 'កែសម្រួលទីបន្ទាល់',
+    'Edit offering' => 'កែសម្រួលការផ្តល់ជូន'
 ];

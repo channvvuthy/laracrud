@@ -183,5 +183,7 @@ return [
     'Audio' => 'Audio',
     'Video' => 'Video',
     'Document' => 'Document',
-    'Select type' => 'Select type'
+    'Select type' => 'Select type',
+    'Edit testimony' => 'Edit testimony',
+    'Edit offering' => 'Edit offering'
 ];

@@ -6,7 +6,7 @@ use App\Models\WhoWeAre;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-
+use Illuminate\Http\Request;
 
 class WhoWeAreController extends LaraCRUDController
 {
@@ -54,7 +54,7 @@ class WhoWeAreController extends LaraCRUDController
      */
     public function getAdd(): Factory|View|Application
     {
-        $this->title = "Add new ".$this->model->moduleName;
+        $this->title = "Add new " . $this->model->moduleName;
         $this->data['form'] = $this->form;
         $this->data['back'] = $this->model->moduleName;
         return view('admin.add', ['data' => $this->data]);
@@ -85,5 +85,15 @@ class WhoWeAreController extends LaraCRUDController
         $this->data['back'] = $this->model->moduleName;
         $this->init();
         return view('admin.detail', ['data' => $this->data]);
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function update(Request $request): mixed
+    {
+        $this->form[0] = array('field' => 'photo', 'title' => 'Photo', 'type' => 'file', 'accept' => 'image/*');
+        return parent::update($request);
     }
 }
