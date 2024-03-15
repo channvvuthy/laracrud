@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\SettingController;
 use App\Http\Controllers\front\TestimonyController;
 use App\Http\Controllers\front\BibleStudyController;
 use App\Http\Controllers\admin\BibleStudyController as AdminBibleStudyController;
+use App\Http\Controllers\admin\ChurchServiceController as AdminChurchServiceController;
 use App\Http\Controllers\front\ChurchServiceController;
 use App\Http\Controllers\front\ContactUsController;
 use App\Http\Controllers\front\WhoWeAreController;
@@ -37,7 +38,9 @@ Route::group([
     Route::get('/biblestudy/view-doc/{bibleId}/edit/{id}', [AdminBibleStudyController::class, 'editDoc']);
     Route::post('/biblestudy/add-doc', [AdminBibleStudyController::class, 'postDoc'])->name('add-doc');
     Route::post('/biblestudy/doc/update', [AdminBibleStudyController::class, 'updateDoc'])->name('update-doc');
-    Route::get('biblestudy/view-doc/{bibleId}/delete/{id}', [AdminBibleStudyController::class, 'deleteDoc'])->name('delete-doc');
+    Route::get('/biblestudy/view-doc/{bibleId}/delete/{id}', [AdminBibleStudyController::class, 'deleteDoc'])->name('delete-doc');
+    Route::get('/churchservice/{id}/delete/{index}', [AdminChurchServiceController::class, 'deleteSession'])->name('delete-session');
+    
 
 
 

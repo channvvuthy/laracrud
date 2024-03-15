@@ -239,11 +239,29 @@ class ChurchServiceController extends LaraCRUDController
             if ($newTimetables[$key]['image']) {
                 $oldTimetables[$key]->image = $newTimetables[$key]['image'];
             }
-            
+
             $oldTimetables[$key]->session = $newTimetables[$key]['session'];
             $oldTimetables[$key]->time = $newTimetables[$key]['time'];
         }
 
         return $oldTimetables;
+    }
+
+    public function deleteSession($id, $index)
+    {
+        $churchService = $this->model->findOrFail($id);
+        $timetables = json_decode($churchService->timetables, true);
+
+        if (isset($timetables[$index])) {
+            unset($timetables[$index]);
+
+            $churchService->timetables = json_encode($timetables);
+
+            $churchService->save();
+
+            return redirect()->back()->with('message', 'The session has been successfully deleted.');
+        } else {
+            return redirect()->back()->with('error', 'Invalid session index.');
+        }
     }
 }
