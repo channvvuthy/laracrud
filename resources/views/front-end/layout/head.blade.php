@@ -86,6 +86,10 @@
         .rounded-base {
             border-radius: 1rem;
         }
+        .rounded-top-base{
+            border-top-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+        }
     </style>
 </head>
 
