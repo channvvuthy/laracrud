@@ -19,7 +19,8 @@ class BibleStudyController extends Controller
         }
 
         $title = 'Bible Study';
-        $bibleStudies = BibleStudyService::getBibleStudies($type, 4);
+        $pageSize = request()->get('page_size') ?? 4;
+        $bibleStudies = BibleStudyService::getBibleStudies($type, $pageSize);
         return view('front-end.' . $type, compact('title', 'bibleStudies'));
     }
 

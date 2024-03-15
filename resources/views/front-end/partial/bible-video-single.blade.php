@@ -2,4 +2,4 @@
  <div class="text-white">
      {!! strip_tags($bibleStudy->$caption) !!}</p>
  </div>
- <img src="{{ $bibleStudy->photo }}" class="rounded" style="max-width: 100%;" />
+ <img src="{{ $bibleStudy->photo }}" class="rounded-base" style="max-width: 100%;" />
