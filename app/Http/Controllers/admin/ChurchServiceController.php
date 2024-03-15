@@ -226,12 +226,22 @@ class ChurchServiceController extends LaraCRUDController
         return redirect($redirectUrl)->with('message', 'The data has been updated');
     }
 
+    /**
+     * Update timetables with new information.
+     *
+     * @param array $oldTimetables The old timetables to be updated
+     * @param array $newTimetables The new timetables containing updated information
+     * @return array The updated timetables
+     */
     public function updateTimetables($oldTimetables, $newTimetables)
     {
         foreach ($oldTimetables as $key => $oldTimetable) {
-            if (isset($newTimetables[$key], $newTimetables[$key]['image']) && $newTimetables[$key]['image'] != null) {
+            if ($newTimetables[$key]['image']) {
                 $oldTimetables[$key]->image = $newTimetables[$key]['image'];
             }
+            
+            $oldTimetables[$key]->session = $newTimetables[$key]['session'];
+            $oldTimetables[$key]->time = $newTimetables[$key]['time'];
         }
 
         return $oldTimetables;
