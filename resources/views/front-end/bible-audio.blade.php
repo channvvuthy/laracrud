@@ -14,7 +14,7 @@
             @foreach($bibleStudies as $bibleStudy)
 
             <div class="col-sm-3">
-                <a href="bible-studies?type=bible-document&detail={{$bibleStudy->id}}" class="text-decoration-none" style="color: black;">
+                <a href="bible-studies?type=bible-audio&detail={{$bibleStudy->id}}" class="text-decoration-none" style="color: black;">
                     <div class="box rounded-lg shadow-bottom">
                         <div>
                             <img src="{{$bibleStudy->photo}}" class="rounded-top-lg img-fluid" id="main_image" data-url="{{$bibleStudy->photo}}" />

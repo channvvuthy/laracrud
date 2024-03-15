@@ -7,16 +7,21 @@
                         <div class="mr-2">
                             @if ($field['type'] == 'text')
                                 <input type="{{ $field['type'] }}" class="form-control" name="{{ $field['field'] }}"
+                                    value="{{ request()->get($field['field']) }}"
                                     placeholder="{{ isset($field['placeholder']) ? $field['placeholder'] : '' }}">
                             @endif
-                            @if ($field['type'] == 'select2')
-                                <select class="form-control select2" name="{{ $field['field'] }}" style="width: 100%;">
-                                    <option selected>{{ __('common.Select type') }}
-                                    <option {{request()->get('type') == '1' ? 'selected': ''}} value="1">{{__('common.Video')}}</option>
-                                    <option {{request()->get('type') == '2' ? 'selected': ''}} value="2">{{__('common.Document')}}</option>
-                                    <option {{request()->get('type') == '3' ? 'selected': ''}} value="3">{{__('common.Audio')}}</option>
-                                </select>
-                            @endif
+                            
+                            <select class="form-control select2" name="type" style="width: 100%;">
+                                <option value=''>{{ __('common.Select type') }}
+                                <option {{ request()->get('type') == '1' ? 'selected' : '' }} value="1">
+                                    {{ __('common.Video') }}</option>
+                                <option {{ request()->get('type') == '2' ? 'selected' : '' }} value="2">
+                                    {{ __('common.Document') }}
+                                </option>
+                                <option {{ request()->get('type') == '3' ? 'selected' : '' }} value="3">
+                                    {{ __('common.Audio') }}</option>
+                            </select>
+
                             @if ($field['type'] == 'picker')
                                 <div class="input-group date {{ $field['field'] }}" id="{{ $field['field'] }}"
                                     data-target-input="nearest">

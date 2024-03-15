@@ -179,5 +179,9 @@ return [
     'Videos' => 'Videos',
     'Books' => 'Books',
     'Audios' => 'Audios',
-    'Add New Doc' => 'Add New Doc'
+    'Add New Doc' => 'Add New Doc',
+    'Audio' => 'Audio',
+    'Video' => 'Video',
+    'Document' => 'Document',
+    'Select type' => 'Select type'
 ];
