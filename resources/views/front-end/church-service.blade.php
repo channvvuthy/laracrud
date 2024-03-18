@@ -13,11 +13,29 @@
                             {{ $churchServce->$title }}
                         </h1>
                         <br />
-                        <div class="w3-content w3-display-container">
-                            <img class="services rounded-base" src="{{ $churchServce->photo }}" style="max-width:100%;">
-                            @foreach (json_decode($churchServce->timetables) as $key => $value)
-                                <img class="services rounded-base" src="{{ $value->image }}" style="max-width:100%">
-                            @endforeach
+                        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                @foreach (json_decode($churchServce->timetables) as $key => $value)
+                                    <button type="button" data-bs-target="#carouselExampleCaptions"
+                                        id="indicator-{{ $key + 1 }}" data-bs-slide-to="{{ $key + 1 }}"
+                                        aria-label="Slide {{ $key + 1 }}"></button>
+                                @endforeach
+
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img class="services rounded-base d-block w-100" src="{{ $churchServce->photo }}"
+                                        style="max-width:100%;">
+                                </div>
+                                @foreach (json_decode($churchServce->timetables) as $key => $value)
+                                    <div class="carousel-item">
+                                        <img class="services rounded-base d-block w-100" src="{{ $value->image }}"
+                                            style="max-width:100%">
+                                    </div>
+                                @endforeach
+                            </div>
 
                         </div>
                     </div>
@@ -34,8 +52,7 @@
                             </thead>
                             <tbody>
                                 @foreach (json_decode($churchServce->timetables) as $key => $value)
-                                    <tr data-image="{{ $value->image }}" class="session"
-                                        data-index="{{ $key }}">
+                                    <tr data-image="{{ $value->image }}" class="session" data-index="{{ $key }}">
                                         <td class="text-white fs-6 text-center" style="padding:2.25rem 0rem;">
                                             {{ $value->time }}</td>
                                         <td class="text-white fs-6 text-center" style="padding:2.25rem 0rem;">
@@ -50,27 +67,19 @@
         </div>
     </div>
     <script>
-        var activeIndex = 0;
-        showService(activeIndex);
-
-        function showService(index) {
-            var x = document.getElementsByClassName("services");
-
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
-            }
-
-            x[index].style.display = "block";
-        }
         $(document).ready(function() {
             $(".session").on('mouseover', function() {
                 var index = $(this).data("index");
-                showService(index + 1);
+                $("#indicator-" + (index + 1)).click();
             });
 
-            $("table").on('mouseleave', function() {
-                showService(0);
-            })
         });
     </script>
 @endsection
+@push('style')
+    <style>
+        td:hover {
+            text-decoration: underline;
+        }
+    </style>
+@endpush
