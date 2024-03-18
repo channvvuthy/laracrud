@@ -16,7 +16,7 @@
                         <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-indicators">
                                 <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                                    class="active" aria-current="true" aria-label="Slide 1" id="indicator-0"></button>
                                 @foreach (json_decode($churchServce->timetables) as $key => $value)
                                     <button type="button" data-bs-target="#carouselExampleCaptions"
                                         id="indicator-{{ $key + 1 }}" data-bs-slide-to="{{ $key + 1 }}"
@@ -71,6 +71,10 @@
             $(".session").on('mouseover', function() {
                 var index = $(this).data("index");
                 $("#indicator-" + (index + 1)).click();
+            });
+
+            $("table").on('mouseleave', function() {
+                $("#indicator-0").click();
             });
 
         });
