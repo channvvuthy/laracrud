@@ -9,7 +9,7 @@
         <div class="container py-5">
             @if (isset($bibleStudy))
                 <div class="row">
-                    <div class="col-md-7 px-5">
+                    <div class="col-md-7 px-5 mb-3">
                         <?php $index = request()->get('index'); ?>
                         @if ($index != null)
                             @php
@@ -32,7 +32,7 @@
                             @include('front-end.partial.bible-video-single')
                         @endif
                     </div>
-                    <div class="col-md-5 documents px-5">
+                    <div class="col-md-5 documents px-5 mb-3">
                         <h1 class="text-white fw-bold fs-1 mb-4">{{__('common.Videos')}}</h1>
                         <ul class="list-unstyled">
                             @include('front-end.partial.bible-video-play-list')
