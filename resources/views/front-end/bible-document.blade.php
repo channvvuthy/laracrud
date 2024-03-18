@@ -22,7 +22,7 @@
                         <div class="bg-white p-3 rounded-b-lg text-center">
                             <div class="fw-bold fs-4">{{$bibleStudy->$title}}</div>
                             <div>
-                                {!!$bibleStudy->$caption!!}
+                               {{ Helper::limitString(strip_tags($bibleStudy->$caption), 50) }}
                             </div>
                         </div>
                     </div>

@@ -9,7 +9,7 @@
         <div class="container py-5">
             @if (isset($bibleStudy))
                 <div class="row">
-                    <div class="col-md-7 px-5">
+                    <div class="col-md-7 px-5 mb-3">
                         <?php $index = request()->get('index'); ?>
                         @if ($index != null)
                             @php
