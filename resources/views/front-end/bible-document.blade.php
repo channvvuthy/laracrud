@@ -31,7 +31,7 @@
                         </div>
                     @endforeach
                 </div>
-                <div class="d-flex justify-content-end clearfix">
+                <div class="d-flex justify-content-end clearfix mt-5">
                     @if (request()->get('page_size') != null)
                         @php
                             $pageSize = request()->get('page_size');
