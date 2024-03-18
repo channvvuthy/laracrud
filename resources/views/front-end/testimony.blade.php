@@ -23,7 +23,7 @@
                                     <div class="bg-white p-3 rounded-lg text-center">
                                         <div class="fw-bold fs-4 mt-5">{{ $testimony->$title }}</div>
                                         <div>
-                                            {{ Helper::limitString(strip_tags($testimony->$description), 100) }}
+                                            {{ Helper::limitString(strip_tags($testimony->$description), 150) }}
                                         </div>
                                     </div>
                                 </div>
