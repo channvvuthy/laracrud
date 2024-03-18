@@ -53,8 +53,10 @@
 
         body {
             font-family: 'siemreap', Droid Serif', Koulen, sans-serif !important;
+
         }
-        .f-koulen{
+
+        .f-koulen {
             font-family: 'Koulen' !important;
         }
 
@@ -89,11 +91,16 @@
         .rounded-base {
             border-radius: 1rem;
         }
-        .rounded-top-base{
+
+        .rounded-top-base {
             border-top-left-radius: 1rem;
             border-top-right-radius: 1rem;
         }
+        .nav-item a{
+            font-family: 'Droid Serif', 'siemreap' !important;
+        }
     </style>
+    @stack('style')
 </head>
 
 <body>
