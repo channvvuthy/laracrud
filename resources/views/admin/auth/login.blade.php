@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{__('common.VSM')}}</title>
+    <title>{{__('common.ECC')}}</title>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
@@ -29,7 +29,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-        <a href="{{URL::to('/admin/login')}}">{{__('common.VSM')}}</a>
+        <a href="{{URL::to('/admin/login')}}">{{__('common.ECC')}}</a>
     </div>
     @if ($errors->any())
         <div class="alert alert-warning">

@@ -31,7 +31,7 @@ Route::group([
     'prefix' => '/admin',
     'as' => 'admin',
     'namespace' => 'App\Http\Controllers\admin',
-    'middleware' => ['language']
+    'middleware' => ['language', 'auth']
 ], function () {
 
     Route::get('/clear-cache', [SettingController::class, 'clearCache']);
