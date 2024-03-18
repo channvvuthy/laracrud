@@ -18,7 +18,7 @@
                         @if ($page->children->count())
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {{ Route::currentRouteName() == $page->slug ? 'active' : '' }}"
-                                    aria-current="page" href="{{ $page->slug }}" href="#" id="navbarDropdown"
+                                    aria-current="page" href="/{{ $page->slug }}" href="#" id="navbarDropdown"
                                     role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     {{ $page->$displayName }}
                                 </a>
@@ -27,7 +27,7 @@
                                     @foreach ($page->children as $child)
                                         <li class="nav-item my-2">
                                             <a class="dropdown-item rounded-lg {{ request()->get('type') == $child->slug ? 'active' : '' }}"
-                                                href="{{ $page->slug }}?type={{ $child->slug }}">
+                                                href="/{{ $page->slug }}?type={{ $child->slug }}">
                                                 {{ $child->$displayName }}
                                             </a>
                                         </li>
@@ -38,7 +38,7 @@
                         @else
                             <li class="nav-item">
                                 <a class="nav-link {{ Route::currentRouteName() == $page->slug ? 'active' : '' }}"
-                                    aria-current="page" href="{{ $page->slug }}">
+                                    aria-current="page" href="/{{ $page->slug }}">
                                     {{ $page->$displayName }}
                                 </a>
                             </li>
