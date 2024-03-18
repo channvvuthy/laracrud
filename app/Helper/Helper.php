@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
+
 
 class Helper
 {
@@ -237,5 +239,18 @@ class Helper
             return Str::limit($string, $limit, '...');
         }
         return $string;
+    }
+
+    /**
+     * Formats the given time string into a readable format.
+     *
+     * @param string $time The time string to be formatted.
+     * @return string The formatted time string.
+     */
+    public static function showTime($time)
+    {
+
+        $carbonTime = Carbon::createFromFormat('H:i', $time);
+        return $carbonTime->format('g:i A');
     }
 }
