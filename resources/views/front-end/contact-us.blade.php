@@ -27,7 +27,6 @@
                     </div>
                     <div class="col-sm-6 col-12 d-flex justify-content-end mb-3">
                         <ul class="list-inline">
-                        {{dd($socials)}}
                             @if (isset($socials) && count($socials))
                                 @foreach ($socials as $social)
                                 <li class="list-inline-item">
