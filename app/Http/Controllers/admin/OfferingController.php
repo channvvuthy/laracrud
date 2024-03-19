@@ -28,6 +28,8 @@ class OfferingController extends LaraCRUDController
             array('field' => 'description_kh', 'title' => 'Description (Khmer)'),
             array('field' => 'way_to_give_en', 'title' => 'Way to give (English)'),
             array('field' => 'way_to_give_kh', 'title' => 'Way to give (Khmer)'),
+            array('field' => 'in_cash_en', 'title' => 'In cash (English)'),
+            array('field' => 'in_cash_kh', 'title' => 'In cash (Khmer)'),
         ];
 
 
@@ -38,6 +40,8 @@ class OfferingController extends LaraCRUDController
             array('field' => 'description_kh', 'title' => 'Description (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
             array('field' => 'way_to_give_en', 'title' => 'Way to give (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'way_to_give_kh', 'title' => 'Way to give (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'in_cash_en', 'title' => 'In cash (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'in_cash_kh', 'title' => 'In cash (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
         ];
     }
 

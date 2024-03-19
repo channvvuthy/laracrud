@@ -15,17 +15,12 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('logo')->nullable();
-            $table->string('address')->nullable();
-            $table->string('map')->nullable();
-            $table->string('about')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('youtube')->nullable();
-            $table->string('tiktok')->nullable();
-            $table->string('instagram')->nullable();
+            $table->string('default_font');
+            $table->string('navbar_font');
+            $table->string('title_font');
+            $table->string('paragraph_font');
+            $table->string('paragraph_line_height');
+            $table->string('logo');
             $table->timestamps();
         });
     }

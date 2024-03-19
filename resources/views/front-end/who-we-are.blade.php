@@ -16,8 +16,7 @@
                 </div>
                 <div class="col-sm-1"></div>
                 <div class="col-sm-5 text-white break-word lh-lg fs-5 py-4">
-                    {!! trim($whoWeAre->$description) !!}
-
+                    <p>{!! trim($whoWeAre->$description) !!}</p>
                 </div>
             </div>
         </div>

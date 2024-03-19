@@ -192,4 +192,13 @@ return [
     'Edit social' => 'កែសម្រួលសង្គម',
     'Add new Font' => 'បន្ថែមពុម្ពអក្សរថ្មី',
     'Font detail' => 'ព័ត៌មានលម្អិតអំពីពុម្ពអក្សរ',
+    'Navbar Font' => 'ពុម្ពអក្សរ Navbar',
+    'Title Font' => 'ពុម្ពអក្សរចំណងជើង',
+    'Paragraph Font' => 'ពុម្ពអក្សរកថាខណ្ឌ',
+    'Paragraph Line Height' => 'កម្ពស់បន្ទាត់កថាខណ្ឌ',
+    'Add new Setting' => 'បន្ថែមការកំណត់ថ្មី',
+    'Default Font' => 'ពុម្ពអក្សរលំនាំដើម',
+    'In Cash' => 'ជាសាច់ប្រាក់',
+    'In cash (English)' => 'ជាសាច់ប្រាក់ (អង់គ្លេស)',
+    'In cash (Khmer)' => 'ជាសាច់ប្រាក់ (ខ្មែរ)',
 ];

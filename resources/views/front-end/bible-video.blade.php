@@ -23,7 +23,7 @@
                                     <div class="bg-white p-3 rounded-b-lg text-center">
                                         <div class="fw-bold fs-4">{{ $bibleStudy->$title }}</div>
                                         <div>
-                                            {{ Helper::limitString(strip_tags($bibleStudy->$caption), 50) }}
+                                            <p>{{ Helper::limitString(strip_tags($bibleStudy->$caption), 50) }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -33,11 +33,12 @@
                 </div>
                 <div class="d-flex justify-content-end clearfix">
                     @if (request()->get('page_size') != null)
-                        @php 
+                        @php
                             $pageSize = request()->get('page_size');
                             $viewMore = $pageSize + 4;
                         @endphp
-                        <a href="/bible-studies?type=bible-video&page_size={{ $viewMore }}" class="text-white text-decoration-none">View
+                        <a href="/bible-studies?type=bible-video&page_size={{ $viewMore }}"
+                            class="text-white text-decoration-none">View
                             More -></a>
                     @else
                         <a href="/bible-studies?type=bible-video&page_size=4" class="text-white text-decoration-none">View

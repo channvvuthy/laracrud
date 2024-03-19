@@ -199,4 +199,13 @@ return [
     'Edit social' => 'Edit social',
     'Add new Font' => 'Add new Font',
     'Font detail' => 'Font detail',
+    'Navbar Font' => 'Navbar Font',
+    'Title Font' => 'Title Font',
+    'Paragraph Font' => 'Paragraph Font',
+    'Paragraph Line Height' => 'Paragraph Line Height',
+    'Add new Setting' => 'Add new Setting',
+    'Default Font' => 'Default Font',
+    'In Cash' => 'In Cash',
+    'In cash (English)' => 'In cash (English)',
+    'In cash (Khmer)' => 'In cash (Khmer)',
 ];

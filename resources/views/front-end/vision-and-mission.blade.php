@@ -14,7 +14,9 @@
                                 <h1 class="text-white text-uppercase fw-bold fs-1 mb-3" style="white-space: nowrap;">
                                     {{ $visionMission->$title }}
                                 </h1>
-                                <div class="text-white break-word lh-lg fs-5">{!! trim($visionMission->$description) !!}</div>
+                                <div class="text-white break-word lh-lg fs-5">
+                                    <p>{!! trim($visionMission->$description) !!}</p>
+                                </div>
                             </div>
                         </div>
                     @endforeach

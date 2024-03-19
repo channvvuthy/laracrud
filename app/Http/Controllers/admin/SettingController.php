@@ -18,33 +18,28 @@ class SettingController extends LaraCRUDController
         parent::__construct();
 
         $this->model = $setting;
-        $this->add = false;
+        $this->add = true;
         $this->delete = false;
 
+
         $this->head = [
-            array('field' => 'name', 'title' => 'Name'),
+            array('field' => 'default_font', 'title' => 'Default Font'),
+            array('field' => 'navbar_font', 'title' => 'Navbar Font'),
+            array('field' => 'title_font', 'title' => 'Title Font'),
+            array('field' => 'paragraph_font', 'title' => 'Paragraph Font'),
+            array('field' => 'paragraph_line_height', 'title' => 'Paragraph Line Height'),
             array('field' => 'logo', 'title' => 'Logo', 'type' => 'image'),
-            array('field' => 'email', 'title' => 'Email'),
-            array('field' => 'phone', 'title' => 'Phone'),
-            array('field' => 'address', 'title' => 'Address'),
-            array('field' => 'about', 'title' => 'About'),
-            array('field' => 'facebook', 'title' => 'Facebook', 'view' => false),
-            array('field' => 'tiktok', 'title' => 'Tiktok', 'view' => false),
-            array('field' => 'instagram', 'title' => 'Instagram', 'view' => false),
-            array('field' => 'youtube', 'title' => 'Youtube', 'view' => false),
+           
         ];
 
         $this->form = [
-            array('field' => 'name', 'title' => 'Name', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'default_font', 'title' => 'Default Font', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'navbar_font', 'title' => 'Navbar Font', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'title_font', 'title' => 'Title Font', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'paragraph_font', 'title' => 'Paragraph Font', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'paragraph_line_height', 'title' => 'Paragraph Line Height', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'logo', 'title' => 'Logo', 'type' => 'file', 'accept' => 'image/*'),
-            array('field' => 'email', 'title' => 'Email', 'type' => 'email'),
-            array('field' => 'phone', 'title' => 'Phone', 'type' => 'number'),
-            array('field' => 'address', 'title' => 'Address', 'type' => 'text'),
-            array('field' => 'about', 'title' => 'About', 'type' => 'text'),
-            array('field' => 'facebook', 'title' => 'Facebook', 'type' => 'text'),
-            array('field' => 'tiktok', 'title' => 'Tiktok', 'type' => 'text'),
-            array('field' => 'instagram', 'title' => 'Instagram', 'type' => 'text'),
-            array('field' => 'youtube', 'title' => 'Youtube', 'type' => 'text'),
+           
         ];
     }
 
@@ -53,7 +48,7 @@ class SettingController extends LaraCRUDController
      */
     public function getIndex(): View|Factory|Application
     {
-        $this->result = $this->paginate();
+        $this->data['result'] = $this->paginate();
         $this->init();
         return view('admin.index', ['data' => $this->data]);
     }

@@ -61,7 +61,12 @@ class BackEndMenuService
                 'name' => 'Font',
                 'action' => 'admin/font',
                 'icon' => 'fa fa-font',
-            ]
+            ],
+            [
+                'name' => 'Setting',
+                'action' => 'admin/setting',
+                'icon' => 'fa fa-cogs',
+            ],
         ];
     }
 }

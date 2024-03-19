@@ -54,9 +54,11 @@
                                 @foreach (json_decode($churchServce->timetables) as $key => $value)
                                     <tr data-image="{{ $value->image }}" class="session" data-index="{{ $key }}">
                                         <td class="text-white fs-6 text-center" style="padding:2.25rem 0rem;">
-                                            {{ Helper::showTime($value->time) }}</td>
+                                            <p>{{ Helper::showTime($value->time) }}</p>
+                                        </td>
                                         <td class="text-white fs-6 text-center" style="padding:2.25rem 0rem;">
-                                            {{ $value->session }}</td>
+                                            <p>{{ $value->session }}</p>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>

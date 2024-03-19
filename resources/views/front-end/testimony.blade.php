@@ -13,7 +13,8 @@
                 <div class="row">
                     @foreach ($testimonies as $testimony)
                         <div class="col-sm-6 col-12 col-md-3 col box">
-                            <a href="/testimonies/{{$testimony->id}}/detail" class="text-decoration-none" style="color: black;">
+                            <a href="/testimonies/{{ $testimony->id }}/detail" class="text-decoration-none"
+                                style="color: black;">
                                 <div class="box rounded-lg shadow-bottom position-relative">
                                     <div class="position-absolute wrapper-testimony">
                                         <div class="testimony-image shadow-circle"
@@ -21,9 +22,11 @@
                                         </div>
                                     </div>
                                     <div class="bg-white p-3 rounded-lg text-center">
-                                        <div class="fw-bold fs-4 mt-5">{{ $testimony->$title }}</div>
                                         <div>
-                                            {{ Helper::limitString(strip_tags($testimony->$description), 150) }}
+                                            <h2 class="fw-bold fs-4 mt-5">{{ $testimony->$title }}</h2>
+                                        </div>
+                                        <div>
+                                            <p>{{ Helper::limitString(strip_tags($testimony->$description), 150) }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -38,13 +41,16 @@
                                 $pageSize = request()->get('page_size');
                                 $viewMore = $pageSize + 4;
                             @endphp
-                            <a href="/testimonies?page_size={{ $viewMore }}"
-                                class="text-white text-decoration-none">View
-                                More -></a>
+                            <p>
+                                <a href="/testimonies?page_size={{ $viewMore }}"
+                                    class="text-white text-decoration-none">View
+                                    More -></a>
+                            </p>
                         @else
-                            <a href="/testimonies?page_size=4"
-                                class="text-white text-decoration-none">View
-                                More -></a>
+                            <p>
+                                <a href="/testimonies?page_size=4" class="text-white text-decoration-none">View
+                                    More -></a>
+                            </p>
                         @endif
 
                     </div>

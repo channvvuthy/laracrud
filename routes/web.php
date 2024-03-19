@@ -31,7 +31,7 @@ Route::group([
     'prefix' => '/admin',
     'as' => 'admin',
     'namespace' => 'App\Http\Controllers\admin',
-    'middleware' => ['language', 'auth', 'font']
+    'middleware' => ['language', 'auth', 'font', 'setting']
 ], function () {
 
     Route::get('/clear-cache', [SettingController::class, 'clearCache']);
@@ -43,7 +43,7 @@ Route::group([
     Route::post('/biblestudy/doc/update', [AdminBibleStudyController::class, 'updateDoc'])->name('update-doc');
     Route::get('/biblestudy/view-doc/{bibleId}/delete/{id}', [AdminBibleStudyController::class, 'deleteDoc'])->name('delete-doc');
     Route::get('/churchservice/{id}/delete/{index}', [AdminChurchServiceController::class, 'deleteSession'])->name('delete-session');
-    
+
 
 
 
@@ -118,14 +118,14 @@ function routeGenerator($controller, $getUrls = [], $postUrls = [])
 
 Route::group([
     'prefix' => '/paypal',
-    'middleware' => ['language', 'font'],
+    'middleware' => ['language', 'font', 'setting'],
 ], function () {
     Route::post('/payment', [PayPalController::class, 'payment'])->name('paypal_payment');
     Route::get('/success', [PayPalController::class, 'success'])->name('paypal_success');
     Route::get('/cancel', [PayPalController::class, 'cancel'])->name('paypal_cancel');
 });
 
-Route::post('switch-language', function(Request $request){
+Route::post('switch-language', function (Request $request) {
     App::setLocale($request->lang);
     session()->put('locale', $request->lang);
     return redirect()->back();
@@ -133,7 +133,7 @@ Route::post('switch-language', function(Request $request){
 
 Route::group([
     'prefix' => '/',
-    'middleware' => ['pages', 'language', 'font'],
+    'middleware' => ['pages', 'language', 'font', 'setting'],
 ], function () {
     Route::get('/', [HomeController::class, 'index']);
 

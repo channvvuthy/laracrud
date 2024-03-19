@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('description_kh');
             $table->string('way_to_give_en');
             $table->string('way_to_give_kh');
+            $table->string('in_cash_en');
+            $table->string('in_cash_kh');
             $table->timestamps();
         });
     }

@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
-    protected $table ="settings";
-    public string $moduleName = "Setting";
+
+    protected $fillable = ['default_font', 'navbar_font', 'title_font', 'paragraph_font', 'paragraph_line_height', 'logo'];
 }

@@ -71,11 +71,30 @@
             border-top-left-radius: 1rem;
             border-top-right-radius: 1rem;
         }
-
-        .nav-item a {
-            font-family: 'Droid Serif', 'siemreap' !important;
-        }
     </style>
+    @if (Cache::has('settings'))
+        @php
+            $setting = Cache::get('settings');
+        @endphp
+        <style>
+            .nav-item a {
+                font-family: {{ $setting->navbar_font }} !important;
+            }
+
+            p {
+                font-family: {{ $setting->paragraph_font }} !important;
+            }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-family: {{ $setting->title_font }} !important;
+            }
+        </style>
+    @endif
     @stack('style')
 </head>
 

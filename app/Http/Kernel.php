@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'pages' => \App\Http\Middleware\PageMiddleware::class,
         'language' => \App\Http\Middleware\LanguageMiddleware::class,
         'font' => \App\Http\Middleware\FontMiddleware::class,
+        'setting' => \App\Http\Middleware\SettingMiddleware::class,
     ];
 }
