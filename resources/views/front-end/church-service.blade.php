@@ -54,10 +54,21 @@
                                 @foreach (json_decode($churchServce->timetables) as $key => $value)
                                     <tr data-image="{{ $value->image }}" class="session" data-index="{{ $key }}">
                                         <td class="text-white fs-6 text-center" style="padding:2.25rem 0rem;">
-                                            <p>{{ Helper::showTime($value->time) }}</p>
+                                            <p class="session-text position-relative">
+                                                <span class="border-animate d-flex justify-content-center items-center">
+                                                    <span class="item-transition"></span>
+                                                </span>
+                                                {{ Helper::showTime($value->time) }}
+                                            </p>
                                         </td>
                                         <td class="text-white fs-6 text-center" style="padding:2.25rem 0rem;">
-                                            <p>{{ $value->session }}</p>
+                                            <p class="session-text position-relative">
+                                                {{ $value->session }}
+                                                <span
+                                                    class="border-animate d-flex d-flex justify-content-center items-center">
+                                                    <span class="item-transition"></span>
+                                                </span>
+                                            </p>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -84,8 +95,26 @@
 @endsection
 @push('style')
     <style>
-        td:hover {
-            text-decoration: underline;
+        .border-animate {
+            width: 100%;
+            height: 4px;
+            display: flex;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .item-transition {
+            height: 3px;
+            width: 0%;
+            background-color: white;
+            margin-top: 4px;
+            border-radius: 50%;
+        }
+
+        tr td:hover .item-transition {
+            width: 50%;
+            transition: width 0.6s;
         }
     </style>
 @endpush
