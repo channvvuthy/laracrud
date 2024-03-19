@@ -15,42 +15,17 @@
             Eternity Community church
         @endif
     </title>
+    @if (Cache::has('fonts'))
+        @foreach (Cache::get('fonts') as $font)
+            <style>
+                @font-face {
+                    font-family: "{{ $font->name }}";
+                    src: url("{{ $font->file }}") format('truetype');
+                }
+            </style>
+        @endforeach
+    @endif
     <style>
-        @font-face {
-            font-family: 'Droid Serif';
-            src: url("{{ asset('fonts/DroidSerif-Regular.ttf') }}") format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Droid Serif';
-            src: url("{{ asset('fonts/DroidSerif-Bold.ttf') }}") format('truetype');
-            font-weight: bold;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'Koulen';
-            src: url("{{ asset('fonts/Koulen-Regular.ttf') }}") format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'innovate';
-            src: url("{{ asset('fonts/innovate-regular.otf') }}") format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        @font-face {
-            font-family: 'siemreap';
-            src: url("{{ asset('fonts/Siemreap-Regular.ttf') }}") format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-
         body {
             font-family: 'siemreap', Droid Serif', Koulen, sans-serif !important;
 
@@ -96,7 +71,8 @@
             border-top-left-radius: 1rem;
             border-top-right-radius: 1rem;
         }
-        .nav-item a{
+
+        .nav-item a {
             font-family: 'Droid Serif', 'siemreap' !important;
         }
     </style>

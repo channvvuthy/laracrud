@@ -31,7 +31,7 @@ Route::group([
     'prefix' => '/admin',
     'as' => 'admin',
     'namespace' => 'App\Http\Controllers\admin',
-    'middleware' => ['language', 'auth']
+    'middleware' => ['language', 'auth', 'font']
 ], function () {
 
     Route::get('/clear-cache', [SettingController::class, 'clearCache']);
@@ -118,7 +118,7 @@ function routeGenerator($controller, $getUrls = [], $postUrls = [])
 
 Route::group([
     'prefix' => '/paypal',
-    'middleware' => ['language'],
+    'middleware' => ['language', 'font'],
 ], function () {
     Route::post('/payment', [PayPalController::class, 'payment'])->name('paypal_payment');
     Route::get('/success', [PayPalController::class, 'success'])->name('paypal_success');
@@ -133,7 +133,7 @@ Route::post('switch-language', function(Request $request){
 
 Route::group([
     'prefix' => '/',
-    'middleware' => ['pages', 'language'],
+    'middleware' => ['pages', 'language', 'font'],
 ], function () {
     Route::get('/', [HomeController::class, 'index']);
 

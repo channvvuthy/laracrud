@@ -197,5 +197,6 @@ return [
     'Font List' => 'Font List',
     'Social detail' => 'Social detail',
     'Edit social' => 'Edit social',
-    'Add new Font' => 'Add new Font'
+    'Add new Font' => 'Add new Font',
+    'Font detail' => 'Font detail',
 ];
