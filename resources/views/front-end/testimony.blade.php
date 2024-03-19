@@ -15,7 +15,7 @@
                         <div class="col-sm-6 col-12 col-md-3 col box">
                             <a href="/testimonies/{{ $testimony->id }}/detail" class="text-decoration-none"
                                 style="color: black;">
-                                <div class="box rounded-lg shadow-bottom position-relative">
+                                <div class="box rounded-lg shadow-bottom position-relative testimony">
                                     <div class="position-absolute wrapper-testimony">
                                         <div class="testimony-image shadow-circle"
                                             style="background-image: url({{ $testimony->photo }});background-size: cover;">
@@ -76,3 +76,13 @@
         })
     </script>
 @endsection
+
+@push('style')
+    <style>
+        .testimony:hover {
+            transform: scale(1.1);
+            transition: all 0.5s;
+
+        }
+    </style>
+@endpush
