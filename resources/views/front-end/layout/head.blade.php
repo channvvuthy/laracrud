@@ -93,6 +93,9 @@
             h6 {
                 font-family: {{ $setting->title_font }} !important;
             }
+            p{
+                line-height: {{ $setting->paragraph_line_height }} !important;
+            }
         </style>
     @endif
     @stack('style')
