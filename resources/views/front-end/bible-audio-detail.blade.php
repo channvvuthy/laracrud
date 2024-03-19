@@ -37,7 +37,7 @@
                     </div>
                     <div class="col-md-5 documents px-5">
                         <h1 class="text-white fw-bold fs-1 mb-4">{{ __('common.Audios') }}</h1>
-                        <ul class="list-unstyled">
+                        <ul class="list-unstyled" id="playlist" style="overflow-y: scroll;">
                             @include('front-end.partial.bible-audio-list')
                         </ul>
                     </div>
@@ -46,3 +46,15 @@
         </div>
     </div>
 @endsection
+
+@push('script')
+<script>
+    $(document).ready(function() {
+        var windowHeight = $(window).height();
+        var navbarHeight = $('.navbar').height();
+        var playlistHeight = windowHeight - navbarHeight;
+        $('#playlist').height(playlistHeight);
+    })
+
+</script>
+@endpush
