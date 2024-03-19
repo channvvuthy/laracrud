@@ -40,8 +40,16 @@ class OfferingController extends LaraCRUDController
             array('field' => 'description_kh', 'title' => 'Description (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
             array('field' => 'way_to_give_en', 'title' => 'Way to give (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'way_to_give_kh', 'title' => 'Way to give (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
-            array('field' => 'in_cash_en', 'title' => 'In cash (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
-            array('field' => 'in_cash_kh', 'title' => 'In cash (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'in_cash_title_en', 'title' => 'In Cash Title (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'in_cash_description_en', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'in_cash_title_kh', 'title' => 'In Cash Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'in_cash_description_kh', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'internal_title_en', 'title' => 'Internal Title (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'international_description_en', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'internal_title_kh', 'title' => 'Internal Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'international_description_kh', 'title' => 'Description (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+
+
         ];
     }
 

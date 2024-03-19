@@ -208,4 +208,8 @@ return [
     'In Cash' => 'In Cash',
     'In cash (English)' => 'In cash (English)',
     'In cash (Khmer)' => 'In cash (Khmer)',
+    'Internal Title (Khmer)' => 'Internal Title (Khmer)',
+    'Internal Title (English)' => 'Internal Title (English)',
+    'In Cash Title (Khmer)' => 'In Cash Title (Khmer)',
+    'In Cash Title (English)' => 'In Cash Title (English)'
 ];

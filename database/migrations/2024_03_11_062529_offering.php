@@ -21,8 +21,18 @@ return new class extends Migration
             $table->text('description_kh');
             $table->string('way_to_give_en');
             $table->string('way_to_give_kh');
-            $table->string('in_cash_en');
-            $table->string('in_cash_kh');
+            $table->string('in_cash_title_en');
+            $table->string('in_cash_description_en');
+            $table->string('in_cash_title_kh');
+            $table->string('in_cash_description_kh');
+            $table->string('international_title_en');
+            $table->string('international_title_kh');
+            $table->string('international_description_kh');
+            $table->string('international_description_en');
+            $table->string('via_account_title_en');
+            $table->string('via_account_title_kh');
+
+
             $table->timestamps();
         });
     }
