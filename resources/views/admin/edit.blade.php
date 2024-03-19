@@ -171,6 +171,7 @@
                                                     <input type="{{ $form['type'] }}" class="form-control"
                                                         style="padding-top:3px;" id="{{ $form['field'] }}"
                                                         name="{{ $form['field'] }}"
+                                                        accept="{{ $form['accept'] }}"
                                                         @if (isset($form['required']) && $form['required']) required @endif>
                                                 </div>
                                             @endif

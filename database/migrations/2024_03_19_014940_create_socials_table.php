@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('testimonies', function (Blueprint $table) {
+        Schema::create('socials', function (Blueprint $table) {
             $table->id();
-            $table->string('title_en');
-            $table->string('title_kh');
-            $table->text('description_en');
-            $table->text('description_kh');
-            $table->string('photo');
-            $table->string('video')->nullable();
+            $table->string('name');
+            $table->string('link');
+            $table->string('icon');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('testimonies');
+        Schema::dropIfExists('socials');
     }
 };

@@ -188,5 +188,9 @@ return [
     'Edit offering' => 'Edit offering',
     'In Service' => 'In Service',
     'Please kindly bring your cash or check to our Sunday service.' => 'Please kindly bring your cash or check to our Sunday service.',
-    'Via Bank Account Below' => 'Via Bank Account Below'
+    'Via Bank Account Below' => 'Via Bank Account Below',
+    'Social List' => 'Social List',
+    'Social' => 'Social',
+    'Link' => 'Link',
+    'Add new Social' => 'Add new Social'
 ];

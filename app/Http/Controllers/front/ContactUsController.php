@@ -4,6 +4,7 @@ namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
+use Illuminate\Support\Facades\Cache;
 
 class ContactUsController extends Controller
 {
@@ -11,6 +12,9 @@ class ContactUsController extends Controller
     {
         $title = 'About Uw';
         $contactUs = ContactUs::first();
-        return view('front-end.contact-us', compact('title', 'contactUs'));
+        $socials = Cache::rememberForever('socials', function () {
+            return \App\Models\Social::all();
+        });
+        return view('front-end.contact-us', compact('title', 'contactUs', 'socials'));
     }
 }

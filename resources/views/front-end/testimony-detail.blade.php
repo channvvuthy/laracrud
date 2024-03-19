@@ -13,7 +13,10 @@
                             <div class="card-body">
                                 <h3 class="mb-3">{{ $testimony->$title }}</h3>
                                 <div class="d-flex align-items-center">
-                                    <img src="{{ $testimony->photo }}" style="max-width:100%" class="m-auto" />
+                                    <video width="100%" controls poster="{{ $testimony->photo }}">
+                                        <source src="{{ $testimony->video }}" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
                                 </div>
 
                             </div>

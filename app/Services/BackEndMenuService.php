@@ -48,6 +48,11 @@ class BackEndMenuService
                 'icon' => 'fa fa-donate',
             ],
             [
+                'name' => 'Social',
+                'action' => 'admin/social',
+                'icon' => 'fa fa-globe',
+            ],
+            [
                 'name' => 'Bank',
                 'action' => 'admin/bank',
                 'icon' => 'fa fa-building',
