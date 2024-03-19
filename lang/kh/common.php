@@ -187,5 +187,8 @@ return [
     'Social List' => 'បញ្ជីសង្គម',
     'Social' => 'សង្គម',
     'Link' => 'តំណភ្ជាប់',
-    'Add new Social' => 'បន្ថែមសង្គមថ្មី'
+    'Add new Social' => 'បន្ថែមសង្គមថ្មី',
+    'Social detail' => 'ព័ត៌មានលម្អិតសង្គម',
+    'Edit social' => 'កែសម្រួលសង្គម',
+    'Add new Font' => 'បន្ថែមពុម្ពអក្សរថ្មី'
 ];

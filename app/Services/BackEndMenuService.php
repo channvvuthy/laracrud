@@ -56,6 +56,11 @@ class BackEndMenuService
                 'name' => 'Bank',
                 'action' => 'admin/bank',
                 'icon' => 'fa fa-building',
+            ],
+            [
+                'name' => 'Font',
+                'action' => 'admin/font',
+                'icon' => 'fa fa-font',
             ]
         ];
     }

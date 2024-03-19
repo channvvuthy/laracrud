@@ -192,5 +192,10 @@ return [
     'Social List' => 'Social List',
     'Social' => 'Social',
     'Link' => 'Link',
-    'Add new Social' => 'Add new Social'
+    'Add new Social' => 'Add new Social',
+    'Font' => 'Font',
+    'Font List' => 'Font List',
+    'Social detail' => 'Social detail',
+    'Edit social' => 'Edit social',
+    'Add new Font' => 'Add new Font'
 ];
