@@ -10,11 +10,13 @@ class ContactUsController extends Controller
 {
     public function index()
     {
-        $title = 'About Uw';
+        $title = 'About Us';
         $contactUs = ContactUs::first();
         $socials = Cache::rememberForever('socials', function () {
             return \App\Models\Social::all();
         });
+
+        dd($socials);
         return view('front-end.contact-us', compact('title', 'contactUs', 'socials'));
     }
 }
