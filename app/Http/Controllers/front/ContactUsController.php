@@ -15,8 +15,7 @@ class ContactUsController extends Controller
         $socials = Cache::rememberForever('socials', function () {
             return \App\Models\Social::all();
         });
-
-        dd($socials);
+        
         return view('front-end.contact-us', compact('title', 'contactUs', 'socials'));
     }
 }
