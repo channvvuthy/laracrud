@@ -13,7 +13,7 @@
             $viaAccountTitle = 'via_account_title_' . $locale; // via paypal title
         @endphp
         <div class="container">
-            <div class="offering py-5">
+            <div class="offering py-3">
                 @if (session('success'))
                     <div class="alert alert-success" role="alert">
                         <h4>Payement Success</h4>
