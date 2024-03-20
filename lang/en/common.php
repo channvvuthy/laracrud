@@ -214,4 +214,5 @@ return [
     'In Cash Title (English)' => 'In Cash Title (English)',
     'Via Account Title (English)' => 'Via Account Title (English)',
     'Via Account Title (Khmer)' => 'Via Account Title (Khmer)',
+    'Edit setting' => 'Edit setting'
 ];

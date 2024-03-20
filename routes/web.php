@@ -152,7 +152,4 @@ Route::group([
 
     Route::get('/offerings', [OfferingController::class, 'index'])->name('offerings');
 
-    Route::get('/home', function () {
-        return view('home');
-    });
 });
