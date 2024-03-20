@@ -17,7 +17,7 @@ class Helper
     {
         $patterns = ['/add/i', '/\bedit\b.*$/', '/\bdelete\b.*$/', '/\bdetail\b.*$/'];
 
-        $indexUrl = URL::current();
+        $indexUrl = env('APP_ENV') === 'production' ? config('app.url') : URL::current();
 
         foreach ($patterns as $pattern) {
             $indexUrl = preg_replace($pattern, '', $indexUrl);
