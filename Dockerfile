@@ -25,8 +25,10 @@ RUN ls -la
 RUN composer install --optimize-autoloader --no-dev
 
 RUN mkdir -p /var/www/html/storage \
-    && chmod -R 775 /var/www/html/storage \
-    && chown -R www-data:www-data /var/www/html/storage
+    && chmod -R 777 /var/www/html/storage \
+    && chmod -R 777 /var/www/html/public \
+    && chown -R www-data:www-data /var/www/html/storage \
+    && chown -R www-data:www-data /var/www/html/public
 
 RUN php artisan key:generate
 RUN php artisan migrate
