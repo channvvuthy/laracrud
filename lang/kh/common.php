@@ -201,4 +201,6 @@ return [
     'In Cash' => 'ជាសាច់ប្រាក់',
     'In cash (English)' => 'ជាសាច់ប្រាក់ (អង់គ្លេស)',
     'In cash (Khmer)' => 'ជាសាច់ប្រាក់ (ខ្មែរ)',
+    'Via Account Title (English)' => 'Via Account Title (English)',
+    'Via Account Title (Khmer)' => 'Via Account Title (Khmer)',
 ];

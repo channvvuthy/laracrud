@@ -44,10 +44,12 @@ class OfferingController extends LaraCRUDController
             array('field' => 'in_cash_description_en', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
             array('field' => 'in_cash_title_kh', 'title' => 'In Cash Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'in_cash_description_kh', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
-            array('field' => 'internal_title_en', 'title' => 'Internal Title (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'international_title_en', 'title' => 'International Title (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'international_description_en', 'title' => 'Description (English)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
-            array('field' => 'internal_title_kh', 'title' => 'Internal Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'international_title_kh', 'title' => 'International Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
             array('field' => 'international_description_kh', 'title' => 'Description (Khmer)', 'type' => 'wysiwyg', 'required' => true, 'validated' => 'required'),
+            array('field' => 'via_account_title_en', 'title' => 'Via Account Title (English)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
+            array('field' => 'via_account_title_kh', 'title' => 'Via Account Title (Khmer)', 'type' => 'text', 'required' => true, 'validated' => 'required'),
 
 
         ];

@@ -6,7 +6,11 @@
             $title = 'title_' . $locale;
             $description = 'description_' . $locale;
             $wayToGive = 'way_to_give_' . $locale;
-            $inCash = 'in_cash_' . $locale;
+            $inCash = 'in_cash_title_' . $locale;
+            $inCashDescription = 'in_cash_description_' . $locale;
+            $internationalTitle = 'international_title_' . $locale;
+            $internationalDescription = 'international_description_' . $locale;
+            $viaAccountTitle = 'via_account_title_' . $locale; // via paypal title
         @endphp
         <div class="container">
             <div class="offering py-5">
@@ -32,23 +36,24 @@
                 <div class="text-white">
                     {!! $offering->$description !!}
                 </div>
-                <div class="text-white mt-5">
+                <div class="text-white mt-5 mb-4">
                     <h1 class="fs-1">{!! $offering->$wayToGive !!}</h1>
                 </div>
                 <div class="rounded-lg bg-dark px-5 d-flex offering-info">
                     <div class="flex-grow-1 mt-4" style="flex: 1;">
-                        <h3 class="text-white">{{ __('common.In Cash') }}</h3>
+                        <h3 class="text-white">{{$offering->$inCash}}</h3>
                         <p class="text-white">
-                            {{ $offering->$inCash }}
+                            {{ $offering->$inCashDescription }}
+                            
                         </p>
                     </div>
                     <div style="width: 100px" class="d-flex justify-content-center items-center">
                         <div style="border-left:1px solid #4f5459;"></div>
                     </div>
                     <div class="flex-grow-1 mt-4" style="flex: 1;">
-                        <h3 class="text-white">{{ __('common.In Service') }}</h3>
+                        <h3 class="text-white">{{$offering->$internationalTitle }}</h3>
                         <p class="text-white" style="margin:0px;">
-                            {{ __('common.Please kindly bring your cash or check to our Sunday service.') }}
+                            {{ $offering->$internationalDescription }}
                         </p>
                         <div>
                             <a href="#" class="bg-white rounded-lg p-4 paypal">
@@ -60,7 +65,7 @@
                         <div style="border-left:1px solid #4f5459;"></div>
                     </div>
                     <div class="flex-grow-1 mt-4" style="flex: 1;">
-                        <h3 class="text-white mb-3">{{ __('common.Via Bank Account Below') }}</h3>
+                        <h3 class="text-white mb-3">{{$offering->$viaAccountTitle}}</h3>
                         @if (isset($banks) && $banks->count())
                             <div class="d-flex">
                                 @foreach ($banks as $key => $bank)

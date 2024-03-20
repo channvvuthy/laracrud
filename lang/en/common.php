@@ -208,8 +208,10 @@ return [
     'In Cash' => 'In Cash',
     'In cash (English)' => 'In cash (English)',
     'In cash (Khmer)' => 'In cash (Khmer)',
-    'Internal Title (Khmer)' => 'Internal Title (Khmer)',
-    'Internal Title (English)' => 'Internal Title (English)',
+    'International Title (Khmer)' => 'International Title (Khmer)',
+    'International Title (English)' => 'International Title (English)',
     'In Cash Title (Khmer)' => 'In Cash Title (Khmer)',
-    'In Cash Title (English)' => 'In Cash Title (English)'
+    'In Cash Title (English)' => 'In Cash Title (English)',
+    'Via Account Title (English)' => 'Via Account Title (English)',
+    'Via Account Title (Khmer)' => 'Via Account Title (Khmer)',
 ];
