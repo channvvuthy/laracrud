@@ -18,6 +18,7 @@ class Helper
         $patterns = ['/add/i', '/\bedit\b.*$/', '/\bdelete\b.*$/', '/\bdetail\b.*$/'];
 
         $indexUrl = URL::current();
+
         if(config('app.env') == 'production') {
             $indexUrl = str_replace('localhost:8080', 'ecc-church.com', $indexUrl);
         }
@@ -27,6 +28,15 @@ class Helper
         }
 
         return $indexUrl ?: null;
+    }
+
+    public static function requestUrl(){
+        $requestUrl = request()->url();
+        
+        if(config('app.env') == 'production') {
+            $requestUrl = str_replace('localhost:8080', 'ecc-church.com', $requestUrl);
+        }
+        return $requestUrl;
     }
 
 
