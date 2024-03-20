@@ -15,22 +15,22 @@ return new class extends Migration
     {
         Schema::create('offerings', function (Blueprint $table) {
             $table->id();
-            $table->string('title_en');
-            $table->string('title_kh');
+            $table->text('title_en');
+            $table->text('title_kh');
             $table->text('description_en');
             $table->text('description_kh');
-            $table->string('way_to_give_en');
-            $table->string('way_to_give_kh');
-            $table->string('in_cash_title_en');
-            $table->string('in_cash_description_en');
-            $table->string('in_cash_title_kh');
-            $table->string('in_cash_description_kh');
-            $table->string('international_title_en');
-            $table->string('international_title_kh');
-            $table->string('international_description_kh');
-            $table->string('international_description_en');
-            $table->string('via_account_title_en');
-            $table->string('via_account_title_kh');
+            $table->text('way_to_give_en');
+            $table->text('way_to_give_kh');
+            $table->text('in_cash_title_en');
+            $table->text('in_cash_description_en');
+            $table->text('in_cash_title_kh');
+            $table->text('in_cash_description_kh');
+            $table->text('international_title_en');
+            $table->text('international_title_kh');
+            $table->text('international_description_kh');
+            $table->text('international_description_en');
+            $table->text('via_account_title_en');
+            $table->text('via_account_title_kh');
 
 
             $table->timestamps();

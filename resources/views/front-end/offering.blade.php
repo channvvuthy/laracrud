@@ -53,7 +53,7 @@
                     <div class="flex-grow-1 mt-4" style="flex: 1;">
                         <h3 class="text-white">{{$offering->$internationalTitle }}</h3>
                         <p class="text-white" style="margin:0px;">
-                            {{ $offering->$internationalDescription }}
+                            {!! $offering->$internationalDescription !!}
                         </p>
                         <div>
                             <a href="#" class="bg-white rounded-lg p-4 paypal">
