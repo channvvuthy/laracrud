@@ -214,5 +214,11 @@ return [
     'In Cash Title (English)' => 'In Cash Title (English)',
     'Via Account Title (English)' => 'Via Account Title (English)',
     'Via Account Title (Khmer)' => 'Via Account Title (Khmer)',
-    'Edit setting' => 'Edit setting'
+    'Edit setting' => 'Edit setting',
+    'Paypal List' => 'Paypal List',
+    'Client ID' => 'Client ID',
+    'Client Secret' => 'Client Secret',
+    'Add new Paypal' => 'Add new Paypal',
+    'Paypal' => 'Paypal',
+    'Edit paypal' => 'Edit paypal'
 ];

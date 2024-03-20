@@ -63,6 +63,11 @@ class BackEndMenuService
                 'icon' => 'fa fa-font',
             ],
             [
+                'name' => 'Paypal',
+                'action' => 'admin/paypal',
+                'icon' => 'fa fa-money-bill-wave',
+            ],
+            [
                 'name' => 'Setting',
                 'action' => 'admin/setting',
                 'icon' => 'fa fa-cogs',

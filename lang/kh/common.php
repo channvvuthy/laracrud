@@ -204,4 +204,10 @@ return [
     'Via Account Title (English)' => 'Via Account Title (English)',
     'Via Account Title (Khmer)' => 'Via Account Title (Khmer)',
     'Edit setting' => 'កែសម្រួលការកំណត់',
+    'Paypal List' => 'បញ្ជី Paypal',
+    'Client ID' => 'លេខសម្គាល់អតិថិជន',
+    'Client Secret' => 'អាថ៌កំបាំងអតិថិជន',
+    'Add new Paypal' => 'បន្ថែម Paypal ថ្មី។',
+    'Paypal' => 'Paypal',
+    'Edit paypal' => 'កែសម្រួល paypal'
 ];
