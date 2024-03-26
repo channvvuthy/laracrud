@@ -220,5 +220,7 @@ return [
     'Client Secret' => 'Client Secret',
     'Add new Paypal' => 'Add new Paypal',
     'Paypal' => 'Paypal',
-    'Edit paypal' => 'Edit paypal'
+    'Edit paypal' => 'Edit paypal',
+    'Library detail' => 'Library detail',
+    'Edit library' => 'Edit library'
 ];

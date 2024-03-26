@@ -77,4 +77,12 @@ class BibleStudyService
             return Library::where('bible_study_id', $id)->get();
         });
     }
+
+    public static function search($query)
+    {
+        return BibleStudy::where('title_' . app()->getLocale(), 'like', '%' . $query . '%')
+        ->select('id', 'title_' . app()->getLocale() . ' as text')
+        ->limit(50)
+        ->get();
+    }
 }

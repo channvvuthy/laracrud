@@ -209,5 +209,7 @@ return [
     'Client Secret' => 'អាថ៌កំបាំងអតិថិជន',
     'Add new Paypal' => 'បន្ថែម Paypal ថ្មី។',
     'Paypal' => 'Paypal',
-    'Edit paypal' => 'កែសម្រួល paypal'
+    'Edit paypal' => 'កែសម្រួល paypal',
+    'Library detail' => 'ព័ត៌មានលម្អិតអំពីបណ្ណាល័យ',
+    'Edit library' => 'កែសម្រួលបណ្ណាល័យ'
 ];

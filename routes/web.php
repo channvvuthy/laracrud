@@ -144,6 +144,7 @@ Route::group([
     Route::get('/church-services', [ChurchServiceController::class, 'index'])->name('church-services');
 
     Route::get('/bible-studies', [BibleStudyController::class, 'index'])->name('bible-studies');
+    Route::get('/searchs', [BibleStudyController::class, 'search'])->name('bible-studies-search');
 
     Route::get('/testimonies', [TestimonyController::class, 'index'])->name('testimonies');
     Route::get('/testimonies/{id}/detail', [TestimonyController::class, 'detail'])->name('testimonies');

@@ -37,4 +37,14 @@ class BibleStudyController extends Controller
 
         return view('front-end.' . $type . '-detail', compact('libraries', 'bibleStudy'));
     }
+
+    public function search(Request $request){
+        $query = $request->get('q');
+        if($query){
+            return BibleStudyService::search($query);
+            
+        }
+
+        return [];
+    }
 }

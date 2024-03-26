@@ -33,6 +33,11 @@ class BackEndMenuService
                 'icon' => 'fa fa-bible',
             ],
             [
+                'name' => 'Library',
+                'action' => 'admin/library',
+                'icon' => 'fa fa-bible',
+            ],
+            [
                 'name' => 'Testimony',
                 'action' => 'admin/testimony',
                 'icon' => 'fa fa-comment-dots',
@@ -63,7 +68,7 @@ class BackEndMenuService
                 'icon' => 'fa fa-font',
             ],
             [
-                'name' => 'Paypal',
+                'name' => 'Paypal' ,
                 'action' => 'admin/paypal',
                 'icon' => 'fa fa-money-bill-wave',
             ],

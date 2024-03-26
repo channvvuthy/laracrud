@@ -31,7 +31,7 @@
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
 
 <!-- Select2 -->
-{{-- <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script> --}}
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 <!-- Bootstrap4 Duallistbox -->
 {{-- <script src="{{ asset('plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') }}"></script> --}}
 <!-- InputMask -->

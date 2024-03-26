@@ -139,8 +139,8 @@
     @include('admin.components.file_preview')
     {{-- Pagination --}}
     @isset($data['result'])
-        <div>
-            {{ $data['result']->links() }}
+        <div class="d-flex justify-content-end">
+            {{ $data['result']->links('admin.pagination') }}
         </div>
     @endisset
 @endsection
