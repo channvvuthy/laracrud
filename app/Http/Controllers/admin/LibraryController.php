@@ -22,6 +22,9 @@ class LibraryController extends LaraCRUDController
         $this->model = $library;
         $this->limit = 10;
         $this->data['wysiwyg'] = true;
+        $this->filter = [
+            array('field' => 'q', 'type' => 'text', 'placeholder' => 'Search...')
+        ];
 
         $this->head = [
             array('field' => 'thumbnail', 'title' => 'Thumbnail', 'type' => 'image'),
@@ -50,9 +53,28 @@ class LibraryController extends LaraCRUDController
      */
     public function getIndex(): View|Factory|Application
     {
-        $this->data['result'] = $this->paginate();
+        $this->data['result'] = $this->search();
         $this->init();
         return view('admin.index', ['data' => $this->data]);
+    }
+
+    /**
+     * Searches for records based on the provided search query.
+     *
+     * @return \Illuminate\Pagination\LengthAwarePaginator The paginated search results.
+     */
+    public function search()
+    {
+        $q = request()->get('q');
+        $query = $this->model;
+
+        if (!empty($q)) {
+            $query = $query->where(function ($query) use ($q) {
+                $query->where('title_en', 'like', '%' . $q . '%')
+                    ->orWhere('title_kh', 'like', '%' . $q . '%');
+            });
+        }
+        return $query->paginate($this->limit);
     }
 
     public function addDocForm()
@@ -77,7 +99,7 @@ class LibraryController extends LaraCRUDController
         // $this->addDocForm();
         $this->data['form'] = $this->form;
         $this->addRelation($this->form);
-        
+
         return view('admin.library-add', ['data' => $this->data]);
     }
 

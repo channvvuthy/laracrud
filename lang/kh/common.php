@@ -211,5 +211,6 @@ return [
     'Paypal' => 'Paypal',
     'Edit paypal' => 'កែសម្រួល paypal',
     'Library detail' => 'ព័ត៌មានលម្អិតអំពីបណ្ណាល័យ',
-    'Edit library' => 'កែសម្រួលបណ្ណាល័យ'
+    'Edit library' => 'កែសម្រួលបណ្ណាល័យ',
+    'Bible Document' => 'ឯកសារព្រះគម្ពីរ',
 ];

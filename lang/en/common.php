@@ -222,5 +222,6 @@ return [
     'Paypal' => 'Paypal',
     'Edit paypal' => 'Edit paypal',
     'Library detail' => 'Library detail',
-    'Edit library' => 'Edit library'
+    'Edit library' => 'Edit library',
+    'Bible Document' => 'Bible Document'
 ];

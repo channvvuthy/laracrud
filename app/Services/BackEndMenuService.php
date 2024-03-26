@@ -33,7 +33,7 @@ class BackEndMenuService
                 'icon' => 'fa fa-bible',
             ],
             [
-                'name' => 'Library',
+                'name' => 'Bible Document',
                 'action' => 'admin/library',
                 'icon' => 'fa fa-bible',
             ],
